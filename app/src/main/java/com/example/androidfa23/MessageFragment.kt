@@ -35,6 +35,9 @@ class MessageFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_message, container, false)
+        // TODO: another recyclerview with all chats
+        // TODO: clicking on chat should open chat_activity
+        // TODO: make chat_activity
     }
 
     companion object {

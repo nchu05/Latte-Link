@@ -10,6 +10,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val bottomNavigationView : BottomNavigationView = findViewById(R.id.bottomNavigationView)
+
+        //if not signed in
+            //redirect to sign in page
+        //else
+            //the code below
+
+
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.browse -> {

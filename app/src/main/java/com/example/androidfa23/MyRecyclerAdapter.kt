@@ -15,6 +15,7 @@ class MyRecyclerAdapter(private var dataset: List<Organization>): RecyclerView.A
             orgName = view.findViewById(R.id.orgName)
             card = view.findViewById(R.id.card)
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,5 +29,10 @@ class MyRecyclerAdapter(private var dataset: List<Organization>): RecyclerView.A
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val org = dataset[position]
         holder.orgName.text = org.name
+        holder.card.setOnClickListener{
+            //open org_activity
+            // TODO: Make org_activity, should have a recyclerview with all persons involved and other org details
+
+        }
     }
 }
