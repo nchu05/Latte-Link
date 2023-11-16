@@ -23,6 +23,7 @@ class OrganizationsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    // TODO: change into List
     private var data = ArrayList<Organization>()
     private lateinit var recycler: RecyclerView
     private lateinit var adapter: MyRecyclerAdapter
@@ -41,7 +42,7 @@ class OrganizationsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_browse_clubs, container, false)
-        //temperory dataset
+        // TODO: Temp dataset
         recycler = view.findViewById(R.id.orgRecyclerView)
         adapter = MyRecyclerAdapter(data)
         recycler.adapter = adapter
