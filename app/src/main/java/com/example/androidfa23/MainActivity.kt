@@ -2,6 +2,7 @@ package com.example.androidfa23
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +16,6 @@ class MainActivity : AppCompatActivity() {
             //redirect to sign in page
         //else
             //the code below
-
 
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
