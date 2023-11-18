@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidfa23.Data.Organization
 
 class MyRecyclerAdapter(private var dataset: List<Organization>): RecyclerView.Adapter<MyRecyclerAdapter.ViewHolder>() {
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){

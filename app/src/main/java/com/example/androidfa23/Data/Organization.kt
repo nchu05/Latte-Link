@@ -1,4 +1,4 @@
-package com.example.androidfa23
+package com.example.androidfa23.Data
 
 data class Organization(
     var id: Int,
