@@ -5,4 +5,8 @@
     <string name="org_name">ORG_NAME</string>
     <string name="org_desc">ORG DESC</string>
     <string name="organizations">ORGANIZATIONS</string>
+    <string name="student">student</string>
+    <string name="organization">organization</string>
+    <string name="create_your_profile">Create your profile!</string>
+    <string name="name">Name</string>
 </resources>

@@ -6,8 +6,9 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.androidfa23.Onboarding.OnboardingActivity
 
-private lateinit var intentLauncher: ActivityResultLauncher<Intent>
+lateinit var intentLauncher: ActivityResultLauncher<Intent>
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
         val joinButton : Button = findViewById(R.id.joinButton)
         joinButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, OnboardingActivity::class.java)
             intentLauncher.launch(intent)
         }
         intentLauncher = registerForActivityResult(
