@@ -24,7 +24,7 @@ class OrganizationsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     // TODO: change into List
-    private var data = ArrayList<Organization>()
+    //private var data = ArrayList<Organization>()
     private lateinit var recycler: RecyclerView
     private lateinit var adapter: MyRecyclerAdapter
 
@@ -43,6 +43,31 @@ class OrganizationsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_browse_clubs, container, false)
         // TODO: Temp dataset
+        val data = arrayListOf(
+            Organization(
+                id = 1,
+                name = "Org 1",
+                desc = "TEXT TEXT TEXT"
+            ),
+            Organization(
+                id = 2,
+                name = "Org 2",
+                desc = "TEXT TEXT TEXT"
+            ),
+            Organization(
+                id = 3,
+                name = "Org 3",
+                desc = "TEXT TEXT TEXT"
+            ),
+            Organization(
+                id = 4,
+                name = "Org 4",
+                desc = "TEXT TEXT TEXT"
+            ),
+        )
+        repeat(4){
+            data.addAll(data)
+        }
         recycler = view.findViewById(R.id.orgRecyclerView)
         adapter = MyRecyclerAdapter(data)
         recycler.adapter = adapter

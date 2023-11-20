@@ -3,4 +3,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="org_name">ORG_NAME</string>
+    <string name="org_desc">ORG DESC</string>
+    <string name="organizations">ORGANIZATIONS</string>
 </resources>
