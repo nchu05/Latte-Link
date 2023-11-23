@@ -2,7 +2,7 @@ package com.example.androidfa23
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.isVisible
+import com.example.androidfa23.Browse.BrowseFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.browse -> {
                     supportFragmentManager.beginTransaction().
-                    replace(R.id.fragmentContainerView, OrganizationsFragment.newInstance("", ""))
+                    replace(R.id.fragmentContainerView, BrowseFragment.newInstance("", ""))
                         .commit()
                 }
                 R.id.message -> {

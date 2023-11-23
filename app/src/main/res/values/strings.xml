@@ -6,7 +6,17 @@
     <string name="org_desc">ORG DESC</string>
     <string name="organizations">ORGANIZATIONS</string>
     <string name="student">student</string>
-    <string name="organization">organization</string>
+    <string name="organization">Organization</string>
     <string name="create_your_profile">Create your profile!</string>
     <string name="name">Name</string>
+    <string name="find_your_link">Find Your Link...</string>
+    <string name="search_for_an_org_person_or_tag">Search for an org, person, or tag</string>
+    <string name="browse_organizations">Browse Organizations</string>
+    <string name="people">People</string>
+    <string name="your_email">Your Email</string>
+    <string name="your_password">Your Password</string>
+    <string name="join">Join</string>
+    <string name="i_already_have_an_account">I already have an account...</string>
+    <string name="log_in">Log-in</string>
+    <string name="dont_have_account">I don\'t have an account...</string>
 </resources>

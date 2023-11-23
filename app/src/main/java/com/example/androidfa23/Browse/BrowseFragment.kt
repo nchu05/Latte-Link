@@ -1,25 +1,24 @@
-package com.example.androidfa23
+package com.example.androidfa23.Browse
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidfa23.Data.Organization
+import com.example.androidfa23.R
+import com.google.android.material.tabs.TabLayout
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
 /**
  * A simple [Fragment] subclass.
- * Use the [OrganizationsFragment.newInstance] factory method to
+ * Use the [BrowseFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class OrganizationsFragment : Fragment() {
+class BrowseFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -41,37 +40,39 @@ class OrganizationsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_browse_clubs, container, false)
-        // TODO: Temp dataset
-        val data = arrayListOf(
-            Organization(
-                id = 1,
-                name = "Org 1",
-                desc = "TEXT TEXT TEXT"
-            ),
-            Organization(
-                id = 2,
-                name = "Org 2",
-                desc = "TEXT TEXT TEXT"
-            ),
-            Organization(
-                id = 3,
-                name = "Org 3",
-                desc = "TEXT TEXT TEXT"
-            ),
-            Organization(
-                id = 4,
-                name = "Org 4",
-                desc = "TEXT TEXT TEXT"
-            ),
-        )
-        repeat(4){
-            data.addAll(data)
-        }
-        recycler = view.findViewById(R.id.orgRecyclerView)
-        adapter = MyRecyclerAdapter(data)
-        recycler.adapter = adapter
-        recycler.layoutManager = GridLayoutManager(context, 2)
+        val view =  inflater.inflate(R.layout.fragment_browse, container, false)
+        val tabLayout : TabLayout = view.findViewById(R.id.tabLayout)
+        tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                if (tab != null) {
+                    when (tab.position) {
+                        0 -> {
+                            childFragmentManager.beginTransaction()
+                                .replace(
+                                    R.id.containerView,
+                                    OrganizationFragment.newInstance("","")
+                                )
+                                .commit()
+                        }
+                        1 -> {
+                            childFragmentManager.beginTransaction()
+                                .replace(
+                                    R.id.containerView,
+                                    PeopleFragment.newInstance("","")
+                                )
+                                .commit()
+                        }
+                    }
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+        })
+        tabLayout.selectTab(tabLayout.getTabAt(0))
 
         return view
     }
@@ -88,7 +89,7 @@ class OrganizationsFragment : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            OrganizationsFragment().apply {
+            BrowseFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
