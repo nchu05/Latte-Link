@@ -1,11 +1,13 @@
-package com.example.androidfa23.Onboarding
+package com.example.androidfa23.Browse
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.androidfa23.Data.Organization
 import com.example.androidfa23.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -15,10 +17,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [SpecifyRoleFragment.newInstance] factory method to
+ * Use the [OrganizationFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SpecifyRoleFragment : Fragment() {
+class OrganizationFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -36,19 +38,36 @@ class SpecifyRoleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_stu_or_org, container, false)
-        val studentButton : Button = view.findViewById(R.id.studentButton)
-        val organizationButton : Button = view.findViewById(R.id.organizationButton)
-        studentButton.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.containerView, CreateProfileFragment.newInstance("", ""))
-                ?.commit();
+        val view =  inflater.inflate(R.layout.fragment_organization, container, false)
+        val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
+        val data = arrayListOf(
+            Organization(
+                id = 1,
+                name = "Org 1",
+                desc = "TEXT TEXT TEXT"
+            ),
+            Organization(
+                id = 2,
+                name = "Org 2",
+                desc = "TEXT TEXT TEXT"
+            ),
+            Organization(
+                id = 3,
+                name = "Org 3",
+                desc = "TEXT TEXT TEXT"
+            ),
+            Organization(
+                id = 4,
+                name = "Org 4",
+                desc = "TEXT TEXT TEXT"
+            ),
+        )
+        repeat(4){
+            data.addAll(data)
         }
-        organizationButton.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.containerView, CreateOrganizationFragment.newInstance("", ""))
-                ?.commit();
-        }
+        val adapter = MyRecyclerAdapter(data)
+        recycler.adapter = adapter
+        recycler.layoutManager = GridLayoutManager(context, 2)
         return view
     }
 
@@ -59,12 +78,12 @@ class SpecifyRoleFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment StuOrOrgFragment.
+         * @return A new instance of fragment OrganizationFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            SpecifyRoleFragment().apply {
+            OrganizationFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
