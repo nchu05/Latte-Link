@@ -18,13 +18,11 @@ class OrgRecyclerAdapter(private var dataset: List<Organization>): RecyclerView.
             orgName = view.findViewById(R.id.orgName)
             card = view.findViewById(R.id.card)
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.org_item, parent, false)
-
         return ViewHolder(view)
     }
 
@@ -34,7 +32,7 @@ class OrgRecyclerAdapter(private var dataset: List<Organization>): RecyclerView.
         val org = dataset[position]
         holder.orgName.text = org.name
         holder.card.setOnClickListener{
-            val intent = Intent(holder.itemView.context, IndividualPersonActivity::class.java)
+            val intent = Intent(holder.itemView.context, IndividualOrganizationActivity::class.java)
             holder.itemView.context.startActivity(intent)
         }
     }

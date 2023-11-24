@@ -101,7 +101,6 @@
         android:text="Edit Profile"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:textColor="@color/brown"
-
         />
 
     <TextView
