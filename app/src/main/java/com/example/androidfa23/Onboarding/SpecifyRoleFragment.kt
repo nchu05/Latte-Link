@@ -37,7 +37,7 @@ class SpecifyRoleFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_stu_or_org, container, false)
-        val studentButton : Button = view.findViewById(R.id.studentButton)
+        val studentButton : Button = view.findViewById(R.id.yourselfButton)
         val organizationButton : Button = view.findViewById(R.id.organizationButton)
         studentButton.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()

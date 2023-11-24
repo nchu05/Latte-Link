@@ -12,6 +12,7 @@
     <string name="find_your_link">Find Your Link...</string>
     <string name="search_for_an_org_person_or_tag">Search for an org, person, or tag</string>
     <string name="browse_organizations">Browse Organizations</string>
+    <string name="browse_people">Browse People</string>
     <string name="people">People</string>
     <string name="your_email">Your Email</string>
     <string name="your_password">Your Password</string>

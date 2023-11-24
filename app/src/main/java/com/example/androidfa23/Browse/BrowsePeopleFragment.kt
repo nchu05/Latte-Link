@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Data.Organization
+import com.example.androidfa23.Data.PersonClass
 import com.example.androidfa23.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -17,10 +18,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [OrganizationFragment.newInstance] factory method to
+ * Use the [BrowsePeopleFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class OrganizationFragment : Fragment() {
+class BrowsePeopleFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -37,35 +38,30 @@ class OrganizationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_organization, container, false)
+        val view =  inflater.inflate(R.layout.fragment_people, container, false)
         val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
         val data = arrayListOf(
-            Organization(
+            PersonClass(
                 id = 1,
-                name = "Org 1",
-                desc = "TEXT TEXT TEXT"
+                name = "Person 1",
             ),
-            Organization(
+            PersonClass(
                 id = 2,
-                name = "Org 2",
-                desc = "TEXT TEXT TEXT"
+                name = "Person 2",
             ),
-            Organization(
+            PersonClass(
                 id = 3,
-                name = "Org 3",
-                desc = "TEXT TEXT TEXT"
+                name = "Person 3",
             ),
-            Organization(
+            PersonClass(
                 id = 4,
-                name = "Org 4",
-                desc = "TEXT TEXT TEXT"
+                name = "Person 4",
             ),
         )
         repeat(4){
             data.addAll(data)
         }
-        val adapter = MyRecyclerAdapter(data)
+        val adapter = PeopleRecyclerAdapter(data)
         recycler.adapter = adapter
         recycler.layoutManager = GridLayoutManager(context, 2)
         return view
@@ -78,12 +74,12 @@ class OrganizationFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment OrganizationFragment.
+         * @return A new instance of fragment PeopleFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            OrganizationFragment().apply {
+            BrowsePeopleFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

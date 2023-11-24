@@ -1,5 +1,6 @@
 package com.example.androidfa23.Browse
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Data.Organization
 import com.example.androidfa23.R
 
-class MyRecyclerAdapter(private var dataset: List<Organization>): RecyclerView.Adapter<MyRecyclerAdapter.ViewHolder>() {
+class OrgRecyclerAdapter(private var dataset: List<Organization>): RecyclerView.Adapter<OrgRecyclerAdapter.ViewHolder>() {
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val orgName: TextView
         val card: CardView
@@ -33,9 +34,8 @@ class MyRecyclerAdapter(private var dataset: List<Organization>): RecyclerView.A
         val org = dataset[position]
         holder.orgName.text = org.name
         holder.card.setOnClickListener{
-            //open org_activity
-            // TODO: Make org_activity, should have a recyclerview with all persons involved and other org details
-
+            val intent = Intent(holder.itemView.context, IndividualPersonActivity::class.java)
+            holder.itemView.context.startActivity(intent)
         }
     }
 }

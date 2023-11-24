@@ -11,30 +11,35 @@
         android:id="@+id/TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="244dp"
-        android:text="are you a..."
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="252dp"
+        android:text="Great! Are you creating an\n account for..."
+        android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/studentButton"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/yourselfButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
+        android:layout_marginStart="148dp"
         android:layout_marginTop="36dp"
-        android:text="@string/student"
+        android:text="Yourself"
+        android:textColor="@color/brown"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextView" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/organizationButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
+        android:layout_marginStart="116dp"
         android:layout_marginTop="8dp"
-        android:text="@string/organization"
+        android:text="An Organization"
+        android:textColor="@color/brown"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentButton" />
+        app:layout_constraintTop_toBottomOf="@+id/yourselfButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentContainer
+import androidx.fragment.app.FragmentContainerView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.R
 import com.google.android.material.tabs.TabLayout
@@ -25,7 +28,7 @@ class BrowseFragment : Fragment() {
     // TODO: change into List
     //private var data = ArrayList<Organization>()
     private lateinit var recycler: RecyclerView
-    private lateinit var adapter: MyRecyclerAdapter
+    private lateinit var adapter: OrgRecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,23 +45,32 @@ class BrowseFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_browse, container, false)
         val tabLayout : TabLayout = view.findViewById(R.id.tabLayout)
+        val title : TextView = view.findViewById(R.id.title)
+        parentFragmentManager.beginTransaction()
+            .replace(
+                R.id.fragContainerView,
+                BrowseOrganizationFragment.newInstance("","")
+            )
+            .commit()
         tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 if (tab != null) {
                     when (tab.position) {
                         0 -> {
-                            childFragmentManager.beginTransaction()
+                            title.text = "Browse Organizations"
+                            parentFragmentManager.beginTransaction()
                                 .replace(
-                                    R.id.containerView,
-                                    OrganizationFragment.newInstance("","")
+                                    R.id.fragContainerView,
+                                    BrowseOrganizationFragment.newInstance("","")
                                 )
                                 .commit()
                         }
                         1 -> {
-                            childFragmentManager.beginTransaction()
+                            title.text = "Browse People"
+                            parentFragmentManager.beginTransaction()
                                 .replace(
-                                    R.id.containerView,
-                                    PeopleFragment.newInstance("","")
+                                    R.id.fragContainerView,
+                                    BrowsePeopleFragment.newInstance("","")
                                 )
                                 .commit()
                         }
