@@ -85,9 +85,23 @@
         android:text="Studying Major(s), Minor(s)"
         android:textColor="#828282"
         app:layout_constraintTop_toBottomOf="@id/classText"
-        app:layout_constraintBottom_toTopOf="@id/bioTitle"
+        app:layout_constraintBottom_toTopOf="@id/editButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/majorText"
+        app:layout_constraintBottom_toTopOf="@id/bioTitle"
+        android:text="Edit Profile"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="@color/brown"
+
         />
 
     <TextView
@@ -101,7 +115,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bioText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card"
+        app:layout_constraintTop_toBottomOf="@+id/editButton"
         app:layout_constraintVertical_bias="0.86" />
 
     <TextView
@@ -120,7 +134,7 @@
         android:id="@+id/availabilitiesTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Availabilities"
+        android:text="Availabilities:"
         android:layout_marginStart="32dp"
         app:layout_constraintHorizontal_bias="0.0"
         android:textStyle="bold"
