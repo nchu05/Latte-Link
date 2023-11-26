@@ -1,299 +1,360 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Onboarding.CreateProfileActivity">
 
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="412dp"
-        android:layout_height="170dp"
-        android:adjustViewBounds="true"
-        android:elevation="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="Banner"/>
-    <ImageView
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="122dp"
+            android:layout_height="119dp"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/login_edit_text_border"
+            android:backgroundTint="@color/beige"
+            app:layout_constraintStart_toEndOf="@+id/cardView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/login_edit_text_border">
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/picture_placeholder" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <ImageView
         android:id="@+id/backButton"
         android:layout_width="37dp"
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/backbutton" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:elevation="12dp"
-        android:innerRadius="0dp"
-        android:shape="ring"
-        android:thicknessRatio="1.9"
-        app:cardCornerRadius="500dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16000003">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="131dp"
+            android:layout_height="122dp"
+            android:clickable="true"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" >
 
-        <ImageView
-            android:id="@+id/avatar"
-            android:layout_width="158dp"
-            android:layout_height="155dp"
-            android:elevation="1dp"
-            android:src="@drawable/img"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/login_edit_text_border">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/profile_placeholder" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/nameText"
+            android:layout_width="236dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="140dp"
+            android:background="@drawable/login_edit_text_border"
+            android:hint="  Person Name"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/classText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/friday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="Fri: "
+            android:textColor="@color/brown"
+            app:layout_constraintBottom_toTopOf="@id/saturday"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/thursday" />
+
+        <TextView
+            android:id="@+id/availabilitiesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Repeating Weekly Availabilities:"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/monday"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bioText" />
+
+        <TextView
+            android:id="@+id/tuesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="Tue: "
+            android:textColor="@color/brown"
+            app:layout_constraintBottom_toTopOf="@id/wednesday"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/monday" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Major: "
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+
+            app:layout_constraintBottom_toBottomOf="@+id/majorText"
+            app:layout_constraintEnd_toStartOf="@+id/majorText"
+            app:layout_constraintHorizontal_bias="0.604"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/majorText"
+            app:layout_constraintVertical_bias="0.555" />
+
+        <TextView
+            android:id="@+id/monday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="Mon: "
+            android:textColor="@color/brown"
+            app:layout_constraintBottom_toTopOf="@id/tuesday"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/availabilitiesTitle" />
+
+        <EditText
+            android:id="@+id/majorText"
+            android:layout_width="233dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="140dp"
+            android:background="@drawable/login_edit_text_border"
+            android:hint="  Studying Major(s), Minor(s)"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/bioTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/classText" />
+
+        <TextView
+            android:id="@+id/bioTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Brief Bio:"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/bioText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.033"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/majorText"
+            app:layout_constraintVertical_bias="0.86" />
+
+        <TextView
+            android:id="@+id/sunday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="Sun: "
+            android:textColor="@color/brown"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.213"
-            android:contentDescription="Profile Picture"/>
+            app:layout_constraintTop_toBottomOf="@id/saturday" />
 
-    </androidx.cardview.widget.CardView>
+        <EditText
+            android:id="@+id/bioText"
+            android:layout_width="337dp"
+            android:layout_height="101dp"
+            android:layout_marginStart="48dp"
+            android:background="@drawable/login_edit_text_border"
+            android:hint="Just for others to get to know you a bit! Let us know where you’re from, your hobbies, and any other random facts :)"
+            app:layout_constraintBottom_toTopOf="@+id/availabilitiesTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bioTitle" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Full Name: "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/nameText"
-        app:layout_constraintEnd_toStartOf="@+id/nameText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nameText" />
+        <EditText
+            android:id="@+id/classText"
+            android:layout_width="235dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="140dp"
+            android:background="@drawable/login_edit_text_border"
+            android:hint="  Class of XXXX"
+            android:textColor="#828282"
+            app:layout_constraintBottom_toTopOf="@id/majorText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameText" />
 
-    <EditText
-        android:id="@+id/nameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Person Name"
-        android:background="@drawable/rounded_edittext"
-        android:textColor="#828282"
-        app:layout_constraintBottom_toTopOf="@id/classText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card" />
+        <Button
+            android:id="@+id/monButton"
+            android:layout_width="58dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/lightGreen"
+            android:text="+"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/monday"
+            app:layout_constraintTop_toBottomOf="@+id/availabilitiesTitle" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Grad Year: "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/classText"
-        app:layout_constraintEnd_toStartOf="@+id/classText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/classText" />
+        <TextView
+            android:id="@+id/thursday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="Thu: "
+            android:textColor="@color/brown"
+            app:layout_constraintBottom_toTopOf="@id/friday"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wednesday" />
 
-    <EditText
-        android:id="@+id/classText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Class of XXXX"
-        android:textColor="#828282"
-        android:background="@drawable/rounded_edittext"
-        app:layout_constraintTop_toBottomOf="@id/nameText"
-        app:layout_constraintBottom_toTopOf="@id/majorText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        <TextView
+            android:id="@+id/saturday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="Sat: "
+            android:textColor="@color/brown"
+            app:layout_constraintBottom_toTopOf="@id/sunday"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/friday" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Major: "
-        android:textStyle="bold"
+        <TextView
+            android:id="@+id/wednesday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="Wed: "
+            android:textColor="@color/brown"
+            app:layout_constraintBottom_toTopOf="@id/thursday"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tuesday" />
 
-        app:layout_constraintBottom_toBottomOf="@+id/majorText"
-        app:layout_constraintEnd_toStartOf="@+id/majorText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/majorText" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Name: "
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/nameText"
+            app:layout_constraintEnd_toStartOf="@+id/nameText"
+            app:layout_constraintHorizontal_bias="0.455"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nameText"
+            app:layout_constraintVertical_bias="0.47" />
 
-    <EditText
-        android:id="@+id/majorText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Studying Major(s), Minor(s)"
-        android:background="@drawable/rounded_edittext"
-        android:textColor="#828282"
-        app:layout_constraintTop_toBottomOf="@id/classText"
-        app:layout_constraintBottom_toTopOf="@id/bioTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        <Button
+            android:id="@+id/continueButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-    <TextView
-        android:id="@+id/bioTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Brief Bio:"
-        android:textStyle="bold"
-        android:layout_marginStart="32dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toTopOf="@+id/bioText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/majorText"
-        app:layout_constraintVertical_bias="0.86" />
+            android:text="Save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.481"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sunday"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <EditText
-        android:id="@+id/bioText"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:hint="Just for others to get to know you a bit! Let us know where you’re from, your hobbies, and any other random facts :)"
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grad Year: "
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/classText"
+            app:layout_constraintEnd_toStartOf="@+id/classText"
+            app:layout_constraintHorizontal_bias="0.463"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/classText"
+            app:layout_constraintVertical_bias="0.47" />
 
-        android:background="@drawable/rounded_edittext"
-        app:layout_constraintBottom_toTopOf="@+id/availabilitiesTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bioTitle" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="330dp"
+            android:layout_height="66dp"
+            android:layout_marginTop="96dp"
+            android:fontFamily="@font/robotobold"
+            android:text="Customize Your Profile"
+            android:textAlignment="center"
+            android:textColor="@color/brown"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.253"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/availabilitiesTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="Repeating Weekly Availabilities:"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/monday"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bioText" />
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="186dp"
+            android:layout_height="279dp"
+            android:layout_marginStart="148dp"
+            app:layout_constraintStart_toEndOf="@+id/backButton"
+            app:srcCompat="@drawable/background_lines"
+            tools:layout_editor_absoluteY="-82dp" />
 
-    <TextView
-        android:id="@+id/monday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:text="Mon: "
-        app:layout_constraintTop_toBottomOf="@id/availabilitiesTitle"
-        app:layout_constraintBottom_toTopOf="@id/tuesday"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <EditText
-        android:id="@+id/monList"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_edittext"
-        app:layout_constraintBottom_toBottomOf="@+id/monday"
-        app:layout_constraintEnd_toStartOf="@id/monButton"
-        app:layout_constraintHorizontal_bias="0.601"
-        app:layout_constraintStart_toEndOf="@+id/monday"
-        app:layout_constraintTop_toTopOf="@+id/monday"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/monButton"
-        android:layout_width="56dp"
-        android:layout_height="35dp"
-        android:backgroundTint="#c7c7c7"
-        android:text="+"
-        app:layout_constraintBottom_toBottomOf="@+id/monList"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/monList"
-        app:layout_constraintTop_toTopOf="@+id/monList" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/roboto"
+            android:text="Edit Profile Picture or Background Image"
+            android:textColor="@color/brown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
 
-    <TextView
-        android:id="@+id/tuesday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tue: "
-        android:layout_marginStart="50dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toTopOf="@id/wednesday"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/monday" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/wednesday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Wed: "
-        android:layout_marginStart="50dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toTopOf="@id/thursday"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tuesday" />
-
-    <TextView
-        android:id="@+id/thursday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thu: "
-        android:layout_marginStart="50dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toTopOf="@id/friday"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/wednesday" />
-
-    <TextView
-        android:id="@+id/friday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fri: "
-        android:layout_marginStart="50dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toTopOf="@id/saturday"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/thursday" />
-
-    <TextView
-        android:id="@+id/saturday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sat: "
-        android:layout_marginStart="50dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toTopOf="@id/sunday"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/friday" />
-
-    <TextView
-        android:id="@+id/sunday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sun: "
-        android:layout_marginStart="50dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/saturday" />
-
-    <Button
-        android:id="@+id/continueButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
-
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sunday" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
