@@ -57,7 +57,6 @@ class BrowseFragment : Fragment() {
                 if (tab != null) {
                     when (tab.position) {
                         0 -> {
-                            title.text = "Browse Organizations"
                             parentFragmentManager.beginTransaction()
                                 .replace(
                                     R.id.fragContainerView,
@@ -66,7 +65,6 @@ class BrowseFragment : Fragment() {
                                 .commit()
                         }
                         1 -> {
-                            title.text = "Browse People"
                             parentFragmentManager.beginTransaction()
                                 .replace(
                                     R.id.fragContainerView,

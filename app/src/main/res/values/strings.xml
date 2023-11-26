@@ -17,8 +17,9 @@
     <string name="your_email">Your Email</string>
     <string name="your_password">Your Password</string>
     <string name="join">Join</string>
-    <string name="i_already_have_an_account">I already have an account...</string>
-    <string name="log_in">Log-in</string>
-    <string name="dont_have_account">I don\'t have an account...</string>
+    <string name="i_already_have_an_account"><u>I already have an account...</u></string>
+    <string name="sign_in">Sign In</string>
+    <string name="dont_have_account"><u>I don\'t have an account...</u></string>
     <string name="organization_bio">Organization Bio:</string>
+    <string name="create_account">Create Account</string>
 </resources>
