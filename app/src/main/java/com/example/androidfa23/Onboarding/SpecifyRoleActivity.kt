@@ -16,6 +16,11 @@ class SpecifyRoleActivity : AppCompatActivity() {
         val studentButton : Button = findViewById(R.id.yourselfButton)
         val organizationButton : Button = findViewById(R.id.organizationButton)
         val backButton : ImageView = findViewById(R.id.backButton)
+        val alreadyHaveAccount : Button = findViewById(R.id.alreadyHaveAccountButton)
+        alreadyHaveAccount.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
         backButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -24,10 +29,10 @@ class SpecifyRoleActivity : AppCompatActivity() {
             val intent = Intent(this, CreateProfileActivity::class.java)
             startActivity(intent)
         }
-
         organizationButton.setOnClickListener {
             val intent = Intent(this, CreateOrganizationActivity::class.java)
             startActivity(intent)
         }
+
     }
 }

@@ -7,7 +7,11 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Browse.BrowseOrganizationFragment
+import com.example.androidfa23.Browse.OrgRecyclerAdapter
+import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.MainActivity
 import com.example.androidfa23.R
 
@@ -15,6 +19,34 @@ class CreateProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_profile)
+
+        val data = arrayListOf(
+            OrganizationClass(
+                id = 1,
+                name = "Org 1",
+                desc = "TEXT TEXT TEXT"
+            ),
+            OrganizationClass(
+                id = 2,
+                name = "Org 2",
+                desc = "TEXT TEXT TEXT"
+            ),
+            OrganizationClass(
+                id = 3,
+                name = "Org 3",
+                desc = "TEXT TEXT TEXT"
+            ),
+            OrganizationClass(
+                id = 4,
+                name = "Org 4",
+                desc = "TEXT TEXT TEXT"
+            ),
+        )
+
+        val recyclerView : RecyclerView = findViewById(R.id.recyclerView)
+        val adapter = OrgRecyclerAdapter(data)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
 
         val backButton : ImageView = findViewById(R.id.backButton)
         backButton.setOnClickListener {
