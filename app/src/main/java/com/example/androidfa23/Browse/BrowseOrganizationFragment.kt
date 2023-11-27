@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidfa23.Data.Organization
+import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -41,22 +41,22 @@ class BrowseOrganizationFragment : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_organization, container, false)
         val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
         val data = arrayListOf(
-            Organization(
+            OrganizationClass(
                 id = 1,
                 name = "Org 1",
                 desc = "TEXT TEXT TEXT"
             ),
-            Organization(
+            OrganizationClass(
                 id = 2,
                 name = "Org 2",
                 desc = "TEXT TEXT TEXT"
             ),
-            Organization(
+            OrganizationClass(
                 id = 3,
                 name = "Org 3",
                 desc = "TEXT TEXT TEXT"
             ),
-            Organization(
+            OrganizationClass(
                 id = 4,
                 name = "Org 4",
                 desc = "TEXT TEXT TEXT"

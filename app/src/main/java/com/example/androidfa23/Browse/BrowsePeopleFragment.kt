@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidfa23.Data.Organization
 import com.example.androidfa23.Data.PersonClass
 import com.example.androidfa23.R
 

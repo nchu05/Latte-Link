@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidfa23.Data.Organization
+import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.R
 
-class OrgRecyclerAdapter(private var dataset: List<Organization>): RecyclerView.Adapter<OrgRecyclerAdapter.ViewHolder>() {
+class OrgRecyclerAdapter(private var dataset: List<OrganizationClass>): RecyclerView.Adapter<OrgRecyclerAdapter.ViewHolder>() {
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val orgName: TextView
         val card: CardView

@@ -7,14 +7,79 @@
     android:layout_height="match_parent"
     tools:context=".CalendarFragment">
 
+    <ImageView
+        android:id="@+id/ellipse1"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ellipse1"
+        app:layout_constraintBottom_toBottomOf="@id/chatter"
+        app:layout_constraintEnd_toStartOf="@id/chatter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/chatter"/>
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Calendar fragment"
+        android:id="@+id/chatter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You are the coffee chatter"
+        app:layout_constraintBottom_toTopOf="@id/chattee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ellipse1"
+        app:layout_constraintTop_toBottomOf="@+id/title"/>
+
+    <ImageView
+        android:id="@+id/ellipse2"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ellipse2"
+        app:layout_constraintBottom_toBottomOf="@id/chattee"
+        app:layout_constraintEnd_toStartOf="@id/chattee"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/chattee"/>
+
+    <TextView
+        android:id="@+id/chattee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You are the coffee chattee"
+        app:layout_constraintTop_toBottomOf="@+id/chatter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ellipse2"/>
+
+    <ImageView
+        android:id="@+id/lines"
+        android:layout_width="154dp"
+        android:layout_height="200dp"
+        android:src="@drawable/background_lines_reversed"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/robotobold"
+        android:letterSpacing="0.05"
+        android:text="Your upcoming events"
+        android:textColor="@color/brown"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chattee" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

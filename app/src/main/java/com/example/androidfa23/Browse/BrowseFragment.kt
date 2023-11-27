@@ -26,7 +26,7 @@ class BrowseFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     // TODO: change into List
-    //private var data = ArrayList<Organization>()
+    //private var data = ArrayList<OrganizationClass>()
     private lateinit var recycler: RecyclerView
     private lateinit var adapter: OrgRecyclerAdapter
 
