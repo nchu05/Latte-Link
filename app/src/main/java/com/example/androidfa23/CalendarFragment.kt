@@ -5,6 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.androidfa23.Browse.OrgRecyclerAdapter
+import com.example.androidfa23.Data.OrganizationClass
+import com.example.androidfa23.Data.PersonClass
+import com.example.androidfa23.Data.RequestClass
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,7 +43,48 @@ class CalendarFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
 
+        val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
+        val data = arrayListOf(
+            RequestClass(
+                id = 1,
+                requester = PersonClass(id = 2, name = "Person 1"),
+                receiver = PersonClass(id = 2, name = "Person 2"),
+                dateTime = "Monday, Oct 27th",
+                location = "Duffield Hall",
+                message = "I would love to coffee chat you!"
+            ),
+            RequestClass(
+                id = 1,
+                requester = PersonClass(id = 2, name = "Person 1"),
+                receiver = PersonClass(id = 2, name = "Person 2"),
+                dateTime = "Monday, Oct 27th",
+                location = "Duffield Hall",
+                message = "I would love to coffee chat you!"
+            ),
+            RequestClass(
+                id = 1,
+                requester = PersonClass(id = 2, name = "Person 1"),
+                receiver = PersonClass(id = 2, name = "Person 2"),
+                dateTime = "Monday, Oct 27th",
+                location = "Duffield Hall",
+                message = "I would love to coffee chat you!"
+            ),
+            RequestClass(
+                id = 1,
+                requester = PersonClass(id = 2, name = "Person 1"),
+                receiver = PersonClass(id = 2, name = "Person 2"),
+                dateTime = "Monday, Oct 27th",
+                location = "Duffield Hall",
+                message = "I would love to coffee chat you!"
+            ),
 
+        )
+        repeat(4){
+            data.addAll(data)
+        }
+        val adapter = RequestsRecyclerAdapter(data)
+        recycler.adapter = adapter
+        recycler.layoutManager = LinearLayoutManager(context)
 
         return view
     }

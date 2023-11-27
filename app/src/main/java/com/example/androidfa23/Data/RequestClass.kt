@@ -7,7 +7,7 @@ data class RequestClass(
     var id: Int,
     var requester: PersonClass,
     var receiver: PersonClass,
-    var dateTime: Date,
+    var dateTime: String,
     var location: String,
     var message: String
 )

@@ -15,6 +15,18 @@
         tools:context=".ProfileFragment">
 
         <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="37dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:elevation="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/backbutton" />
+
+        <ImageView
             android:id="@+id/imageView4"
             android:layout_width="412dp"
             android:layout_height="170dp"
@@ -278,7 +290,7 @@
             app:layout_constraintBottom_toTopOf="@id/locationTitle"/>
 
         <ImageView
-            android:id="@+id/backButton"
+            android:id="@+id/leftButton"
             android:layout_width="29dp"
             android:layout_height="30dp"
             android:clickable="true"
@@ -287,6 +299,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/thursday"
             app:srcCompat="@drawable/backbutton" />
+
+        <ImageView
+            android:id="@+id/rightButton"
+            android:layout_width="29dp"
+            android:layout_height="30dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/thursday"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.947"
+            app:layout_constraintStart_toEndOf="@+id/thursday"
+            app:layout_constraintTop_toTopOf="@+id/thursday"
+            app:srcCompat="@drawable/frontbutton" />
 
         <TextView
             android:id="@+id/locationTitle"
