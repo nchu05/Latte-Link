@@ -87,6 +87,7 @@
             android:id="@+id/nameText"
             android:layout_width="236dp"
             android:layout_height="36dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="140dp"
             android:background="@drawable/login_edit_text_border"
             android:hint="  Person Name"
@@ -99,38 +100,46 @@
             android:id="@+id/friday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="44dp"
             android:text="Fri: "
+            android:layout_marginTop="20dp"
             android:textColor="@color/brown"
-            app:layout_constraintBottom_toTopOf="@id/saturday"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/thursday" />
+
+        <TextView
+            android:id="@+id/involvedOrgsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="Involved Orgs:"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bioText" />
 
         <TextView
             android:id="@+id/availabilitiesTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="40dp"
             android:text="Repeating Weekly Availabilities:"
             android:textColor="@color/brown"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/monday"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bioText" />
+            app:layout_constraintTop_toBottomOf="@+id/willingToCoffeeChatTitle" />
 
         <TextView
             android:id="@+id/tuesday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="20dp"
             android:text="Tue: "
             android:textColor="@color/brown"
-            app:layout_constraintBottom_toTopOf="@id/wednesday"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/monday" />
@@ -141,7 +150,6 @@
             android:text="Major: "
             android:textColor="@color/brown"
             android:textStyle="bold"
-
             app:layout_constraintBottom_toBottomOf="@+id/majorText"
             app:layout_constraintEnd_toStartOf="@+id/majorText"
             app:layout_constraintHorizontal_bias="0.604"
@@ -153,24 +161,22 @@
             android:id="@+id/monday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="15dp"
             android:text="Mon: "
             android:textColor="@color/brown"
-            app:layout_constraintBottom_toTopOf="@id/tuesday"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/availabilitiesTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <EditText
             android:id="@+id/majorText"
             android:layout_width="233dp"
             android:layout_height="37dp"
             android:layout_marginStart="140dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/login_edit_text_border"
             android:hint="  Studying Major(s), Minor(s)"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toTopOf="@id/bioTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/classText" />
 
@@ -180,11 +186,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:text="Brief Bio:"
+            android:layout_marginTop="20dp"
             android:textColor="@color/brown"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/bioText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.033"
+            app:layout_constraintHorizontal_bias="0.034"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/majorText"
             app:layout_constraintVertical_bias="0.86" />
@@ -193,10 +200,10 @@
             android:id="@+id/sunday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="44dp"
             android:text="Sun: "
+            android:layout_marginTop="20dp"
             android:textColor="@color/brown"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -205,11 +212,11 @@
         <EditText
             android:id="@+id/bioText"
             android:layout_width="337dp"
+            android:layout_marginTop="10dp"
             android:layout_height="101dp"
             android:layout_marginStart="48dp"
             android:background="@drawable/login_edit_text_border"
             android:hint="Just for others to get to know you a bit! Let us know where you’re from, your hobbies, and any other random facts :)"
-            app:layout_constraintBottom_toTopOf="@+id/availabilitiesTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bioTitle" />
 
@@ -218,34 +225,116 @@
             android:layout_width="235dp"
             android:layout_height="36dp"
             android:layout_marginStart="140dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/login_edit_text_border"
             android:hint="  Class of XXXX"
-            android:textColor="#828282"
-            app:layout_constraintBottom_toTopOf="@id/majorText"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nameText" />
 
-        <Button
+        <ImageView
             android:id="@+id/monButton"
-            android:layout_width="58dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/green_add_button"
             android:backgroundTint="@color/lightGreen"
-            android:text="+"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/monday"
-            app:layout_constraintTop_toBottomOf="@+id/availabilitiesTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+        <ImageView
+            android:id="@+id/tueButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/lightGreen"
+            android:src="@drawable/green_add_button"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/monButton"
+            app:layout_constraintStart_toEndOf="@+id/tuesday"
+            app:layout_constraintTop_toBottomOf="@+id/monButton" />
+
+        <ImageView
+            android:id="@+id/wedButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/lightGreen"
+            android:src="@drawable/green_add_button"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/tueButton"
+            app:layout_constraintStart_toEndOf="@+id/wednesday"
+            app:layout_constraintTop_toBottomOf="@+id/tueButton" />
+
+        <ImageView
+            android:id="@+id/thuButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/lightGreen"
+            android:src="@drawable/green_add_button"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/wedButton"
+            app:layout_constraintStart_toEndOf="@+id/thursday"
+            app:layout_constraintTop_toBottomOf="@+id/wedButton" />
+
+        <ImageView
+            android:id="@+id/friButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/lightGreen"
+            android:src="@drawable/green_add_button"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/thuButton"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/friday"
+            app:layout_constraintTop_toBottomOf="@+id/thuButton" />
+
+        <ImageView
+            android:id="@+id/satButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/lightGreen"
+            android:src="@drawable/green_add_button"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/friButton"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/saturday"
+            app:layout_constraintTop_toBottomOf="@+id/friButton" />
+
+
+        <ImageView
+            android:id="@+id/sunButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/lightGreen"
+            android:src="@drawable/green_add_button"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/satButton"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/sunday"
+            app:layout_constraintTop_toBottomOf="@+id/satButton" />
 
         <TextView
             android:id="@+id/thursday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="44dp"
             android:text="Thu: "
+            android:layout_marginTop="20dp"
             android:textColor="@color/brown"
-            app:layout_constraintBottom_toTopOf="@id/friday"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/wednesday" />
@@ -254,11 +343,10 @@
             android:id="@+id/saturday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="44dp"
             android:text="Sat: "
+            android:layout_marginTop="20dp"
             android:textColor="@color/brown"
-            app:layout_constraintBottom_toTopOf="@id/sunday"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/friday" />
@@ -267,11 +355,10 @@
             android:id="@+id/wednesday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="44dp"
             android:text="Wed: "
+            android:layout_marginTop="20dp"
             android:textColor="@color/brown"
-            app:layout_constraintBottom_toTopOf="@id/thursday"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tuesday" />
@@ -292,17 +379,15 @@
 
         <Button
             android:id="@+id/continueButton"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:backgroundTint="@color/lightGreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:text="Save"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/darkGreen"
+            android:layout_marginTop="20dp"
+            android:text="Save &amp; Continue"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.481"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/sunday"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/facebookET" />
 
         <TextView
             android:id="@+id/textView3"
@@ -335,12 +420,13 @@
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="186dp"
-            android:layout_height="279dp"
-            android:layout_marginStart="148dp"
+            android:layout_width="208dp"
+            android:layout_height="277dp"
+            android:layout_marginStart="156dp"
+            android:layout_marginBottom="100dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
             app:layout_constraintStart_toEndOf="@+id/backButton"
-            app:srcCompat="@drawable/background_lines"
-            tools:layout_editor_absoluteY="-82dp" />
+            app:srcCompat="@drawable/background_lines" />
 
         <TextView
             android:id="@+id/textView6"
@@ -354,7 +440,209 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/involvedOrgsTitle" />
 
+        <TextView
+            android:id="@+id/willingToCoffeeChatTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="36dp"
+            android:text="Willing to Coffee Chat?"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+        <ImageView
+            android:id="@+id/Y"
+            android:layout_width="51dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="20dp"
+            android:elevation="10dp"
+            app:layout_constraintStart_toEndOf="@id/willingToCoffeeChatTitle"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView"
+            app:srcCompat="@drawable/y_coffee_chat" />
+
+        <ImageView
+            android:id="@+id/N"
+            android:layout_width="51dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:elevation="10dp"
+            app:layout_constraintStart_toEndOf="@id/Y"
+            app:layout_constraintTop_toBottomOf="@id/recyclerView"
+            app:srcCompat="@drawable/n_coffee_chat" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/robotoitalic"
+            android:text="You’ll have the ability to edit specific day availabilities\nonce you’ve created your account!"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/availabilitiesTitle" />
+
+        <TextView
+            android:id="@+id/locationPreferencesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:text="Location Preferences"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sunday" />
+
+        <EditText
+            android:id="@+id/locationPreferencesText"
+            android:layout_width="337dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="101dp"
+            android:layout_marginStart="48dp"
+            android:background="@drawable/login_edit_text_border"
+            android:hint="This is a place where you can note which locations you prefer coffee chatting at! (EX: Duffield, Mac’s Cafe, Mann Library)"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/locationPreferencesTitle" />
+
+        <TextView
+            android:id="@+id/contactInfoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:text="Contact Information"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/locationPreferencesText" />
+
+        <TextView
+            android:id="@+id/contactInfoDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/robotoitalic"
+            android:text="This is an optional section. You may include as many or\nas little as you would like."
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactInfoTitle" />
+
+        <TextView
+            android:id="@+id/emailTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="20dp"
+            android:text="Email:"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactInfoDescription" />
+
+        <TextView
+            android:id="@+id/linkedInTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="30dp"
+            android:text="Linked In:"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTV" />
+
+        <TextView
+            android:id="@+id/instagramTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instagram:"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintHorizontal_bias="0.455"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linkedInTV"
+            app:layout_constraintVertical_bias="0.47" />
+
+        <TextView
+            android:id="@+id/facebookTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="28dp"
+            android:text="Facebook:"
+            android:textColor="@color/brown"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instagramTV" />
+
+        <EditText
+            android:id="@+id/emailET"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginStart="25dp"
+            android:background="@drawable/login_edit_text_border"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/emailTV"
+            app:layout_constraintTop_toBottomOf="@+id/contactInfoDescription" />
+
+        <EditText
+            android:id="@+id/linkedInET"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginStart="25dp"
+            android:background="@drawable/login_edit_text_border"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/linkedInTV"
+            app:layout_constraintTop_toBottomOf="@+id/emailET" />
+
+        <EditText
+            android:id="@+id/instagramET"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginStart="22dp"
+            android:background="@drawable/login_edit_text_border"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/instagramTV"
+            app:layout_constraintTop_toBottomOf="@+id/linkedInET" />
+
+        <EditText
+            android:id="@+id/facebookET"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginStart="23dp"
+            android:background="@drawable/login_edit_text_border"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/facebookTV"
+            app:layout_constraintTop_toBottomOf="@+id/instagramET" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/continueButton" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
