@@ -7,6 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.androidfa23.Browse.OrgRecyclerAdapter
+import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.Onboarding.CreateProfileActivity
 
 // TODO: Rename parameter arguments, choose names that match
@@ -39,12 +43,32 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
+        val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
         val editButton: Button = view.findViewById(R.id.editButton)
 
         editButton.setOnClickListener(){
             val intent1 = Intent(context, CreateProfileActivity::class.java)
             startActivity(intent1)
         }
+
+        val data = arrayListOf(
+            OrganizationClass(
+                id = 1,
+                name = "Org 1",
+                desc = "TEXT TEXT TEXT"
+            ),
+            OrganizationClass(
+                id = 2,
+                name = "Org 2",
+                desc = "TEXT TEXT TEXT"
+            ),
+        )
+        repeat(2){
+            data.addAll(data)
+        }
+        val adapter = OrgRecyclerAdapter(data)
+        recycler.adapter = adapter
+        recycler.layoutManager = GridLayoutManager(context, 2)
 
         return view
     }

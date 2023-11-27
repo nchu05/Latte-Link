@@ -37,28 +37,26 @@
             android:innerRadius="0dp"
             android:shape="ring"
             android:thicknessRatio="1.9"
-            app:cardCornerRadius="500dp"
+            app:cardCornerRadius="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.16000003">
+            app:layout_constraintVertical_bias="0.055">
 
 
             <ImageView
                 android:id="@+id/avatar"
                 android:layout_width="158dp"
                 android:layout_height="155dp"
+                android:contentDescription="Profile Picture"
                 android:elevation="1dp"
                 android:src="@drawable/img"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.213"
-                android:contentDescription="Profile Picture"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.cardview.widget.CardView>
 
@@ -310,7 +308,6 @@
             android:layout_height="wrap_content"
             android:text="Location Preferences:"
             android:layout_marginStart="32dp"
-
             android:textColor="@color/brown"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
@@ -326,7 +323,6 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-
             android:textColor="@color/brown"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
@@ -334,13 +330,112 @@
             app:layout_constraintTop_toBottomOf="@+id/locationTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/orgsTitle"/>
+
+        <TextView
+            android:id="@+id/orgsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Involvements:"
+            android:layout_marginStart="32dp"
+            android:textColor="@color/brown"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/locationText"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/orgsTitle"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/contactTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Details:"
+            android:layout_marginStart="32dp"
+            android:textColor="@color/brown"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+            app:layout_constraintBottom_toTopOf="@id/emailText"/>
+
+        <TextView
+            android:id="@+id/emailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: "
+            android:layout_marginStart="50dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/brown"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/contactTitle"
+            app:layout_constraintBottom_toTopOf="@id/linkedinText"/>
+
+        <TextView
+            android:id="@+id/linkedinText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LinkedIn: "
+            android:layout_marginStart="50dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/brown"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/emailText"
+            app:layout_constraintBottom_toTopOf="@id/instagramText"/>
+
+        <TextView
+            android:id="@+id/instagramText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instagram: "
+            android:layout_marginStart="50dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/brown"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linkedinText"
+            app:layout_constraintBottom_toTopOf="@id/facebookText"/>
 
 
-
-
-
-
+        <TextView
+            android:id="@+id/facebookText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: "
+            android:layout_marginStart="50dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/brown"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/instagramText"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 
