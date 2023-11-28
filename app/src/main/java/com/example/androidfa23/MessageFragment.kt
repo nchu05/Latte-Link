@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.example.androidfa23.Browse.BrowseOrganizationFragment
+import com.example.androidfa23.Browse.BrowsePeopleFragment
+import com.google.android.material.tabs.TabLayout
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,10 +38,48 @@ class MessageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_message, container, false)
-        // TODO: another recyclerview with all chats
-        // TODO: clicking on chat should open chat_activity
-        // TODO: make chat_activity
+        val view =  inflater.inflate(R.layout.fragment_message, container, false)
+        val tabLayout : TabLayout = view.findViewById(R.id.tabLayout)
+
+        parentFragmentManager.beginTransaction()
+            .replace(
+                R.id.fragContainerView,
+                BrowseOrganizationFragment.newInstance("","")
+            )
+            .commit()
+        tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                if (tab != null) {
+                    when (tab.position) {
+                        0 -> {
+                            parentFragmentManager.beginTransaction()
+                                .replace(
+                                    R.id.fragContainerView,
+                                    BrowseOrganizationFragment.newInstance("","")
+                                )
+                                .commit()
+                        }
+                        1 -> {
+                            parentFragmentManager.beginTransaction()
+                                .replace(
+                                    R.id.fragContainerView,
+                                    BrowsePeopleFragment.newInstance("","")
+                                )
+                                .commit()
+                        }
+                    }
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+        })
+        tabLayout.selectTab(tabLayout.getTabAt(0))
+
+        return view
     }
 
     companion object {
