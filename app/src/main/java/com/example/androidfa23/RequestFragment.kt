@@ -5,11 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidfa23.Browse.OrgRecyclerAdapter
-import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.Data.PersonClass
 import com.example.androidfa23.Data.RequestClass
 
@@ -25,13 +22,13 @@ private const val ARG_PARAM2 = "param2"
  */
 class RequestFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
+    private var param1: Int? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
+            param1 = it.getInt(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
     }
@@ -66,7 +63,7 @@ class RequestFragment : Fragment() {
                 receiver = PersonClass(id = 2, name = "Person 2"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
-                message = "I would love to coffee chat you!"
+                message = "Dear Alex,\n\nI hope this message finds you well. My name is Damien Pieter, and I’m a freshman studying Industrial and Labor Relations. I would like to hear more about your role as a Wealth Management Intern at Baxter Investment Management. I am personally not very informed on what wealth management is specifically, so a brief overview of the career path would be greatly appreciated. Further I am curious about how that experience pushed you toward consulting and private equity. Through this chat, I hope to gain a better understanding of how your career interests have shifted and been further solidified. As I am searching for potential freshman internships, I would appreciated any advice you have for this process.I look forward to speaking with you!\n\nBest,\nMax"
             ),
             RequestClass(
                 id = 1,
@@ -81,9 +78,18 @@ class RequestFragment : Fragment() {
         repeat(4){
             data.addAll(data)
         }
-        val adapter = MessageRecyclerAdapter(data)
-        recycler.adapter = adapter
-        recycler.layoutManager = LinearLayoutManager(context)
+
+
+
+        if (param1==0){
+            val adapter = ReceivedRecyclerAdapter(data)
+            recycler.adapter = adapter
+            recycler.layoutManager = LinearLayoutManager(context)
+        }else{
+            val adapter = SentRecyclerAdapter(data)
+            recycler.adapter = adapter
+            recycler.layoutManager = LinearLayoutManager(context)
+        }
 
         return view
     }
@@ -99,10 +105,10 @@ class RequestFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: Int, param2: String) =
             RequestFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
+                    putInt(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }

@@ -40,35 +40,21 @@ class MessageFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_message, container, false)
         val tabLayout : TabLayout = view.findViewById(R.id.tabLayout)
-
-
         parentFragmentManager.beginTransaction()
             .replace(
                 R.id.fragContainerView,
-                RequestFragment.newInstance("","")
+                RequestFragment.newInstance(0,"")
             )
             .commit()
         tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 if (tab != null) {
-                    when (tab.position) {
-                        0 -> {
-                            parentFragmentManager.beginTransaction()
-                                .replace(
-                                    R.id.fragContainerView,
-                                    RequestFragment.newInstance("","")
-                                )
-                                .commit()
-                        }
-                        1 -> {
-                            parentFragmentManager.beginTransaction()
-                                .replace(
-                                    R.id.fragContainerView,
-                                    BrowsePeopleFragment.newInstance("","")
-                                )
-                                .commit()
-                        }
-                    }
+                    parentFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.fragContainerView,
+                            RequestFragment.newInstance(tab.position,"")
+                        )
+                        .commit()
                 }
             }
 
