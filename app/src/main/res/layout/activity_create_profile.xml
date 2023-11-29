@@ -166,7 +166,7 @@
             android:text="@string/mon"
             android:textColor="@color/brown"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/availabilitiesDescription" />
 
         <EditText
             android:id="@+id/majorText"
@@ -232,18 +232,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nameText" />
 
+
         <ImageView
             android:id="@+id/monButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="28dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="5dp"
-            android:src="@drawable/green_add_button"
             android:backgroundTint="@color/lightGreen"
+            android:src="@drawable/green_add_button"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/monday"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+            app:layout_constraintTop_toBottomOf="@+id/availabilitiesDescription" />
 
         <ImageView
             android:id="@+id/tueButton"
@@ -487,7 +487,7 @@
             app:srcCompat="@drawable/n_coffee_chat" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/availabilitiesDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -645,6 +645,78 @@
             android:text=""
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/continueButton" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/monday"
+            app:layout_constraintLeft_toRightOf="@id/monday"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/monButton"
+            app:layout_constraintTop_toTopOf="@id/monButton"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerTues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tuesday"
+            app:layout_constraintLeft_toRightOf="@id/tuesday"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tueButton"
+            app:layout_constraintTop_toTopOf="@id/tueButton" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerWed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/wednesday"
+            app:layout_constraintLeft_toRightOf="@id/wednesday"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/wedButton"
+            app:layout_constraintTop_toTopOf="@id/wedButton" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerThu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/thursday"
+            app:layout_constraintLeft_toRightOf="@id/thursday"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/thuButton"
+            app:layout_constraintTop_toTopOf="@+id/thuButton" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerFri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/friday"
+            app:layout_constraintLeft_toRightOf="@id/friday"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/friButton"
+            app:layout_constraintTop_toTopOf="@+id/friButton" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerSat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/saturday"
+            app:layout_constraintLeft_toRightOf="@id/saturday"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/satButton"
+            app:layout_constraintTop_toTopOf="@+id/satButton" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerSun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/sunday"
+            app:layout_constraintLeft_toRightOf="@id/sunday"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sunButton"
+            app:layout_constraintTop_toTopOf="@+id/sunButton" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

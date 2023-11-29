@@ -1,19 +1,24 @@
 package com.example.androidfa23.Onboarding
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import com.example.androidfa23.AvailabilitiesAdapter
 import com.example.androidfa23.Browse.OrgRecyclerAdapter
 import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.MainActivity
 import com.example.androidfa23.R
+import com.example.androidfa23.WeeklyAvailabilitiesAdapter
 import com.vmadalin.easypermissions.EasyPermissions
 import com.vmadalin.easypermissions.dialogs.SettingsDialog
 
@@ -34,6 +39,41 @@ class CreateProfileActivity : AppCompatActivity() {
         val adapter = OrgRecyclerAdapter(data)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(this, 2)
+
+        val monData : List<String> = listOf("10-10:30 AM", "10:30-11 AM")
+        val monRecycler : RecyclerView = findViewById(R.id.recyclerMon)
+        monRecycler.adapter = WeeklyAvailabilitiesAdapter(monData)
+        monRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val tuesData : List<String> = listOf("11-11:30 AM")
+        val tuesRecycler : RecyclerView = findViewById(R.id.recyclerTues)
+        tuesRecycler.adapter = WeeklyAvailabilitiesAdapter(tuesData)
+        tuesRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val wedData : List<String> = listOf()
+        val wedRecycler : RecyclerView = findViewById(R.id.recyclerWed)
+        wedRecycler.adapter = WeeklyAvailabilitiesAdapter(wedData)
+        wedRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val thurData : List<String> = listOf("1-1:30 PM")
+        val thurRecycler : RecyclerView = findViewById(R.id.recyclerThu)
+        thurRecycler.adapter = WeeklyAvailabilitiesAdapter(thurData)
+        thurRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val friData : List<String> = listOf()
+        val friRecycler : RecyclerView = findViewById(R.id.recyclerFri)
+        friRecycler.adapter = WeeklyAvailabilitiesAdapter(friData)
+        friRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val satData : List<String> = listOf("10-10:30 AM", "10:30-11 AM", "11-11:30 AM", "11:30-12 PM")
+        val satRecycler : RecyclerView = findViewById(R.id.recyclerSat)
+        satRecycler.adapter = WeeklyAvailabilitiesAdapter(satData)
+        satRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val sunData : List<String> = listOf()
+        val sunRecycler : RecyclerView = findViewById(R.id.recyclerSun)
+        sunRecycler.adapter = WeeklyAvailabilitiesAdapter(sunData)
+        sunRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val backButton : ImageView = findViewById(R.id.backButton)
         backButton.setOnClickListener {
