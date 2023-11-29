@@ -48,6 +48,7 @@
             android:layout_marginStart="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="from Aliyah Mills"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@+id/location"
@@ -71,9 +72,9 @@
             android:layout_height="wrap_content"
             android:text="Duffield Hall"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/person"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintStart_toEndOf="@id/locationIcon"
             />
 
