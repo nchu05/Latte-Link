@@ -61,7 +61,7 @@ class ReceivedRecyclerAdapter (private var dataset: List<RequestClass>): Recycle
         holder.messageButton.setOnClickListener{
             if (holder.message.visibility==View.INVISIBLE){
                 holder.messageButton.setImageResource(R.drawable.collapse)
-                holder.message.text = "\n${request.message}"
+                holder.message.text = "\n${request.message}\n"
                 holder.message.visibility = View.VISIBLE
             }else{
                 holder.messageButton.setImageResource(R.drawable.expand)
