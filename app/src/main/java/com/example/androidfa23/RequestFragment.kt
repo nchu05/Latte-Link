@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Browse.OrgRecyclerAdapter
 import com.example.androidfa23.Data.OrganizationClass
@@ -80,9 +81,9 @@ class RequestFragment : Fragment() {
         repeat(4){
             data.addAll(data)
         }
-        //add correct recycleradapter
-        //recycler.adapter = adapter
-        //recycler.layoutManager = GridLayoutManager(context, 2)
+        val adapter = MessageRecyclerAdapter(data)
+        recycler.adapter = adapter
+        recycler.layoutManager = LinearLayoutManager(context)
 
         return view
     }

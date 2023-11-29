@@ -41,10 +41,11 @@ class MessageFragment : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_message, container, false)
         val tabLayout : TabLayout = view.findViewById(R.id.tabLayout)
 
+
         parentFragmentManager.beginTransaction()
             .replace(
                 R.id.fragContainerView,
-                BrowseOrganizationFragment.newInstance("","")
+                RequestFragment.newInstance("","")
             )
             .commit()
         tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
@@ -55,7 +56,7 @@ class MessageFragment : Fragment() {
                             parentFragmentManager.beginTransaction()
                                 .replace(
                                     R.id.fragContainerView,
-                                    BrowseOrganizationFragment.newInstance("","")
+                                    RequestFragment.newInstance("","")
                                 )
                                 .commit()
                         }
