@@ -2,13 +2,16 @@ package com.example.androidfa23.Onboarding
 
 import android.app.Dialog
 import android.content.Intent
+import android.media.Image
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.DialogFragment
 import com.example.androidfa23.R
 
@@ -45,8 +48,20 @@ class AvailabilitiesDialogFragment : DialogFragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view : View = inflater.inflate(R.layout.fragment_availabilities_dialog_fragment, container, false)
-        val saveButton : Button = view.findViewById(R.id.saveButton)
+        val saveButton : ImageView = view.findViewById(R.id.saveButton)
         val closeButton : TextView = view.findViewById(R.id.closeButton)
+        val amPmSwitch : ImageView = view.findViewById(R.id.amPmSwitch)
+        amPmSwitch.id = R.drawable.am_png.toInt()
+        amPmSwitch.setOnClickListener{
+            if (amPmSwitch.id == R.drawable.am_png.toInt()) {
+                amPmSwitch.id = R.drawable.pm.toInt()
+                amPmSwitch.setImageResource(R.drawable.pm)
+            }
+            else {
+                amPmSwitch.id = R.drawable.am_png.toInt()
+                amPmSwitch.setImageResource(R.drawable.am_png)
+            }
+        }
         closeButton.setOnClickListener {
             dismiss()
         }

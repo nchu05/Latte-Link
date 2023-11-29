@@ -27,23 +27,24 @@ class IndividualOrganizationActivity : AppCompatActivity() {
             PersonClass(
                 id = 1,
                 name = "Person 1",
+                position="Position"
             ),
             PersonClass(
                 id = 2,
                 name = "Person 2",
+                position="Position"
             ),
             PersonClass(
                 id = 3,
                 name = "Person 3",
+                position="Position"
             ),
             PersonClass(
                 id = 4,
                 name = "Person 4",
+                position="Position"
             ),
         )
-        repeat(4){
-            data.addAll(data)
-        }
         val adapter = MembersRecyclerAdapter(data)
         recycler.adapter = adapter
         recycler.layoutManager = GridLayoutManager(this, 2)

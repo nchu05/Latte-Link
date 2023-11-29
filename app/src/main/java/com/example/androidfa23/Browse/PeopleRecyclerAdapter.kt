@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Data.PersonClass
@@ -13,10 +14,10 @@ import com.example.androidfa23.R
 class PeopleRecyclerAdapter (private var dataset: List<PersonClass>): RecyclerView.Adapter<PeopleRecyclerAdapter.ViewHolder>() {
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val personName: TextView
-        val constraintLayout: ConstraintLayout
+        val cardView: CardView
         init{
             personName = view.findViewById(R.id.personName)
-            constraintLayout = view.findViewById(R.id.constraintLayout)
+            cardView = view.findViewById(R.id.card)
         }
     }
 
@@ -32,7 +33,7 @@ class PeopleRecyclerAdapter (private var dataset: List<PersonClass>): RecyclerVi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val person = dataset[position]
         holder.personName.text = person.name
-        holder.constraintLayout.setOnClickListener{
+        holder.cardView.setOnClickListener{
             val intent = Intent(holder.itemView.context, IndividualPersonActivity::class.java)
             holder.itemView.context.startActivity(intent)
         }

@@ -464,6 +464,7 @@
 
         <ImageView
             android:id="@+id/Y"
+            android:clickable="true"
             android:layout_width="51dp"
             android:layout_height="46dp"
             android:layout_marginStart="56dp"
@@ -475,6 +476,7 @@
 
         <ImageView
             android:id="@+id/N"
+            android:clickable="true"
             android:layout_width="51dp"
             android:layout_height="46dp"
             android:layout_marginStart="20dp"

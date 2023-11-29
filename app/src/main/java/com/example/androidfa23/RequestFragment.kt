@@ -43,8 +43,8 @@ class RequestFragment : Fragment() {
         val data = arrayListOf(
             RequestClass(
                 id = 1,
-                requester = PersonClass(id = 2, name = "Person 1"),
-                receiver = PersonClass(id = 2, name = "Person 2"),
+                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
                 message = "I would love to coffee chat you!",
@@ -52,8 +52,8 @@ class RequestFragment : Fragment() {
             ),
             RequestClass(
                 id = 1,
-                requester = PersonClass(id = 2, name = "Person 1"),
-                receiver = PersonClass(id = 2, name = "Person 2"),
+                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
                 message = "I would love to coffee chat you!",
@@ -61,8 +61,8 @@ class RequestFragment : Fragment() {
             ),
             RequestClass(
                 id = 1,
-                requester = PersonClass(id = 2, name = "Person 1"),
-                receiver = PersonClass(id = 2, name = "Person 2"),
+                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
                 message = "Dear Alex,\n\nI hope this message finds you well. My name is Damien Pieter, and I’m a freshman studying Industrial and Labor Relations. I would like to hear more about your role as a Wealth Management Intern at Baxter Investment Management. I am personally not very informed on what wealth management is specifically, so a brief overview of the career path would be greatly appreciated. Further I am curious about how that experience pushed you toward consulting and private equity. Through this chat, I hope to gain a better understanding of how your career interests have shifted and been further solidified. As I am searching for potential freshman internships, I would appreciated any advice you have for this process.I look forward to speaking with you!\n\nBest,\nMax",
@@ -70,8 +70,8 @@ class RequestFragment : Fragment() {
             ),
             RequestClass(
                 id = 1,
-                requester = PersonClass(id = 2, name = "Person 1"),
-                receiver = PersonClass(id = 2, name = "Person 2"),
+                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
                 message = "I would love to coffee chat you!",

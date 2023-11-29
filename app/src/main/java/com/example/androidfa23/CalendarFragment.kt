@@ -44,8 +44,8 @@ class CalendarFragment : Fragment() {
         val data = arrayListOf(
             RequestClass(
                 id = 1,
-                requester = PersonClass(id = 2, name = "Person 1"),
-                receiver = PersonClass(id = 2, name = "Person 2"),
+                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
                 message = "I would love to coffee chat you!",
@@ -53,8 +53,8 @@ class CalendarFragment : Fragment() {
             ),
             RequestClass(
                 id = 1,
-                requester = PersonClass(id = 2, name = "Person 1"),
-                receiver = PersonClass(id = 2, name = "Person 2"),
+                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
                 message = "I would love to coffee chat you!",
@@ -62,8 +62,8 @@ class CalendarFragment : Fragment() {
             ),
             RequestClass(
                 id = 1,
-                requester = PersonClass(id = 2, name = "Person 1"),
-                receiver = PersonClass(id = 2, name = "Person 2"),
+                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
                 message = "I would love to coffee chat you!",
@@ -71,8 +71,8 @@ class CalendarFragment : Fragment() {
             ),
             RequestClass(
                 id = 1,
-                requester = PersonClass(id = 2, name = "Person 1"),
-                receiver = PersonClass(id = 2, name = "Person 2"),
+                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
                 message = "I would love to coffee chat you!",

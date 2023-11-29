@@ -6,9 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.ListView
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -21,6 +25,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [OrgAffliationsDialogFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
 class OrgAffliationsDialogFragment : DialogFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -43,8 +48,11 @@ class OrgAffliationsDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view : View = inflater.inflate(R.layout.fragment_org_affliations_dialog, container, false)
-        val saveButton : Button = view.findViewById(R.id.saveButton)
+        val saveButton : ImageView = view.findViewById(R.id.saveButton)
         val closeButton : TextView = view.findViewById(R.id.closeButton)
+        val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
+
+
         closeButton.setOnClickListener {
             dismiss()
         }
