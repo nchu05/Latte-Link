@@ -1,11 +1,14 @@
 package com.example.androidfa23
 
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.view.marginBottom
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Data.RequestClass
 
@@ -16,12 +19,16 @@ class SentRecyclerAdapter (private var dataset: List<RequestClass>): RecyclerVie
         val location: TextView
         val messageButton: ImageView
         val message: TextView
+        val card: CardView
+        val status: Button
         init{
             title = view.findViewById(R.id.title)
             person = view.findViewById(R.id.person)
             location = view.findViewById(R.id.location)
             messageButton = view.findViewById(R.id.dropdown)
             message = view.findViewById(R.id.message)
+            card = view.findViewById(R.id.card)
+            status = view.findViewById(R.id.status)
         }
     }
 
@@ -42,6 +49,19 @@ class SentRecyclerAdapter (private var dataset: List<RequestClass>): RecyclerVie
         holder.title.text = "Request for ${request.dateTime}"
         holder.location.text = request.location
         holder.person.text = "From ${request.requester.name}"
+        if (request.accepted==true){
+            holder.card.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.beige))
+            holder.status.text = "Request Accepted"
+            holder.status.setTextColor(ContextCompat.getColor(holder.card.context, R.color.white))
+            holder.status.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.darkGreen))
+
+        }else if (request.accepted==false){
+            holder.card.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.beige))
+            holder.status.text = "Request Denied"
+            holder.status.setTextColor(ContextCompat.getColor(holder.card.context, R.color.white))
+            holder.status.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.brown))
+
+        }
         holder.messageButton.setOnClickListener{
             if (holder.message.visibility==View.INVISIBLE){
                 holder.messageButton.setImageResource(R.drawable.collapse)

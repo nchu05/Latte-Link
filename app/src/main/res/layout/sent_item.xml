@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="370dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -24,7 +24,6 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:scrollHorizontally="false"
-            android:text="Request for Fri, 12/15 @ 3:00 PM"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/person"
@@ -35,7 +34,7 @@
             android:id="@+id/dropdown"
             android:layout_width="28dp"
             android:layout_height="30dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:clickable="true"
             android:src="@drawable/expand"
             app:layout_constraintBottom_toBottomOf="@+id/title"
@@ -49,7 +48,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="5dp"
-            android:text="from Aliyah Mills"
             app:layout_constraintBottom_toTopOf="@+id/location"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title" />
@@ -71,7 +69,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="16dp"
-            android:text="Duffield Hall"
             android:textSize="14sp"
             app:layout_constraintEnd_toStartOf="@+id/status"
             app:layout_constraintHorizontal_bias="0.095"
@@ -80,13 +77,13 @@
 
         <Button
             android:id="@+id/status"
-            android:layout_width="161dp"
-            android:layout_height="36dp"
-            android:backgroundTint="@color/beige"
-            android:textColor="@color/black"
-            android:text="Awaiting Response"
-            android:textSize="12dp"
+            android:layout_width="163dp"
+            android:layout_height="44dp"
             android:layout_marginRight="16dp"
+            android:backgroundTint="@color/beige"
+            android:text="@string/awaiting_response"
+            android:textColor="@color/black"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/location"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/location" />

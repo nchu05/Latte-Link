@@ -5,6 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Data.RequestClass
 
@@ -15,12 +17,18 @@ class ReceivedRecyclerAdapter (private var dataset: List<RequestClass>): Recycle
         val location: TextView
         val messageButton: ImageView
         val message: TextView
+        val card: CardView
+        val yes: ImageView
+        val no: ImageView
         init{
             title = view.findViewById(R.id.title)
             person = view.findViewById(R.id.person)
             location = view.findViewById(R.id.location)
             messageButton = view.findViewById(R.id.dropdown)
             message = view.findViewById(R.id.message)
+            card = view.findViewById(R.id.card)
+            yes = view.findViewById(R.id.yesButton)
+            no = view.findViewById(R.id.noButton)
         }
     }
 
@@ -41,6 +49,15 @@ class ReceivedRecyclerAdapter (private var dataset: List<RequestClass>): Recycle
         holder.title.text = "Request for ${request.dateTime}"
         holder.location.text = request.location
         holder.person.text = "From ${request.requester.name}"
+        if (request.accepted==true){
+            holder.card.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.beige))
+            holder.yes.setImageResource(R.drawable.selected_yes)
+
+        }else if (request.accepted==false){
+            holder.card.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.beige))
+            holder.no.setImageResource(R.drawable.selected_no)
+
+        }
         holder.messageButton.setOnClickListener{
             if (holder.message.visibility==View.INVISIBLE){
                 holder.messageButton.setImageResource(R.drawable.collapse)

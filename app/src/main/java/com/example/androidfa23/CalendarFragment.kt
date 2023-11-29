@@ -5,11 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidfa23.Browse.OrgRecyclerAdapter
-import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.Data.PersonClass
 import com.example.androidfa23.Data.RequestClass
 
@@ -51,7 +48,8 @@ class CalendarFragment : Fragment() {
                 receiver = PersonClass(id = 2, name = "Person 2"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
-                message = "I would love to coffee chat you!"
+                message = "I would love to coffee chat you!",
+                accepted = true
             ),
             RequestClass(
                 id = 1,
@@ -59,7 +57,8 @@ class CalendarFragment : Fragment() {
                 receiver = PersonClass(id = 2, name = "Person 2"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
-                message = "I would love to coffee chat you!"
+                message = "I would love to coffee chat you!",
+                accepted = true
             ),
             RequestClass(
                 id = 1,
@@ -67,7 +66,8 @@ class CalendarFragment : Fragment() {
                 receiver = PersonClass(id = 2, name = "Person 2"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
-                message = "I would love to coffee chat you!"
+                message = "I would love to coffee chat you!",
+                accepted = true
             ),
             RequestClass(
                 id = 1,
@@ -75,7 +75,8 @@ class CalendarFragment : Fragment() {
                 receiver = PersonClass(id = 2, name = "Person 2"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
-                message = "I would love to coffee chat you!"
+                message = "I would love to coffee chat you!",
+                accepted = true
             ),
 
         )
