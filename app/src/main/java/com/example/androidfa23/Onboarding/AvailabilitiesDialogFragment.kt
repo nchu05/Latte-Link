@@ -1,18 +1,18 @@
 package com.example.androidfa23.Onboarding
 
 import android.app.Dialog
-import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.androidfa23.AvailabilitiesAdapter
+import com.example.androidfa23.Browse.OrgRecyclerAdapter
 import com.example.androidfa23.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -25,9 +25,9 @@ private const val ARG_PARAM2 = "param2"
  * Use the [AvailabilitiesDialogFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class AvailabilitiesDialogFragment : DialogFragment() {
+class AvailabilitiesDialogFragment(day: String) : DialogFragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
+    private var param1: String? = day
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,18 +48,60 @@ class AvailabilitiesDialogFragment : DialogFragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view : View = inflater.inflate(R.layout.fragment_availabilities_dialog_fragment, container, false)
+        val availabilitiesTitle : TextView = view.findViewById(R.id.availabilitiesTitle)
+        availabilitiesTitle.text = "${this.param1} Availabilities"
         val saveButton : ImageView = view.findViewById(R.id.saveButton)
         val closeButton : TextView = view.findViewById(R.id.closeButton)
         val amPmSwitch : ImageView = view.findViewById(R.id.amPmSwitch)
-        amPmSwitch.id = R.drawable.am_png.toInt()
+        val dataAM = listOf(
+            "7-7:30 AM",
+            "7:30-8 AM",
+            "8-8:30 AM",
+            "8:30-9 AM",
+            "9-9:30 AM",
+            "9:30-10 AM",
+            "10-10:30 AM",
+            "10:30-11 AM",
+            "11-11:30 AM",
+            "11:30-12 PM",
+            )
+        val dataPM = listOf(
+            "12-12:30 PM",
+            "12:30-1 PM",
+            "1-1:30 PM",
+            "1:30-2 PM",
+            "2-2:30 PM",
+            "2:30-3 PM",
+            "3-3:30 PM",
+            "3:30-4 PM",
+            "4-4:30 PM",
+            "4:30-5 PM",
+            "5-5:30 PM",
+            "5:30-6 PM",
+            "6-6:30 PM",
+            "6:30-7 PM",
+            "7-7:30 PM",
+            "7:30-8 PM",
+            "8-8:30 PM",
+            "8:30-9 PM"
+        )
+        val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
+        var adapter = AvailabilitiesAdapter(dataAM)
+        recycler.adapter = adapter
+        recycler.layoutManager = GridLayoutManager(context, 2)
+        var am = true
         amPmSwitch.setOnClickListener{
-            if (amPmSwitch.id == R.drawable.am_png.toInt()) {
-                amPmSwitch.id = R.drawable.pm.toInt()
+            if (am) {
                 amPmSwitch.setImageResource(R.drawable.pm)
+                adapter = AvailabilitiesAdapter(dataPM)
+                recycler.adapter = adapter
+                am = false
             }
             else {
-                amPmSwitch.id = R.drawable.am_png.toInt()
                 amPmSwitch.setImageResource(R.drawable.am_png)
+                adapter = AvailabilitiesAdapter(dataAM)
+                recycler.adapter = adapter
+                am = true
             }
         }
         closeButton.setOnClickListener {
@@ -83,7 +125,7 @@ class AvailabilitiesDialogFragment : DialogFragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            AvailabilitiesDialogFragment().apply {
+            AvailabilitiesDialogFragment("name").apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

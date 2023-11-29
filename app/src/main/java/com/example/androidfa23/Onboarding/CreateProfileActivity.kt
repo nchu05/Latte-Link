@@ -1,23 +1,15 @@
 package com.example.androidfa23.Onboarding
 
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.cardview.widget.CardView
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidfa23.Browse.BrowseOrganizationFragment
 import com.example.androidfa23.Browse.OrgRecyclerAdapter
 import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.MainActivity
@@ -77,13 +69,13 @@ class CreateProfileActivity : AppCompatActivity() {
         val saturdayButton : ImageView = findViewById(R.id.satButton)
         val sundayButton : ImageView = findViewById(R.id.sunButton)
 
-        mondayButton.setOnClickListener{onClickHandler()}
-        tuesdayButton.setOnClickListener{onClickHandler()}
-        wednesdayButton.setOnClickListener{onClickHandler()}
-        thursdayButton.setOnClickListener{onClickHandler()}
-        fridayButton.setOnClickListener{onClickHandler()}
-        saturdayButton.setOnClickListener{onClickHandler()}
-        sundayButton.setOnClickListener{onClickHandler()}
+        mondayButton.setOnClickListener{onClickHandler("Monday")}
+        tuesdayButton.setOnClickListener{onClickHandler("Tuesday")}
+        wednesdayButton.setOnClickListener{onClickHandler("Wednesday")}
+        thursdayButton.setOnClickListener{onClickHandler("Thursday")}
+        fridayButton.setOnClickListener{onClickHandler("Friday")}
+        saturdayButton.setOnClickListener{onClickHandler("Saturday")}
+        sundayButton.setOnClickListener{onClickHandler("Sunday")}
 
         //TODO FIX
         val profile : CardView = findViewById(R.id.cardView2)
@@ -128,8 +120,8 @@ class CreateProfileActivity : AppCompatActivity() {
         }
     }
 
-    private fun onClickHandler() {
-        val newFragment = AvailabilitiesDialogFragment()
+    private fun onClickHandler(day: String) {
+        val newFragment = AvailabilitiesDialogFragment(day)
         newFragment.show(supportFragmentManager, "Availabilities")
     }
 }

@@ -13,8 +13,8 @@ class SpecifyRoleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_specify_role)
 
-        val studentButton : Button = findViewById(R.id.yourselfButton)
-        val organizationButton : Button = findViewById(R.id.organizationButton)
+        val studentButton : ImageView = findViewById(R.id.yourselfButton)
+        val organizationButton : ImageView = findViewById(R.id.organizationButton)
         val backButton : ImageView = findViewById(R.id.backButton)
         val alreadyHaveAccount : Button = findViewById(R.id.alreadyHaveAccountButton)
         alreadyHaveAccount.setOnClickListener {

@@ -30,30 +30,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-    <com.google.android.material.button.MaterialButton
+    <ImageView
         android:id="@+id/yourselfButton"
-        android:layout_width="wrap_content"
+        android:layout_width="221dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/lightGreen"
-        android:text="Yourself"
-        app:backgroundTint="@color/lightGreen"
-        android:textColor="@color/black"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/yourself_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextView" />
 
-    <com.google.android.material.button.MaterialButton
+    <ImageView
         android:id="@+id/organizationButton"
-        android:layout_width="wrap_content"
+        android:layout_width="221dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="An Organization"
-        android:backgroundTint="@color/lightGreen"
-        android:textColor="@color/black"
+        android:layout_marginTop="96dp"
+        android:src="@drawable/organization_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourselfButton" />
+        app:layout_constraintTop_toBottomOf="@+id/TextView" />
 
     <ImageView
         android:id="@+id/imageView3"

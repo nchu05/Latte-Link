@@ -12,8 +12,12 @@ import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidfa23.Data.OrgAffiliations
+import com.example.androidfa23.OrgAffiliationsAdapter
 import com.example.androidfa23.R
+import com.example.androidfa23.ReceivedRecyclerAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,7 +55,14 @@ class OrgAffliationsDialogFragment : DialogFragment() {
         val saveButton : ImageView = view.findViewById(R.id.saveButton)
         val closeButton : TextView = view.findViewById(R.id.closeButton)
         val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
-
+        val data = listOf(
+            OrgAffiliations("Project Team"),
+            OrgAffiliations("Design"),
+            OrgAffiliations("Dev"),
+            )
+        val adapter = OrgAffiliationsAdapter(data)
+        recycler.adapter = adapter
+        recycler.layoutManager = LinearLayoutManager(context)
 
         closeButton.setOnClickListener {
             dismiss()
