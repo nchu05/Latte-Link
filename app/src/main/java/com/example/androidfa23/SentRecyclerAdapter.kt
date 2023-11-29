@@ -65,7 +65,7 @@ class SentRecyclerAdapter (private var dataset: List<RequestClass>): RecyclerVie
         holder.messageButton.setOnClickListener{
             if (holder.message.visibility==View.INVISIBLE){
                 holder.messageButton.setImageResource(R.drawable.collapse)
-                holder.message.text = request.message
+                holder.message.text = "\n${request.message}"
                 holder.message.visibility = View.VISIBLE
             }else{
                 holder.messageButton.setImageResource(R.drawable.expand)
