@@ -27,13 +27,13 @@ class CreateProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_profile)
 
-        val data = arrayListOf(
-            OrganizationClass(
-                id = 1,
-                name = "Add Org...",
-                desc = ""
-            ),
-        )
+        val data : List<OrganizationClass> = arrayListOf()
+
+        val card : CardView = findViewById(R.id.card)
+        card.setOnClickListener{
+            val newFragment = AddInvolvementsDialogFragment()
+            newFragment.show(supportFragmentManager, "AddInvolvements")
+        }
 
         val recyclerView : RecyclerView = findViewById(R.id.recyclerView)
         val adapter = OrgRecyclerAdapter(data)
