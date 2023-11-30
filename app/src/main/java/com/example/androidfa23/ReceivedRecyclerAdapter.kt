@@ -51,12 +51,23 @@ class ReceivedRecyclerAdapter (private var dataset: List<RequestClass>): Recycle
         holder.person.text = "From ${request.requester.name}"
         if (request.accepted==true){
             holder.card.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.beige))
-            holder.yes.setImageResource(R.drawable.selected_yes)
+            holder.yes.setImageResource(R.drawable.y_coffee_chat_selected_green)
 
         }else if (request.accepted==false){
             holder.card.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.beige))
-            holder.no.setImageResource(R.drawable.selected_no)
+            holder.no.setImageResource(R.drawable.n_coffee_chat_selected)
 
+        }else{
+            holder.yes.setOnClickListener {
+                holder.card.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.beige))
+                holder.yes.setImageResource(R.drawable.y_coffee_chat_selected_green)
+                request.accepted = true
+            }
+            holder.no.setOnClickListener {
+                holder.card.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.beige))
+                holder.no.setImageResource(R.drawable.n_coffee_chat_selected)
+                request.accepted = false
+            }
         }
         holder.messageButton.setOnClickListener{
             if (holder.message.visibility==View.INVISIBLE){

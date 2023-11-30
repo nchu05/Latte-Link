@@ -20,7 +20,7 @@ class SentRecyclerAdapter (private var dataset: List<RequestClass>): RecyclerVie
         val messageButton: ImageView
         val message: TextView
         val card: CardView
-        val status: Button
+        val status: ImageView
         init{
             title = view.findViewById(R.id.title)
             person = view.findViewById(R.id.person)
@@ -51,15 +51,11 @@ class SentRecyclerAdapter (private var dataset: List<RequestClass>): RecyclerVie
         holder.person.text = "From ${request.requester.name}"
         if (request.accepted==true){
             holder.card.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.beige))
-            holder.status.text = "Request Accepted"
-            holder.status.setTextColor(ContextCompat.getColor(holder.card.context, R.color.white))
-            holder.status.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.darkGreen))
+            holder.status.setImageResource(R.drawable.request_accepted)
 
         }else if (request.accepted==false){
             holder.card.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.beige))
-            holder.status.text = "Request Denied"
-            holder.status.setTextColor(ContextCompat.getColor(holder.card.context, R.color.white))
-            holder.status.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.brown))
+            holder.status.setImageResource(R.drawable.request_denied)
 
         }
         holder.messageButton.setOnClickListener{
