@@ -2,7 +2,6 @@ package com.example.androidfa23.Data
 
 import android.content.ContentValues
 import android.content.Context
-import android.content.Intent
 import android.util.Log
 import android.widget.Toast
 import com.google.android.material.internal.ContextUtils.getActivity
@@ -18,7 +17,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class OrgRepository @Inject constructor(val context: Context){
+class Repository @Inject constructor(val context: Context){
     fun fetchAllOrgs(): String?{
         val url = ""
         val client = OkHttpClient()
@@ -129,7 +128,31 @@ class OrgRepository @Inject constructor(val context: Context){
 
     fun postPerson(body: JSONObject){
         val client = OkHttpClient()
-        val url = ""
+        val url = "http://35.245.150.19/register/users/"
+
+        val request = Request.Builder()
+            .url(url)
+            .post(body.toString().toRequestBody(MEDIA_TYPE_JSON))
+            .build()
+        val response = client.newCall(request).enqueue(object : okhttp3.Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                getActivity(context)?.runOnUiThread{
+                    Toast.makeText(context, "Failed to create organization", Toast.LENGTH_SHORT).show()
+                }            }
+
+            override fun onResponse(call: Call, response: Response) {
+                getActivity(context)?.runOnUiThread{
+                    Toast.makeText(context, "Successfully created organization",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        })
+    }
+
+    fun updatePerson(body: JSONObject, id: Int){
+        val client = OkHttpClient()
+        val url = "http://35.245.150.19/api/users/${id}/"
 
         val request = Request.Builder()
             .url(url)
