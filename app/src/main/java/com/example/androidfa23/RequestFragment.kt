@@ -40,6 +40,7 @@ class RequestFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_organization, container, false)
         val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
+
         val data = arrayListOf(
             RequestClass(
                 id = 1,

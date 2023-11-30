@@ -41,49 +41,85 @@ class CalendarFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
 
         val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
-        val data = arrayListOf(
-            RequestClass(
-                id = 1,
-                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
-                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
-                dateTime = "Monday, Oct 27th",
-                location = "Duffield Hall",
-                message = "I would love to coffee chat you!",
-                accepted = true
-            ),
-            RequestClass(
-                id = 1,
-                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
-                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
-                dateTime = "Monday, Oct 27th",
-                location = "Duffield Hall",
-                message = "I would love to coffee chat you!",
-                accepted = true
-            ),
-            RequestClass(
-                id = 1,
-                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
-                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
-                dateTime = "Monday, Oct 27th",
-                location = "Duffield Hall",
-                message = "I would love to coffee chat you!",
-                accepted = true
-            ),
-            RequestClass(
-                id = 1,
-                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
-                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
-                dateTime = "Monday, Oct 27th",
-                location = "Duffield Hall",
-                message = "I would love to coffee chat you!",
-                accepted = true
-            ),
 
+        val data1 = arrayListOf(
+            Pair("Mon, Dec 4th", arrayListOf(
+            RequestClass(
+                id = 1,
+                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                dateTime = "Monday, Oct 27th",
+                location = "Duffield Hall",
+                message = "I would love to coffee chat you!",
+                accepted = true
+            ),
+            RequestClass(
+                id = 1,
+                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                dateTime = "Monday, Oct 27th",
+                location = "Duffield Hall",
+                message = "I would love to coffee chat you!",
+                accepted = false
+            )
+        )
+        ),
+            Pair("Tue, Dec 5th", arrayListOf(
+                RequestClass(
+                    id = 1,
+                    requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                    receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                    dateTime = "Monday, Oct 27th",
+                    location = "Duffield Hall",
+                    message = "I would love to coffee chat you!",
+                    accepted = true
+                ),
+                RequestClass(
+                    id = 1,
+                    requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                    receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                    dateTime = "Monday, Oct 27th",
+                    location = "Duffield Hall",
+                    message = "I would love to coffee chat you!",
+                    accepted = false
+                ),
+                RequestClass(
+                    id = 1,
+                    requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                    receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                    dateTime = "Monday, Oct 27th",
+                    location = "Duffield Hall",
+                    message = "I would love to coffee chat you!",
+                    accepted = false
+                )
+            )
+            ),
+            Pair("Wed, Dec 6th", arrayListOf(
+                RequestClass(
+                    id = 1,
+                    requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                    receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                    dateTime = "Monday, Oct 27th",
+                    location = "Duffield Hall",
+                    message = "I would love to coffee chat you!",
+                    accepted = true
+                ),
+                RequestClass(
+                    id = 1,
+                    requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
+                    receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                    dateTime = "Monday, Oct 27th",
+                    location = "Duffield Hall",
+                    message = "I would love to coffee chat you!",
+                    accepted = false
+                )
+            )
+            )
         )
         repeat(4){
-            data.addAll(data)
+            data1.addAll(data1)
         }
-        val adapter = RequestsRecyclerAdapter(data)
+        val adapter = RequestGroupRecyclerAdapter(data1)
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(context)
 

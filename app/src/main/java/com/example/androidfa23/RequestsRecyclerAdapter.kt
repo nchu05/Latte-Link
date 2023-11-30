@@ -1,17 +1,11 @@
 package com.example.androidfa23
 
-import android.content.Intent
-import android.service.autofill.Dataset
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidfa23.Browse.IndividualPersonActivity
-import com.example.androidfa23.Browse.MembersRecyclerAdapter
 import com.example.androidfa23.Data.RequestClass
-import org.w3c.dom.Text
 
 class RequestsRecyclerAdapter(private var dataset: List<RequestClass>): RecyclerView.Adapter<RequestsRecyclerAdapter.ViewHolder>()  {
 
@@ -29,7 +23,7 @@ class RequestsRecyclerAdapter(private var dataset: List<RequestClass>): Recycler
         viewType: Int
     ): RequestsRecyclerAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.request_item, parent, false)
+            .inflate(R.layout.event_item, parent, false)
 
         return RequestsRecyclerAdapter.ViewHolder(view)
     }
