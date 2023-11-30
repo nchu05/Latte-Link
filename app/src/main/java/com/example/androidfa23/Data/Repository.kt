@@ -141,14 +141,14 @@ class Repository @Inject constructor(val context: Context){
                 }
             }
 
-            override fun onResponse(call: Call, response: Response) {
+            override fun onResponse(call: Call, response: Response){
                 getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Successfully created profile",
-                        Toast.LENGTH_SHORT).show()
                     val s = response.body.toString()
                     val index1 = s.indexOf("id")
-                    val index2 = s.indexOf("session_token")
-                    //returnvalue = s.substring(index1+5, index2-3).toInt()
+                    //returnvalue = s.substring(index1+6, index1+7).toInt()
+
+                    Toast.makeText(context, "${s}",
+                        Toast.LENGTH_LONG).show()
                     returnvalue = 0
                 }
             }
