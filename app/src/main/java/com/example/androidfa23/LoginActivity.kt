@@ -3,6 +3,7 @@ package com.example.androidfa23
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -34,8 +35,9 @@ class LoginActivity : AppCompatActivity() {
                 alreadyHaveAccountButton.setText(R.string.i_already_have_an_account)
                 createAccountButton.setOnClickListener{
                     val intent = Intent(this, SpecifyRoleActivity::class.java)
-                    intent.putExtra("username", emailET.text)
-                    intent.putExtra("password", password.text)
+                    Log.e("JSON", emailET.text.toString())
+                    intent.putExtra("username", emailET.text.toString())
+                    intent.putExtra("password", password.text.toString())
                     intentLauncher.launch(intent)
                 }
                 alreadyHaveAccountButton.setOnClickListener(clickListener())
@@ -46,8 +48,9 @@ class LoginActivity : AppCompatActivity() {
 
         createAccountButton.setOnClickListener {
             val intent = Intent(this, SpecifyRoleActivity::class.java)
-            intent.putExtra("username", emailET.text)
-            intent.putExtra("password", password.text)
+            Log.e("JSON", emailET.text.toString())
+            intent.putExtra("username", emailET.text.toString())
+            intent.putExtra("password", password.text.toString())
             intentLauncher.launch(intent)
         }
         alreadyHaveAccountButton.setOnClickListener {clickListener()}

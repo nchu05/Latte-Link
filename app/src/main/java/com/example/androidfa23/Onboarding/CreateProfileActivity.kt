@@ -35,7 +35,6 @@ class CreateProfileActivity : AppCompatActivity() {
         val email = intent.extras?.getString("username")
         val password = intent.extras?.getString("password")
         val isnew = intent.extras?.getBoolean("new")
-
         val card : CardView = findViewById(R.id.card)
         card.setOnClickListener{
             val newFragment = AddInvolvementsDialogFragment()
@@ -155,6 +154,7 @@ class CreateProfileActivity : AppCompatActivity() {
                 body.put("name", name.text)
                 body.put("login_email", email)
                 body.put("login_password", password)
+
                 var instance = Repository(this)
 
                 var index = instance.postPerson(body)

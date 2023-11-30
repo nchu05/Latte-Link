@@ -150,33 +150,32 @@ class Repository @Inject constructor(val context: Context){
         })
     }
 
-    fun postPerson(body: JSONObject): Int{
+    fun postPerson(jsonbody: JSONObject): Int{
         val client = OkHttpClient()
         val url = "http://35.245.150.19/register/user/"
         var returnvalue = -1
         val request = Request.Builder()
             .url(url)
-            .post(body.toString().toRequestBody(MEDIA_TYPE_JSON))
+            .post(jsonbody.toString().toRequestBody(MEDIA_TYPE_JSON))
             .build()
+        Log.e("JSON", jsonbody.toString())
         val response = client.newCall(request).enqueue(object : okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
                 getActivity(context)?.runOnUiThread{
                     Toast.makeText(context, "Failed to create profile", Toast.LENGTH_SHORT).show()
+                    Log.e("JSON", "FAILED?")
                 }
             }
-
             override fun onResponse(call: Call, response: Response){
                 getActivity(context)?.runOnUiThread{
                     val s = response.body?.string()
                     val index1 = s?.indexOf("id")
                     //returnvalue = s.substring(index1+6, index1+7).toInt()
-
-                    Toast.makeText(context, "created profile successfully",
-                        Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "created profile successfully", Toast.LENGTH_LONG).show()
+                    //Log.e("JSON", "DID NOT FAIL")
+                    Log.e("JSON", "" + response )
+                    response.body?.let { Log.e("JSON", "Post person response after" + it.string()) }
                     returnvalue = 0
-                    response.body.let{
-                        it?.string()?.let { it1 -> Log.e("JSONBODY", it1) }
-                    }
                 }
             }
 
@@ -197,22 +196,15 @@ class Repository @Inject constructor(val context: Context){
             override fun onFailure(call: Call, e: IOException) {
                 getActivity(context)?.runOnUiThread{
                     Toast.makeText(context, "Failed to update person", Toast.LENGTH_SHORT).show()
-
                 }
             }
 
             override fun onResponse(call: Call, response: Response) {
                 getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Updates profile successfully",
-                        Toast.LENGTH_LONG).show()
-                    response.body.let{
-                        it?.string()?.let { it1 -> Log.e("JSONBODY", it1) }
-                    }
-
+                    Toast.makeText(context, "Updated profile successfully", Toast.LENGTH_LONG).show()
+                    //response.body?.let { Log.e("JSON", "Update person" + it.string()) }
                 }
-
             }
-
         })
         return str
     }

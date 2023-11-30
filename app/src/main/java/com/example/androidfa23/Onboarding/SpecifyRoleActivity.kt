@@ -3,6 +3,7 @@ package com.example.androidfa23.Onboarding
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import com.example.androidfa23.LoginActivity
@@ -12,8 +13,14 @@ class SpecifyRoleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_specify_role)
+
         val email = intent.extras?.getString("username")
         val password = intent.extras?.getString("password")
+
+        if (email != null) {
+            Log.e("JSON", email)
+        }
+
         val studentButton : ImageView = findViewById(R.id.yourselfButton)
         val organizationButton : ImageView = findViewById(R.id.organizationButton)
         val backButton : ImageView = findViewById(R.id.backButton)
