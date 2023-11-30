@@ -300,7 +300,19 @@
             app:layout_constraintEnd_toStartOf="@+id/thursday"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/thursday"
-            app:srcCompat="@drawable/backbutton" />
+            app:srcCompat="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/rightButton"
+            android:layout_width="29dp"
+            android:layout_height="30dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/thursday"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.947"
+            app:layout_constraintStart_toEndOf="@+id/thursday"
+            app:layout_constraintTop_toTopOf="@+id/thursday"
+            app:srcCompat="@drawable/front" />
 
         <TextView
             android:id="@+id/locationTitle"

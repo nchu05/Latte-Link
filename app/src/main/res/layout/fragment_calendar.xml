@@ -14,7 +14,7 @@
         android:src="@drawable/ellipse1"
         app:layout_constraintBottom_toBottomOf="@id/chatter"
         app:layout_constraintEnd_toStartOf="@id/chatter"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginRight="5dp"
         app:layout_constraintTop_toTopOf="@id/chatter"/>
 
     <TextView
@@ -24,8 +24,8 @@
         android:text="You are the coffee chatter"
         app:layout_constraintBottom_toTopOf="@id/chattee"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ellipse1"
-        app:layout_constraintTop_toBottomOf="@+id/title"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <ImageView
         android:id="@+id/ellipse2"
@@ -34,7 +34,7 @@
         android:src="@drawable/ellipse2"
         app:layout_constraintBottom_toBottomOf="@id/chattee"
         app:layout_constraintEnd_toStartOf="@id/chattee"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginRight="5dp"
         app:layout_constraintTop_toTopOf="@id/chattee"/>
 
     <TextView
@@ -42,9 +42,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="You are the coffee chattee"
-        app:layout_constraintTop_toBottomOf="@+id/chatter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ellipse2"/>
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chatter" />
 
     <ImageView
         android:id="@+id/lines"
