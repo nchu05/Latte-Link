@@ -174,9 +174,6 @@ class CreateProfileActivity : AppCompatActivity() {
             com.example.androidfa23.intentLauncher.launch(intent)
         }
 
-
-
-
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
