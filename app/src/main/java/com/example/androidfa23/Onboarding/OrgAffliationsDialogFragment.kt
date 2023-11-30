@@ -56,9 +56,9 @@ class OrgAffliationsDialogFragment : DialogFragment() {
         val closeButton : TextView = view.findViewById(R.id.closeButton)
         val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
         val data = listOf(
-            OrgAffiliations("Project Team"),
-            OrgAffiliations("Design"),
-            OrgAffiliations("Dev"),
+            OrgAffiliations(0, "Project Team"),
+            OrgAffiliations(1, "Design"),
+            OrgAffiliations(2, "Dev"),
             )
         val adapter = OrgAffiliationsAdapter(data)
         recycler.adapter = adapter

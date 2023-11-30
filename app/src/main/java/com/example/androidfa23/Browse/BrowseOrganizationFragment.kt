@@ -44,22 +44,18 @@ class BrowseOrganizationFragment : Fragment() {
             OrganizationClass(
                 id = 1,
                 name = "Org 1",
-                desc = "TEXT TEXT TEXT"
             ),
             OrganizationClass(
                 id = 2,
                 name = "Org 2",
-                desc = "TEXT TEXT TEXT"
             ),
             OrganizationClass(
                 id = 3,
                 name = "Org 3",
-                desc = "TEXT TEXT TEXT"
             ),
             OrganizationClass(
                 id = 4,
                 name = "Org 4",
-                desc = "TEXT TEXT TEXT"
             ),
         )
         repeat(4){

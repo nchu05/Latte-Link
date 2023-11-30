@@ -46,8 +46,8 @@ class CalendarFragment : Fragment() {
             Pair("Mon, Dec 4th", arrayListOf(
             RequestClass(
                 id = 1,
-                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
-                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                sender = PersonClass(id = 2, name = "Person 1"),
+                receiver = PersonClass(id = 2, name = "Person 2"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
                 message = "I would love to coffee chat you!",
@@ -55,8 +55,8 @@ class CalendarFragment : Fragment() {
             ),
             RequestClass(
                 id = 1,
-                requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
-                receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                sender = PersonClass(id = 2, name = "Person 1"),
+                receiver = PersonClass(id = 2, name = "Person 2"),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
                 message = "I would love to coffee chat you!",
@@ -67,8 +67,8 @@ class CalendarFragment : Fragment() {
             Pair("Tue, Dec 5th", arrayListOf(
                 RequestClass(
                     id = 1,
-                    requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
-                    receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                    sender = PersonClass(id = 2, name = "Person 1"),
+                    receiver = PersonClass(id = 2, name = "Person 2"),
                     dateTime = "Monday, Oct 27th",
                     location = "Duffield Hall",
                     message = "I would love to coffee chat you!",
@@ -76,8 +76,8 @@ class CalendarFragment : Fragment() {
                 ),
                 RequestClass(
                     id = 1,
-                    requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
-                    receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                    sender = PersonClass(id = 2, name = "Person 1"),
+                    receiver = PersonClass(id = 2, name = "Person 2"),
                     dateTime = "Monday, Oct 27th",
                     location = "Duffield Hall",
                     message = "I would love to coffee chat you!",
@@ -85,8 +85,8 @@ class CalendarFragment : Fragment() {
                 ),
                 RequestClass(
                     id = 1,
-                    requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
-                    receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                    sender = PersonClass(id = 2, name = "Person 1"),
+                    receiver = PersonClass(id = 2, name = "Person 2"),
                     dateTime = "Monday, Oct 27th",
                     location = "Duffield Hall",
                     message = "I would love to coffee chat you!",
@@ -97,8 +97,8 @@ class CalendarFragment : Fragment() {
             Pair("Wed, Dec 6th", arrayListOf(
                 RequestClass(
                     id = 1,
-                    requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
-                    receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                    sender = PersonClass(id = 2, name = "Person 1"),
+                    receiver = PersonClass(id = 2, name = "Person 2"),
                     dateTime = "Monday, Oct 27th",
                     location = "Duffield Hall",
                     message = "I would love to coffee chat you!",
@@ -106,8 +106,8 @@ class CalendarFragment : Fragment() {
                 ),
                 RequestClass(
                     id = 1,
-                    requester = PersonClass(id = 2, name = "Person 1", position = "Position"),
-                    receiver = PersonClass(id = 2, name = "Person 2", position = "Position"),
+                    sender = PersonClass(id = 2, name = "Person 1"),
+                    receiver = PersonClass(id = 2, name = "Person 2"),
                     dateTime = "Monday, Oct 27th",
                     location = "Duffield Hall",
                     message = "I would love to coffee chat you!",

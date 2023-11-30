@@ -126,10 +126,10 @@ class Repository @Inject constructor(val context: Context){
         })
     }
 
-    fun postPerson(body: JSONObject){
+    fun postPerson(body: JSONObject): Int{
         val client = OkHttpClient()
         val url = "http://35.245.150.19/register/users/"
-
+        var returnvalue = -1
         val request = Request.Builder()
             .url(url)
             .post(body.toString().toRequestBody(MEDIA_TYPE_JSON))
@@ -137,17 +137,25 @@ class Repository @Inject constructor(val context: Context){
         val response = client.newCall(request).enqueue(object : okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
                 getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Failed to create organization", Toast.LENGTH_SHORT).show()
-                }            }
+                    Toast.makeText(context, "Failed to create profile", Toast.LENGTH_SHORT).show()
+                }
+            }
 
             override fun onResponse(call: Call, response: Response) {
                 getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Successfully created organization",
+                    Toast.makeText(context, "Successfully created profile",
                         Toast.LENGTH_SHORT).show()
+                    val s = response.body.toString()
+                    val index1 = s.indexOf("id")
+                    val index2 = s.indexOf("session_token")
+                    //returnvalue = s.substring(index1+5, index2-3).toInt()
+                    returnvalue = 0
                 }
             }
 
         })
+
+        return returnvalue
     }
 
     fun updatePerson(body: JSONObject, id: Int){
@@ -161,12 +169,12 @@ class Repository @Inject constructor(val context: Context){
         val response = client.newCall(request).enqueue(object : okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
                 getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Failed to create organization", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Failed to update person", Toast.LENGTH_SHORT).show()
                 }            }
 
             override fun onResponse(call: Call, response: Response) {
                 getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Successfully created organization",
+                    Toast.makeText(context, "Successfully updated person",
                         Toast.LENGTH_SHORT).show()
                 }
             }
@@ -222,29 +230,6 @@ class Repository @Inject constructor(val context: Context){
         })
     }
 
-    fun updatePerson(id: Int, body: JSONObject){
-        val client = OkHttpClient()
-        val url = ""
-
-        val request = Request.Builder()
-            .url(url)
-            .post(body.toString().toRequestBody(MEDIA_TYPE_JSON))
-            .build()
-        val response = client.newCall(request).enqueue(object : okhttp3.Callback{
-            override fun onFailure(call: Call, e: IOException) {
-                getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Failed to create organization", Toast.LENGTH_SHORT).show()
-                }            }
-
-            override fun onResponse(call: Call, response: Response) {
-                getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Successfully created organization",
-                        Toast.LENGTH_SHORT).show()
-                }
-            }
-
-        })
-    }
 
     companion object {
         val MEDIA_TYPE_JSON = "application/json; charset=utf-8".toMediaType()

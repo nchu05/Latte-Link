@@ -30,7 +30,7 @@ class RequestsRecyclerAdapter(private var dataset: List<RequestClass>): Recycler
 
     override fun onBindViewHolder(holder: RequestsRecyclerAdapter.ViewHolder, position: Int) {
         val request = dataset[position]
-        holder.title.text = "${request.requester.name} is coffee chatting ${request.receiver.name}"
+        holder.title.text = "${request.sender.name} is coffee chatting ${request.receiver.name}"
         holder.location.text = request.location
     }
 

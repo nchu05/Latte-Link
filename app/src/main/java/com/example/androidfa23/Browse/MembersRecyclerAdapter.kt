@@ -33,7 +33,6 @@ class MembersRecyclerAdapter (private var dataset: List<PersonClass>): RecyclerV
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val person = dataset[position]
         holder.personName.text = person.name
-        holder.personPosition.text = person.position
         holder.cardView.setOnClickListener{
             val intent = Intent(holder.itemView.context, IndividualPersonActivity::class.java)
             holder.itemView.context.startActivity(intent)

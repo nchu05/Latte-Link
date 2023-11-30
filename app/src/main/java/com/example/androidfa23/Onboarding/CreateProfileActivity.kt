@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -16,11 +17,13 @@ import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.androidfa23.AvailabilitiesAdapter
 import com.example.androidfa23.Browse.OrgRecyclerAdapter
 import com.example.androidfa23.Data.OrganizationClass
+import com.example.androidfa23.Data.Repository
 import com.example.androidfa23.MainActivity
 import com.example.androidfa23.R
 import com.example.androidfa23.WeeklyAvailabilitiesAdapter
 import com.vmadalin.easypermissions.EasyPermissions
 import com.vmadalin.easypermissions.dialogs.SettingsDialog
+import org.json.JSONObject
 
 class CreateProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +31,10 @@ class CreateProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_create_profile)
 
         val data : List<OrganizationClass> = arrayListOf()
+
+        val email = intent.extras?.getString("username")
+        val password = intent.extras?.getString("password")
+        val isnew = intent.extras?.getBoolean("new")
 
         val card : CardView = findViewById(R.id.card)
         card.setOnClickListener{
@@ -82,10 +89,7 @@ class CreateProfileActivity : AppCompatActivity() {
         }
 
         val continueButton : Button = findViewById(R.id.continueButton)
-        continueButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            com.example.androidfa23.intentLauncher.launch(intent)
-        }
+
         com.example.androidfa23.intentLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) {}
@@ -136,6 +140,43 @@ class CreateProfileActivity : AppCompatActivity() {
             }
 
         }
+
+        val name: EditText = findViewById(R.id.nameText)
+        val year: EditText = findViewById(R.id.classText)
+        val major: EditText = findViewById(R.id.majorText)
+        val bio: EditText = findViewById(R.id.bioText)
+        val email1: EditText = findViewById(R.id.emailET)
+        val instagram: EditText = findViewById(R.id.instagramET)
+        val linkedIn: EditText = findViewById(R.id.linkedInET)
+
+        continueButton.setOnClickListener {
+            if (isnew!=null && isnew==true){
+                val body: JSONObject = JSONObject()
+                body.put("name", name.text)
+                body.put("login_email", email)
+                body.put("login_password", password)
+                var instance = Repository(this)
+
+                var index = instance.postPerson(body)
+
+                val body1: JSONObject = JSONObject()
+                body.put("year", year.text)
+                body.put("major", major.text)
+                body.put("pfp", null)
+                body.put("bio", year.text)
+                body.put("email", email1.text)
+                body.put("banner", null)
+                body.put("instagram", instagram.text)
+                body.put("linkedin", linkedIn.text)
+                instance.updatePerson(body1, index)
+            }
+            val intent = Intent(this, MainActivity::class.java)
+            com.example.androidfa23.intentLauncher.launch(intent)
+        }
+
+
+
+
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)

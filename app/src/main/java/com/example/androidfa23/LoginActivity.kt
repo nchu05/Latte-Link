@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -18,6 +19,8 @@ class LoginActivity : AppCompatActivity() {
 
         val createAccountButton : ImageView = findViewById(R.id.createAccountButton)
         val alreadyHaveAccountButton : Button = findViewById(R.id.alreadyHaveAccountButton)
+        val emailET: EditText = findViewById(R.id.emailET)
+        val password: EditText = findViewById(R.id.passwordET)
 
         fun clickListener(): View.OnClickListener? {
             createAccountButton.setImageResource(R.drawable.sign_in_button)
@@ -31,6 +34,8 @@ class LoginActivity : AppCompatActivity() {
                 alreadyHaveAccountButton.setText(R.string.i_already_have_an_account)
                 createAccountButton.setOnClickListener{
                     val intent = Intent(this, SpecifyRoleActivity::class.java)
+                    intent.putExtra("username", emailET.text)
+                    intent.putExtra("password", password.text)
                     intentLauncher.launch(intent)
                 }
                 alreadyHaveAccountButton.setOnClickListener(clickListener())
@@ -41,6 +46,8 @@ class LoginActivity : AppCompatActivity() {
 
         createAccountButton.setOnClickListener {
             val intent = Intent(this, SpecifyRoleActivity::class.java)
+            intent.putExtra("username", emailET.text)
+            intent.putExtra("password", password.text)
             intentLauncher.launch(intent)
         }
         alreadyHaveAccountButton.setOnClickListener {clickListener()}

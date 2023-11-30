@@ -48,7 +48,7 @@ class ReceivedRecyclerAdapter (private var dataset: List<RequestClass>): Recycle
         val request = dataset[position]
         holder.title.text = "Request for ${request.dateTime}"
         holder.location.text = request.location
-        holder.person.text = "From ${request.requester.name}"
+        holder.person.text = "From ${request.sender.name}"
         if (request.accepted==true){
             holder.card.setBackgroundColor(ContextCompat.getColor(holder.card.context, R.color.beige))
             holder.yes.setImageResource(R.drawable.y_coffee_chat_selected_green)
