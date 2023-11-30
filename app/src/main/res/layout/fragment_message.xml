@@ -9,12 +9,11 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="154dp"
-        android:layout_height="200dp"
-        android:layout_marginEnd="256dp"
+        android:layout_width="168dp"
+        android:layout_height="170dp"
         android:src="@drawable/background_lines_reversed"
-        app:layout_constraintBottom_toTopOf="@+id/fragContainerView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title"
