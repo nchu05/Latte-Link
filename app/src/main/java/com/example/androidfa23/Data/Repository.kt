@@ -126,86 +126,6 @@ class Repository @Inject constructor(val context: Context){
         })
     }
 
-    fun postPerson(body: JSONObject): Int{
-        val client = OkHttpClient()
-        val url = "http://35.245.150.19/register/users/"
-        var returnvalue = -1
-        val request = Request.Builder()
-            .url(url)
-            .post(body.toString().toRequestBody(MEDIA_TYPE_JSON))
-            .build()
-        val response = client.newCall(request).enqueue(object : okhttp3.Callback{
-            override fun onFailure(call: Call, e: IOException) {
-                getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Failed to create profile", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onResponse(call: Call, response: Response){
-                getActivity(context)?.runOnUiThread{
-                    val s = response.body.toString()
-                    val index1 = s.indexOf("id")
-                    //returnvalue = s.substring(index1+6, index1+7).toInt()
-
-                    Toast.makeText(context, "${s}",
-                        Toast.LENGTH_LONG).show()
-                    returnvalue = 0
-                }
-            }
-
-        })
-
-        return returnvalue
-    }
-
-    fun updatePerson(body: JSONObject, id: Int){
-        val client = OkHttpClient()
-        val url = "http://35.245.150.19/api/users/${id}/"
-
-        val request = Request.Builder()
-            .url(url)
-            .post(body.toString().toRequestBody(MEDIA_TYPE_JSON))
-            .build()
-        val response = client.newCall(request).enqueue(object : okhttp3.Callback{
-            override fun onFailure(call: Call, e: IOException) {
-                getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Failed to update person", Toast.LENGTH_SHORT).show()
-                }            }
-
-            override fun onResponse(call: Call, response: Response) {
-                getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Successfully updated person",
-                        Toast.LENGTH_SHORT).show()
-                }
-            }
-
-        })
-    }
-
-    fun postRequest(body: JSONObject){
-        val client = OkHttpClient()
-        val url = ""
-
-        val request = Request.Builder()
-            .url(url)
-            .post(body.toString().toRequestBody(MEDIA_TYPE_JSON))
-            .build()
-        val response = client.newCall(request).enqueue(object : okhttp3.Callback{
-            override fun onFailure(call: Call, e: IOException) {
-                getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Failed to create organization", Toast.LENGTH_SHORT).show()
-                }            }
-
-            override fun onResponse(call: Call, response: Response) {
-                getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Successfully created organization",
-                        Toast.LENGTH_SHORT).show()
-                }
-            }
-
-        })
-    }
-
     fun updateOrg(id: Int, body: JSONObject){
         val client = OkHttpClient()
         val url = ""
@@ -230,6 +150,96 @@ class Repository @Inject constructor(val context: Context){
         })
     }
 
+    fun postPerson(body: JSONObject): Int{
+        val client = OkHttpClient()
+        val url = "http://35.245.150.19/register/user/"
+        var returnvalue = -1
+        val request = Request.Builder()
+            .url(url)
+            .post(body.toString().toRequestBody(MEDIA_TYPE_JSON))
+            .build()
+        val response = client.newCall(request).enqueue(object : okhttp3.Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                getActivity(context)?.runOnUiThread{
+                    Toast.makeText(context, "Failed to create profile", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response){
+                getActivity(context)?.runOnUiThread{
+                    val s = response.body?.string()
+                    val index1 = s?.indexOf("id")
+                    //returnvalue = s.substring(index1+6, index1+7).toInt()
+
+                    Toast.makeText(context, "created profile successfully",
+                        Toast.LENGTH_LONG).show()
+                    returnvalue = 0
+                    response.body.let{
+                        it?.string()?.let { it1 -> Log.e("JSONBODY", it1) }
+                    }
+                }
+            }
+
+        })
+
+        return returnvalue
+    }
+
+    fun updatePerson(body: JSONObject, id: Int): String?{
+        val client = OkHttpClient()
+        val url = "http://35.245.150.19/api/users/${id}/"
+        var str: String? = ""
+        val request = Request.Builder()
+            .url(url)
+            .post(body.toString().toRequestBody(MEDIA_TYPE_JSON))
+            .build()
+        val response = client.newCall(request).enqueue(object : okhttp3.Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                getActivity(context)?.runOnUiThread{
+                    Toast.makeText(context, "Failed to update person", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                getActivity(context)?.runOnUiThread{
+                    Toast.makeText(context, "Updates profile successfully",
+                        Toast.LENGTH_LONG).show()
+                    response.body.let{
+                        it?.string()?.let { it1 -> Log.e("JSONBODY", it1) }
+                    }
+
+                }
+
+            }
+
+        })
+        return str
+    }
+
+    fun postRequest(body: JSONObject){
+        val client = OkHttpClient()
+        val url = ""
+
+        val request = Request.Builder()
+            .url(url)
+            .post(body.toString().toRequestBody(MEDIA_TYPE_JSON))
+            .build()
+        val response = client.newCall(request).enqueue(object : okhttp3.Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                getActivity(context)?.runOnUiThread{
+                    Toast.makeText(context, "Failed to create request", Toast.LENGTH_SHORT).show()
+                }            }
+
+            override fun onResponse(call: Call, response: Response) {
+                getActivity(context)?.runOnUiThread{
+                    Toast.makeText(context, "Successfully created request",
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        })
+    }
 
     companion object {
         val MEDIA_TYPE_JSON = "application/json; charset=utf-8".toMediaType()

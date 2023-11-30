@@ -168,9 +168,10 @@ class CreateProfileActivity : AppCompatActivity() {
                 body.put("banner", null)
                 body.put("instagram", instagram.text)
                 body.put("linkedin", linkedIn.text)
-                instance.updatePerson(body1, index)
+                val str = instance.updatePerson(body1, index)
             }
             val intent = Intent(this, MainActivity::class.java)
+
             com.example.androidfa23.intentLauncher.launch(intent)
         }
 
