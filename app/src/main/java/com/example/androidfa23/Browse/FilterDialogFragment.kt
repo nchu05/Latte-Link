@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidfa23.Data.OrganizationClass
+import com.example.androidfa23.Data.FilterClass
 import com.example.androidfa23.R
-import com.example.androidfa23.Data.Repository
-import java.util.Locale
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,15 +21,13 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [BrowseOrganizationFragment.newInstance] factory method to
+ * Use the [FilterDialogFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class BrowseOrganizationFragment : Fragment() {
+class FilterDialogFragment : DialogFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var orgsList: MutableList<OrganizationClass> = mutableListOf()
-    private lateinit var recycler : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,39 +42,26 @@ class BrowseOrganizationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_organization, container, false)
-        recycler = view.findViewById(R.id.recyclerView)
-        val adapter = OrgRecyclerAdapter(orgsList)
-        recycler.adapter = adapter
-        recycler.layoutManager = GridLayoutManager(context, 2)
+        val view : View = inflater.inflate(R.layout.fragment_filter_dialog, container, false)
+        val X : TextView = view.findViewById(R.id.closeButton)
+        val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
+        val data = listOf(
+            FilterClass("Art"),
+            FilterClass("Consulting"),
+            FilterClass("Computer Science"),
+            FilterClass("Cultural"),
+            FilterClass("Design"),
+        )
+        recycler.adapter = FilterRecyclerAdapter(data)
+        recycler.layoutManager = LinearLayoutManager(context)
+        val saveButton : ImageView = view.findViewById(R.id.saveButton)
+        saveButton.setOnClickListener {
+            dismiss()
+        }
+        X.setOnClickListener {
+            dismiss()
+        }
         return view
-    }
-
-    private fun displayOrgs(parsedOrgs : List<OrganizationClass>?, adapter: OrgRecyclerAdapter?) {
-        if (parsedOrgs != null) {
-            for (current : OrganizationClass in parsedOrgs) {
-                orgsList.add(current)
-                adapter?.notifyItemInserted(orgsList.size-1)
-            }
-        }
-    }
-
-    private fun onQueryChanged(filterQuery: String): List<OrganizationClass> {
-        val filteredList = ArrayList<OrganizationClass>()
-        for (currentOrg in orgsList) {
-            if (currentOrg.name.lowercase(Locale.getDefault()).contains(filterQuery)) {
-                filteredList.add(currentOrg)
-            }
-        }
-        return filteredList
-    }
-
-    fun filterWithQuery(query: String) {
-        if (query.isNotEmpty()) {
-            val filteredList: List<OrganizationClass> = onQueryChanged(query)
-            val adapter = OrgRecyclerAdapter(filteredList)
-            recycler.adapter = adapter
-        }
     }
 
     companion object {
@@ -84,12 +71,12 @@ class BrowseOrganizationFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment OrganizationFragment.
+         * @return A new instance of fragment FilterDialog.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            BrowseOrganizationFragment().apply {
+            FilterDialogFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

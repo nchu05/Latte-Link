@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.EditText
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainer
-import androidx.fragment.app.FragmentContainerView
-import androidx.recyclerview.widget.RecyclerView
+import com.example.androidfa23.Onboarding.AddInvolvementsDialogFragment
 import com.example.androidfa23.R
 import com.google.android.material.tabs.TabLayout
 
@@ -27,8 +26,6 @@ class BrowseFragment : Fragment() {
     private var param2: String? = null
     // TODO: change into List
     //private var data = ArrayList<OrganizationClass>()
-    private lateinit var recycler: RecyclerView
-    private lateinit var adapter: OrgRecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,11 +42,21 @@ class BrowseFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_browse, container, false)
         val tabLayout : TabLayout = view.findViewById(R.id.tabLayout)
-        val title : TextView = view.findViewById(R.id.title)
+        val search : EditText = view.findViewById(R.id.searchOrgET)
+        val filterIcon : ImageView = view.findViewById(R.id.filterIcon)
+        val searchIcon : ImageView = view.findViewById(R.id.searchIcon)
+        val browseOrganizationFragment : BrowseOrganizationFragment = BrowseOrganizationFragment.newInstance("", "")
+        val browsePeopleFragment : BrowsePeopleFragment = BrowsePeopleFragment.newInstance("", "")
+
+        filterIcon.setOnClickListener {
+            val newFragment = FilterDialogFragment()
+            newFragment.show(childFragmentManager, "Filter")
+        }
+
         parentFragmentManager.beginTransaction()
             .replace(
                 R.id.fragContainerView,
-                BrowseOrganizationFragment.newInstance("","")
+                browseOrganizationFragment
             )
             .commit()
         tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
@@ -57,10 +64,13 @@ class BrowseFragment : Fragment() {
                 if (tab != null) {
                     when (tab.position) {
                         0 -> {
+                            searchIcon.setOnClickListener {
+                                browseOrganizationFragment.filterWithQuery(search.text.toString())
+                            }
                             parentFragmentManager.beginTransaction()
                                 .replace(
                                     R.id.fragContainerView,
-                                    BrowseOrganizationFragment.newInstance("","")
+                                    browseOrganizationFragment
                                 )
                                 .commit()
                         }
@@ -68,7 +78,7 @@ class BrowseFragment : Fragment() {
                             parentFragmentManager.beginTransaction()
                                 .replace(
                                     R.id.fragContainerView,
-                                    BrowsePeopleFragment.newInstance("","")
+                                    browsePeopleFragment
                                 )
                                 .commit()
                         }

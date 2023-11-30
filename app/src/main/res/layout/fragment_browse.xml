@@ -49,7 +49,7 @@
             android:background="@drawable/browse_edit_text_border"
             android:inputType="text"
             android:textColor="@color/darkGreen" />
-    </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
         android:id="@+id/searchIcon"
