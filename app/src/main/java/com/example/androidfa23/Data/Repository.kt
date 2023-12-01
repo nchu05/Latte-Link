@@ -104,24 +104,32 @@ class Repository @Inject constructor(val context: Context){
         return res
     }
 
-    fun postOrg(body: JSONObject){
+    fun postOrg(jsonbody: JSONObject){
         val client = OkHttpClient()
-        val url = ""
-
+        val url = "http://35.245.150.19/register/org/"
+        var returnvalue = 0
         val request = Request.Builder()
             .url(url)
-            .post(body.toString().toRequestBody(MEDIA_TYPE_JSON))
+            .post(jsonbody.toString().toRequestBody(MEDIA_TYPE_JSON))
             .build()
+        Log.e("JSON", jsonbody.toString())
         val response = client.newCall(request).enqueue(object : okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
                 getActivity(context)?.runOnUiThread{
                     Toast.makeText(context, "Failed to create organization", Toast.LENGTH_SHORT).show()
-                }            }
-
-            override fun onResponse(call: Call, response: Response) {
+                    Log.e("JSON", "FAILED?")
+                }
+            }
+            override fun onResponse(call: Call, response: Response){
                 getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Successfully created organization",
-                        Toast.LENGTH_SHORT).show()
+                    val s = response.body?.string()
+                    val index1 = s?.indexOf("id")
+                    //returnvalue = s.substring(index1+6, index1+7).toInt()
+                    Toast.makeText(context, "created organization successfully", Toast.LENGTH_LONG).show()
+                    //Log.e("JSON", "DID NOT FAIL")
+                    Log.e("JSON", "" + response )
+                    //response.body?.let { Log.e("JSON", "Post organization response after" + it.string()) }
+                    returnvalue = 0
                 }
             }
 
@@ -176,7 +184,7 @@ class Repository @Inject constructor(val context: Context){
                     Toast.makeText(context, "created profile successfully", Toast.LENGTH_LONG).show()
                     //Log.e("JSON", "DID NOT FAIL")
                     Log.e("JSON", "" + response )
-                    response.body?.let { Log.e("JSON", "Post person response after" + it.string()) }
+                    //response.body?.let { Log.e("JSON", "Post person response after" + it.string()) }
                     returnvalue = 0
                 }
             }
