@@ -34,6 +34,7 @@ import kotlinx.coroutines.launch
 
 class CreateProfileActivity : AppCompatActivity() {
     lateinit var profileImageView : ImageView
+    lateinit var backgroundImageView: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,7 @@ class CreateProfileActivity : AppCompatActivity() {
 
         val data : List<OrganizationClass> = arrayListOf()
         profileImageView = findViewById(R.id.profileImageView)
+        backgroundImageView = findViewById(R.id.backgroundImageView)
         val email = intent.extras?.getString("username")
         val password = intent.extras?.getString("password")
         val isnew = intent.extras?.getBoolean("new")
@@ -165,6 +167,16 @@ class CreateProfileActivity : AppCompatActivity() {
                 requestPermissions.launch(arrayOf(READ_EXTERNAL_STORAGE))
             }
 
+        }
+        val background : CardView = findViewById(R.id.cardView3)
+        background.setOnClickListener {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                requestPermissions.launch(arrayOf(READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_VISUAL_USER_SELECTED))
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                requestPermissions.launch(arrayOf(READ_MEDIA_IMAGES, READ_MEDIA_VIDEO))
+            } else {
+                requestPermissions.launch(arrayOf(READ_EXTERNAL_STORAGE))
+            }
         }
 
         val name: EditText = findViewById(R.id.nameText)
