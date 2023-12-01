@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="8dp"
+    tools:context=".Onboarding.AvailabilitiesDialogFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Onboarding.CreateProfileActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/closeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:clickable="true"
+                android:fontFamily="@font/robotobold"
+                android:text="X"
+                android:textSize="22dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/almostLinkedTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_x="122dp"
+                android:layout_y="65dp"
+                android:fontFamily="@font/roboto"
+                android:text="Almost Linked!"
+                android:textColor="@color/brown"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/timeProposedTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:text="Time Proposed:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/almostLinkedTitle" />
+
+            <TextView
+                android:id="@+id/proposedLocationTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="50dp"
+                android:text="Proposed Location:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/timeProposedTV" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/timeProposedET"
+                android:layout_width="230dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="36dp"
+                android:hint="Mon. 12/11, 10-10:30PM"
+                app:circularflow_radiusInDP="25dp"
+                app:hintTextColor="@color/darkGreen"
+                app:layout_constraintBottom_toBottomOf="@+id/timeProposedTV"
+                app:layout_constraintStart_toEndOf="@+id/timeProposedTV"
+                app:layout_constraintTop_toTopOf="@+id/timeProposedTV"
+                app:layout_constraintVertical_bias="0.405">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/searchPositionET"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/position_in_org"
+                    android:inputType="text"
+                    android:textColor="@color/darkGreen"
+                    tools:layout_editor_absoluteX="18dp"
+                    tools:layout_editor_absoluteY="194dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/proposedLocationET"
+                android:layout_width="230dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="12dp"
+                android:hint="Mac's Cafe"
+                app:circularflow_radiusInDP="25dp"
+                app:hintTextColor="@color/darkGreen"
+                app:layout_constraintBottom_toBottomOf="@+id/proposedLocationTV"
+                app:layout_constraintStart_toEndOf="@+id/proposedLocationTV"
+                app:layout_constraintTop_toTopOf="@+id/proposedLocationTV"
+                app:layout_constraintVertical_bias="0.513">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/position_in_org"
+                    android:inputType="text"
+                    android:textColor="@color/darkGreen"
+                    tools:layout_editor_absoluteX="18dp"
+                    tools:layout_editor_absoluteY="194dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/messageTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="50dp"
+                android:text="Message:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/proposedLocationTV" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/messageET"
+                android:layout_width="360dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp"
+                android:hint="Write a personalized message!"
+                app:circularflow_radiusInDP="25dp"
+                app:hintTextColor="@color/darkGreen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.545"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/messageTV">
+
+                <EditText
+                    android:id="@+id/editTextTextMultiLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/login_edit_text_border"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:layout_width="169dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/send_request_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/messageET"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</androidx.cardview.widget.CardView>

@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha02")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
     implementation("androidx.core:core-ktx:1.12.0")

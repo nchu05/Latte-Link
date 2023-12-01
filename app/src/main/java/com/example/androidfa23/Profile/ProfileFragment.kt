@@ -1,17 +1,18 @@
-package com.example.androidfa23
+package com.example.androidfa23.Profile
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Browse.OrgRecyclerAdapter
 import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.Onboarding.CreateProfileActivity
+import com.example.androidfa23.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

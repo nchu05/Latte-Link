@@ -2,9 +2,8 @@ package com.example.androidfa23
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentContainer
-import androidx.fragment.app.FragmentFactory
 import com.example.androidfa23.Browse.BrowseFragment
+import com.example.androidfa23.Profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

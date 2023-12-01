@@ -1,37 +1,46 @@
 package com.example.androidfa23.Onboarding
 
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
+import android.Manifest.permission.READ_MEDIA_IMAGES
+import android.Manifest.permission.READ_MEDIA_VIDEO
+import android.Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED
 import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
+import androidx.core.content.PermissionChecker.PERMISSION_GRANTED
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
-import com.example.androidfa23.AvailabilitiesAdapter
 import com.example.androidfa23.Browse.OrgRecyclerAdapter
 import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.Data.Repository
 import com.example.androidfa23.MainActivity
 import com.example.androidfa23.R
 import com.example.androidfa23.WeeklyAvailabilitiesAdapter
-import com.vmadalin.easypermissions.EasyPermissions
-import com.vmadalin.easypermissions.dialogs.SettingsDialog
 import org.json.JSONObject
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class CreateProfileActivity : AppCompatActivity() {
+    lateinit var profileImageView : ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_profile)
 
         val data : List<OrganizationClass> = arrayListOf()
-
+        profileImageView = findViewById(R.id.profileImageView)
         val email = intent.extras?.getString("username")
         val password = intent.extras?.getString("password")
         val isnew = intent.extras?.getBoolean("new")
@@ -120,22 +129,40 @@ class CreateProfileActivity : AppCompatActivity() {
         saturdayButton.setOnClickListener{onClickHandler("Saturday")}
         sundayButton.setOnClickListener{onClickHandler("Sunday")}
 
-        //TODO FIX
+        val requestPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { results ->
+            if (
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                (
+                        ContextCompat.checkSelfPermission(this, READ_MEDIA_IMAGES) == PERMISSION_GRANTED ||
+                                ContextCompat.checkSelfPermission(this, READ_MEDIA_VIDEO) == PERMISSION_GRANTED
+                        )
+            ) {
+                val intent = Intent(MediaStore.ACTION_PICK_IMAGES)
+                // starting activity on below line.
+                startActivityForResult(intent, 1)
+            } else if (
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
+                ContextCompat.checkSelfPermission(this, READ_MEDIA_VISUAL_USER_SELECTED) == PERMISSION_GRANTED
+            ) {
+                val intent = Intent(MediaStore.ACTION_PICK_IMAGES)
+                // starting activity on below line.
+                startActivityForResult(intent, 1)
+            }  else if (ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) == PERMISSION_GRANTED) {
+                val intent = Intent(MediaStore.ACTION_PICK_IMAGES)
+                // starting activity on below line.
+                startActivityForResult(intent, 1)
+            } else {
+                Toast.makeText(this, "Permission required to upload images.", Toast.LENGTH_SHORT).show()
+            }
+        }
         val profile : CardView = findViewById(R.id.cardView2)
         profile.setOnClickListener {
-            if (!EasyPermissions.hasPermissions(
-                    this,
-                    android.Manifest.permission.READ_EXTERNAL_STORAGE
-                )
-            ) {
-                EasyPermissions.requestPermissions(
-                    host = this,
-                    rationale = "Gallery access required to upload photo.",
-                    requestCode = 1,
-                    perms = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE)
-                )
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                requestPermissions.launch(arrayOf(READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_VISUAL_USER_SELECTED))
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                requestPermissions.launch(arrayOf(READ_MEDIA_IMAGES, READ_MEDIA_VIDEO))
             } else {
-                Log.d("LOG", "Permission already granted.")
+                requestPermissions.launch(arrayOf(READ_EXTERNAL_STORAGE))
             }
 
         }
@@ -176,31 +203,25 @@ class CreateProfileActivity : AppCompatActivity() {
         }
 
     }
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        // EasyPermissions handles the request result as opposed to regular Android
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
-    }
-
-    fun onPermissionsDenied(requestCode: Int, perms: List<String>) {
-        // Check whether the user denied any permissions and checked "NEVER ASK AGAIN."
-        // This will display a dialog directing them to enable the permission in app settings.
-        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
-            SettingsDialog.Builder(this).build().show()
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 1) {
-            // Do something after user returned from app settings screen, e.g. check to see
-            // if the permissions have been enabled!
-        }
-    }
 
     private fun onClickHandler(day: String) {
         val newFragment = AvailabilitiesDialogFragment(day)
         newFragment.show(supportFragmentManager, "Availabilities")
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode === RESULT_OK) {
+            // compare the resultCode with the
+            // constant
+            if (requestCode === 1) {
+                // Get the url of the image from data
+                val selectedImageUri: Uri = data?.data!!
+                if (null != selectedImageUri) {
+                    // update the image view in the layout
+                    profileImageView.setImageURI(selectedImageUri)
+                }
+            }
+        }
     }
 }
