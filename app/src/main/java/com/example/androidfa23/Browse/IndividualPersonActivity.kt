@@ -29,10 +29,12 @@ class IndividualPersonActivity : AppCompatActivity() {
             OrganizationClass(
                 id = 1,
                 name = "Org 1",
+                org_pfp=""
             ),
             OrganizationClass(
                 id = 2,
                 name = "Org 2",
+                org_pfp=""
             ),
         )
         repeat(2){

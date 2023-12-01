@@ -16,6 +16,11 @@ import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import okhttp3.Call
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import java.io.IOException
 import java.util.Locale
 
 // TODO: Rename parameter arguments, choose names that match
@@ -32,9 +37,8 @@ class BrowseOrganizationFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var orgsList: MutableList<OrganizationClass> = mutableListOf()
     private lateinit var recycler : RecyclerView
-
+    private lateinit var orgsList: List<OrganizationClass>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -50,26 +54,48 @@ class BrowseOrganizationFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_organization, container, false)
         recycler = view.findViewById(R.id.recyclerView)
-        val adapter = OrgRecyclerAdapter(orgsList)
-        recycler.adapter = adapter
-        recycler.layoutManager = GridLayoutManager(context, 2)
         val repository = Repository(view.context)
-        displayOrgs(repository.fetchAllOrgs(), adapter)
+
+        val url = "http://35.245.150.19/api/orgs/"
+        val client = OkHttpClient()
+        val request = Request.Builder().url(url).get().build()
+
+        val response = client.newCall(request).enqueue(object :okhttp3.Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e(TAG, "onFailure: Failed")
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                Log.d(TAG, "Success!")
+                val res = response.body?.string()
+                Log.e("JSON", "res"+ res)
+                var orgsList = parseOrgs(res)
+                if (orgsList!=null){
+                    val adapter = OrgRecyclerAdapter(orgsList)
+                    getActivity()?.runOnUiThread{
+                        recycler.adapter = adapter
+                        recycler.layoutManager = GridLayoutManager(context, 2)
+                    }
+                }
+                Log.e("JSON", "res"+ res)
+            }
+        })
+
         return view
     }
 
-    private fun displayOrgs(res : String?, adapter: OrgRecyclerAdapter?) {
-        if (res != "") {
-            val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
+    private fun parseOrgs(res : String?): List<OrganizationClass>? {
+        try{
+            val moshi = Moshi.Builder().addLast(com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory()).build()
             val noteListType = Types.newParameterizedType(List::class.java, OrganizationClass::class.java)
             val jsonAdapter: JsonAdapter<List<OrganizationClass>> = moshi.adapter(noteListType)
             val parsedOrgs =  jsonAdapter.fromJson(res)
-            if (parsedOrgs != null) {
-                for (current : OrganizationClass in parsedOrgs) {
-                    orgsList.add(current)
-                    adapter?.notifyItemInserted(orgsList.size-1)
-                }
-            }
+            Log.e("JSON", "success")
+            Log.e("JSON", parsedOrgs.toString())
+            return parsedOrgs
+        }catch (x:Exception){
+            Log.e("error", x.toString())
+            return null
         }
     }
 

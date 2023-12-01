@@ -26,24 +26,23 @@ import javax.inject.Singleton
 
 @Singleton
 class Repository @Inject constructor(val context: Context){
+
     fun fetchAllOrgs(): String?{
         val url = "http://35.245.150.19/api/orgs/"
         val client = OkHttpClient()
         val request = Request.Builder().url(url).get().build()
         var res: String? = ""
-        client.newCall(request).enqueue(object :okhttp3.Callback{
-            override fun onFailure(call: Call, e: IOException) {
-                getActivity(context)?.runOnUiThread{
-                    Log.e(TAG, "onFailure: Failed")
 
-                }
+        val response = client.newCall(request).enqueue(object :okhttp3.Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                    Log.e(TAG, "onFailure: Failed")
             }
 
             override fun onResponse(call: Call, response: Response) {
                 Log.d(TAG, "Success!")
                 res = response.body?.string()
+                Log.e("JSON", "res"+ res)
             }
-
         })
         return res
     }
@@ -55,10 +54,8 @@ class Repository @Inject constructor(val context: Context){
         var res: String? = ""
         client.newCall(request).enqueue(object :okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
-                getActivity(context)?.runOnUiThread{
                     Log.e(ContentValues.TAG, "onFailure: Failed")
 
-                }
             }
 
             override fun onResponse(call: Call, response: Response) {
@@ -76,10 +73,9 @@ class Repository @Inject constructor(val context: Context){
         var res: String? = ""
         client.newCall(request).enqueue(object :okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
-                getActivity(context)?.runOnUiThread{
                     Log.e(ContentValues.TAG, "onFailure: Failed")
 
-                }
+
             }
 
             override fun onResponse(call: Call, response: Response) {
@@ -97,10 +93,8 @@ class Repository @Inject constructor(val context: Context){
         var res: String? = ""
         client.newCall(request).enqueue(object :okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
-                getActivity(context)?.runOnUiThread{
                     Log.e(ContentValues.TAG, "onFailure: Failed")
 
-                }
             }
 
             override fun onResponse(call: Call, response: Response) {
@@ -122,23 +116,23 @@ class Repository @Inject constructor(val context: Context){
         Log.e("JSON", jsonbody.toString())
         val response = client.newCall(request).enqueue(object : okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
-                getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Failed to create organization", Toast.LENGTH_SHORT).show()
+
+
                     Log.e("JSON", "FAILED?")
-                }
+
             }
             override fun onResponse(call: Call, response: Response){
-                getActivity(context)?.runOnUiThread{
-                    val s = response.body?.string()
-                    val index1 = s?.indexOf("id")
+
+                    //val s = response.body?.string()
+                    //val index1 = s?.indexOf("id")
                     //returnvalue = s.substring(index1+6, index1+7).toInt()
-                    Toast.makeText(context, "created organization successfully", Toast.LENGTH_LONG).show()
-                    //Log.e("JSON", "DID NOT FAIL")
-                    Log.e("JSON", "" + response )
-                    //response.body?.let { Log.e("JSON", "Post organization response after" + it.string()) }
+
+
+                    Log.e("JSON", "response" +(response.body?.string() ?: "null") )
+
                     returnvalue = 0
                 }
-            }
+
 
         })
     }
@@ -178,22 +172,22 @@ class Repository @Inject constructor(val context: Context){
         Log.e("JSON", jsonbody.toString())
         val response = client.newCall(request).enqueue(object : okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
-                getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Failed to create profile", Toast.LENGTH_SHORT).show()
+
+
                     Log.e("JSON", "FAILED?")
-                }
+
             }
             override fun onResponse(call: Call, response: Response){
-                getActivity(context)?.runOnUiThread{
-                    val s = response.body?.string()
-                    val index1 = s?.indexOf("id")
+
+                    //val s = response.body?.string()
+                    //val index1 = s?.indexOf("id")
                     //returnvalue = s.substring(index1+6, index1+7).toInt()
-                    Toast.makeText(context, "created profile successfully", Toast.LENGTH_LONG).show()
+
                     //Log.e("JSON", "DID NOT FAIL")
-                    Log.e("JSON", "" + response )
+                    Log.e("JSON", "response" + (response.body?.string() ?: "null") )
                     //response.body?.let { Log.e("JSON", "Post person response after" + it.string()) }
                     returnvalue = 0
-                }
+
             }
 
         })
@@ -213,18 +207,18 @@ class Repository @Inject constructor(val context: Context){
         Log.e("JSON", jsonbody.toString())
         val response = client.newCall(request).enqueue(object : okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
-                getActivity(context)?.runOnUiThread{
+
                     Toast.makeText(context, "Failed to update person", Toast.LENGTH_SHORT).show()
                     Log.e("JSON", "FAILED?")
-                }
+
             }
 
             override fun onResponse(call: Call, response: Response) {
-                getActivity(context)?.runOnUiThread{
-                    Toast.makeText(context, "Updated profile successfully", Toast.LENGTH_LONG).show()
+
+
                     Log.e("JSON", "" + response)
                     response.body?.let { Log.e("JSON", "Update person response after" + it.string()) }
-                }
+
             }
         })
         return str
