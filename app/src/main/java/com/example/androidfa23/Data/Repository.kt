@@ -192,7 +192,7 @@ class Repository @Inject constructor(val context: Context){
         var str: String? = ""
         val request = Request.Builder()
             .url(url)
-            .post(jsonbody.toString().toRequestBody(MEDIA_TYPE_JSON))
+            .put(jsonbody.toString().toRequestBody(MEDIA_TYPE_JSON))
             .build()
 
         Log.e("JSON", jsonbody.toString())
@@ -207,7 +207,7 @@ class Repository @Inject constructor(val context: Context){
             override fun onResponse(call: Call, response: Response) {
                 getActivity(context)?.runOnUiThread{
                     Toast.makeText(context, "Updated profile successfully", Toast.LENGTH_LONG).show()
-                    Log.e("JSON", "" + response )
+                    Log.e("JSON", "" + response)
                     response.body?.let { Log.e("JSON", "Update person response after" + it.string()) }
                 }
             }
