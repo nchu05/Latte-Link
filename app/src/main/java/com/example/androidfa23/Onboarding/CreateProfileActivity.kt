@@ -99,6 +99,7 @@ class CreateProfileActivity : AppCompatActivity() {
         }
 
         val continueButton : Button = findViewById(R.id.continueButton)
+        var status: Boolean = false
 
         com.example.androidfa23.intentLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
@@ -109,10 +110,12 @@ class CreateProfileActivity : AppCompatActivity() {
         YButton.setOnClickListener {
             YButton.setImageResource(R.drawable.y_coffee_chat_selected)
             NButton.setImageResource(R.drawable.n_coffee_chat)
+            status = true
         }
         NButton.setOnClickListener {
             NButton.setImageResource(R.drawable.n_coffee_chat_selected)
             YButton.setImageResource(R.drawable.y_coffee_chat)
+            status = false
         }
 
         val mondayButton : ImageView = findViewById(R.id.monButton)
@@ -203,6 +206,7 @@ class CreateProfileActivity : AppCompatActivity() {
                 body1.put("bio", year.text)
                 body1.put("email", email1.text)
                 body1.put("banner", backgroundImageView.drawable)
+                body1.put("status", status)
                 body1.put("instagram", instagram.text)
                 body1.put("linkedin", linkedIn.text)
 

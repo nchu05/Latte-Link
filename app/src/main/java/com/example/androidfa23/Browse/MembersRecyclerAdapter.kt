@@ -35,6 +35,7 @@ class MembersRecyclerAdapter (private var dataset: List<PersonClass>): RecyclerV
         holder.personName.text = person.name
         holder.cardView.setOnClickListener{
             val intent = Intent(holder.itemView.context, IndividualPersonActivity::class.java)
+            intent.putExtra("id", person.id)
             holder.itemView.context.startActivity(intent)
         }
     }

@@ -81,8 +81,8 @@ class BrowsePeopleFragment : Fragment() {
     private fun parsePeople(res : String?): List<PersonClass>? {
         try{
             val moshi = Moshi.Builder().addLast(com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory()).build()
-            val noteListType = Types.newParameterizedType(List::class.java, PersonClass::class.java)
-            val jsonAdapter: JsonAdapter<List<PersonClass>> = moshi.adapter(noteListType)
+            val userListType = Types.newParameterizedType(List::class.java, PersonClass::class.java)
+            val jsonAdapter: JsonAdapter<List<PersonClass>> = moshi.adapter(userListType)
             val parsedOrgs =  jsonAdapter.fromJson(res)
             Log.e("JSON", "success")
             Log.e("JSON", parsedOrgs.toString())

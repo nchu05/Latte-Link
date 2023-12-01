@@ -1,6 +1,7 @@
 package com.example.androidfa23.Browse
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +34,8 @@ class OrgRecyclerAdapter(private var dataset: List<OrganizationClass>): Recycler
         holder.orgName.text = org.name
         holder.card.setOnClickListener{
             val intent = Intent(holder.itemView.context, IndividualOrganizationActivity::class.java)
+            intent.putExtra("id", org.id.toString())
+            Log.e("JSON id", org.id.toString())
             holder.itemView.context.startActivity(intent)
         }
     }

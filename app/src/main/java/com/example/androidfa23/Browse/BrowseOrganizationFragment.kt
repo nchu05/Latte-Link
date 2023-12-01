@@ -87,8 +87,8 @@ class BrowseOrganizationFragment : Fragment() {
     private fun parseOrgs(res : String?): List<OrganizationClass>? {
         try{
             val moshi = Moshi.Builder().addLast(com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory()).build()
-            val noteListType = Types.newParameterizedType(List::class.java, OrganizationClass::class.java)
-            val jsonAdapter: JsonAdapter<List<OrganizationClass>> = moshi.adapter(noteListType)
+            val orgListType = Types.newParameterizedType(List::class.java, OrganizationClass::class.java)
+            val jsonAdapter: JsonAdapter<List<OrganizationClass>> = moshi.adapter(orgListType)
             val parsedOrgs =  jsonAdapter.fromJson(res)
             Log.e("JSON", "success")
             Log.e("JSON", parsedOrgs.toString())
