@@ -44,7 +44,6 @@ class IndividualOrganizationActivity : AppCompatActivity() {
         val tag2: TextView = findViewById(R.id.tag2)
         val tag3: TextView = findViewById(R.id.tag3)
         val url = "http://35.245.150.19/api/orgs/${id}"
-        Log.e("JSON", url)
         val client = OkHttpClient()
         val request = Request.Builder().url(url).get().build()
 
