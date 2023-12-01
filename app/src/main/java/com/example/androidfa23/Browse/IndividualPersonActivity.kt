@@ -8,14 +8,18 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Data.IndOrgClass
 import com.example.androidfa23.Data.IndPersonClass
 import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.MainActivity
 import com.example.androidfa23.Onboarding.CreateProfileActivity
+import com.example.androidfa23.ProfileTimesAdapter
 import com.example.androidfa23.R
+import com.example.androidfa23.WeeklyAvailabilitiesAdapter
 import com.google.android.material.internal.ContextUtils
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
@@ -37,7 +41,7 @@ class IndividualPersonActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-
+        val fragmentManager : FragmentManager = supportFragmentManager
 
         val name: TextView = findViewById(R.id.nameText)
         val year: TextView = findViewById(R.id.classText)
@@ -48,6 +52,41 @@ class IndividualPersonActivity : AppCompatActivity() {
         val linkedin: TextView = findViewById(R.id.linkedinText)
         val instagram: TextView = findViewById(R.id.instagramText)
         val facebook: TextView = findViewById(R.id.facebookText)
+
+        val monData : List<String> = listOf("10-10:30 AM", "10:30-11 AM")
+        val monRecycler : RecyclerView = findViewById(R.id.recyclerMon)
+        monRecycler.adapter = ProfileTimesAdapter(monData, fragmentManager)
+        monRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val tuesData : List<String> = listOf("11-11:30 AM")
+        val tuesRecycler : RecyclerView = findViewById(R.id.recyclerTues)
+        tuesRecycler.adapter = ProfileTimesAdapter(tuesData, fragmentManager)
+        tuesRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val wedData : List<String> = listOf()
+        val wedRecycler : RecyclerView = findViewById(R.id.recyclerWed)
+        wedRecycler.adapter = ProfileTimesAdapter(wedData, fragmentManager)
+        wedRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val thurData : List<String> = listOf("1-1:30 PM")
+        val thurRecycler : RecyclerView = findViewById(R.id.recyclerThu)
+        thurRecycler.adapter = ProfileTimesAdapter(thurData, fragmentManager)
+        thurRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val friData : List<String> = listOf()
+        val friRecycler : RecyclerView = findViewById(R.id.recyclerFri)
+        friRecycler.adapter = ProfileTimesAdapter(friData, fragmentManager)
+        friRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val satData : List<String> = listOf("10-10:30 AM", "10:30-11 AM", "11-11:30 AM", "11:30-12 PM")
+        val satRecycler : RecyclerView = findViewById(R.id.recyclerSat)
+        satRecycler.adapter = ProfileTimesAdapter(satData, fragmentManager)
+        satRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val sunData : List<String> = listOf()
+        val sunRecycler : RecyclerView = findViewById(R.id.recyclerSun)
+        sunRecycler.adapter = ProfileTimesAdapter(sunData, fragmentManager)
+        sunRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val url = "http://35.245.150.19/api/users/${id}"
         val client = OkHttpClient()
