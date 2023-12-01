@@ -44,7 +44,6 @@ class LoginActivity : AppCompatActivity() {
             }
             return null
         }
-        //TODO fix
 
         createAccountButton.setOnClickListener {
             val intent = Intent(this, SpecifyRoleActivity::class.java)

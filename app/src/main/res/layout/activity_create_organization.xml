@@ -33,7 +33,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/login_edit_text_border">
                     <ImageView
-                        android:id="@+id/imageView9"
+                        android:id="@+id/backgroundImageView"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,7 +74,7 @@
                     android:background="@drawable/login_edit_text_border">
 
                     <ImageView
-                        android:id="@+id/imageView8"
+                        android:id="@+id/profileImageView"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         app:layout_constraintBottom_toBottomOf="parent"

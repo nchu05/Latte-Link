@@ -27,18 +27,22 @@ class IndividualOrganizationActivity : AppCompatActivity() {
             PersonClass(
                 id = 1,
                 name = "Person 1",
+                pfp=""
             ),
             PersonClass(
                 id = 2,
                 name = "Person 2",
+                pfp=""
             ),
             PersonClass(
                 id = 3,
                 name = "Person 3",
+                pfp=""
             ),
             PersonClass(
                 id = 4,
                 name = "Person 4",
+                pfp=""
             ),
         )
         val adapter = MembersRecyclerAdapter(data)

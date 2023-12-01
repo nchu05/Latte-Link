@@ -1,13 +1,15 @@
 package com.example.androidfa23.Data
 
+import com.squareup.moshi.Json
+
 data class PersonClass(
     var id: Int,
     //var login_email: String,
     //var login_password: String,
     var name: String,
+    var pfp: String,
     //var year: Int,
     //var major: String,
-    //var pfp: String,
     //var banner: String,
     //var bio: String,
     //var instagram: String,

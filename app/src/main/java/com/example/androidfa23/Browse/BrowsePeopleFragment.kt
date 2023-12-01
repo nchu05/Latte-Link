@@ -1,14 +1,25 @@
 package com.example.androidfa23.Browse
 
+import android.content.ContentValues
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.Data.PersonClass
 import com.example.androidfa23.R
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import okhttp3.Call
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import java.io.IOException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,31 +50,47 @@ class BrowsePeopleFragment : Fragment() {
     ): View? {
         val view =  inflater.inflate(R.layout.fragment_people, container, false)
         val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
-        val data = arrayListOf(
-            PersonClass(
-                id = 1,
-                name = "Person 1",
-            ),
-            PersonClass(
-                id = 2,
-                name = "Person 2",
-            ),
-            PersonClass(
-                id = 3,
-                name = "Person 3",
-            ),
-            PersonClass(
-                id = 4,
-                name = "Person 4",
-            ),
-        )
-        repeat(4){
-            data.addAll(data)
-        }
-        val adapter = PeopleRecyclerAdapter(data)
-        recycler.adapter = adapter
-        recycler.layoutManager = GridLayoutManager(context, 2)
+        val url = "http://35.245.150.19/api/users/"
+        val client = OkHttpClient()
+        val request = Request.Builder().url(url).get().build()
+
+        val response = client.newCall(request).enqueue(object :okhttp3.Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e(ContentValues.TAG, "onFailure: Failed")
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                Log.d(ContentValues.TAG, "Success!")
+                val res = response.body?.string()
+                Log.e("JSON", "res"+ res)
+                var peopleList = parsePeople(res)
+                if (peopleList!=null){
+                    val adapter = PeopleRecyclerAdapter(peopleList)
+                    getActivity()?.runOnUiThread{
+                        recycler.adapter = adapter
+                        recycler.layoutManager = GridLayoutManager(context, 2)
+                    }
+                }
+                Log.e("JSON", "res"+ res)
+            }
+        })
         return view
+    }
+
+
+    private fun parsePeople(res : String?): List<PersonClass>? {
+        try{
+            val moshi = Moshi.Builder().addLast(com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory()).build()
+            val noteListType = Types.newParameterizedType(List::class.java, PersonClass::class.java)
+            val jsonAdapter: JsonAdapter<List<PersonClass>> = moshi.adapter(noteListType)
+            val parsedOrgs =  jsonAdapter.fromJson(res)
+            Log.e("JSON", "success")
+            Log.e("JSON", parsedOrgs.toString())
+            return parsedOrgs
+        }catch (x:Exception){
+            Log.e("error", x.toString())
+            return null
+        }
     }
 
     companion object {

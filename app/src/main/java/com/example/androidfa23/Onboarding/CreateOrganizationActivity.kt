@@ -18,6 +18,8 @@ class CreateOrganizationActivity : AppCompatActivity() {
 
         val continueButton : Button = findViewById(R.id.continueButton)
 
+        val profileImageView: ImageView = findViewById(R.id.profileImageView)
+        val backgroundImageView: ImageView = findViewById(R.id.backgroundImageView)
 
 
         val email = intent.extras?.getString("username")
@@ -36,7 +38,15 @@ class CreateOrganizationActivity : AppCompatActivity() {
 
                 var instance = Repository(this)
 
-                var index = instance.postOrg(body)
+                val body2 = JSONObject()
+
+                body2.put("name", name.text)
+                body2.put("pfp", profileImageView.drawable)
+                body2.put("pfp", backgroundImageView.drawable)
+                body2.put("bio", bio.text)
+
+                instance.postOrg(body, body2)
+
             }
 
             val intent = Intent(this, MainActivity::class.java)
