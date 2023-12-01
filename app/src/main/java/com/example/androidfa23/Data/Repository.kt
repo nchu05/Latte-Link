@@ -1,6 +1,7 @@
 package com.example.androidfa23.Data
 
 import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
@@ -19,19 +20,20 @@ import javax.inject.Singleton
 @Singleton
 class Repository @Inject constructor(val context: Context){
     fun fetchAllOrgs(): String?{
-        val url = ""
+        val url = "http://35.245.150.19/api/orgs/"
         val client = OkHttpClient()
         val request = Request.Builder().url(url).get().build()
         var res: String? = ""
         client.newCall(request).enqueue(object :okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
                 getActivity(context)?.runOnUiThread{
-                    Log.e(ContentValues.TAG, "onFailure: Failed")
+                    Log.e(TAG, "onFailure: Failed")
 
                 }
             }
 
             override fun onResponse(call: Call, response: Response) {
+                Log.d(TAG, "Success!")
                 res = response.body?.string()
             }
 

@@ -1,6 +1,8 @@
 package com.example.androidfa23.Browse
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.R
 import com.example.androidfa23.Data.Repository
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import java.util.Locale
 
 // TODO: Rename parameter arguments, choose names that match
@@ -47,14 +53,22 @@ class BrowseOrganizationFragment : Fragment() {
         val adapter = OrgRecyclerAdapter(orgsList)
         recycler.adapter = adapter
         recycler.layoutManager = GridLayoutManager(context, 2)
+        val repository = Repository(view.context)
+        displayOrgs(repository.fetchAllOrgs(), adapter)
         return view
     }
 
-    private fun displayOrgs(parsedOrgs : List<OrganizationClass>?, adapter: OrgRecyclerAdapter?) {
-        if (parsedOrgs != null) {
-            for (current : OrganizationClass in parsedOrgs) {
-                orgsList.add(current)
-                adapter?.notifyItemInserted(orgsList.size-1)
+    private fun displayOrgs(res : String?, adapter: OrgRecyclerAdapter?) {
+        if (res != "") {
+            val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
+            val noteListType = Types.newParameterizedType(List::class.java, OrganizationClass::class.java)
+            val jsonAdapter: JsonAdapter<List<OrganizationClass>> = moshi.adapter(noteListType)
+            val parsedOrgs =  jsonAdapter.fromJson(res)
+            if (parsedOrgs != null) {
+                for (current : OrganizationClass in parsedOrgs) {
+                    orgsList.add(current)
+                    adapter?.notifyItemInserted(orgsList.size-1)
+                }
             }
         }
     }
