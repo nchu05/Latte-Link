@@ -161,7 +161,7 @@ class Repository @Inject constructor(val context: Context){
         })
     }
 
-    fun postPerson(jsonbody: JSONObject): Int{
+    fun postPerson(jsonbody: JSONObject, jsonbody2: JSONObject){
         val client = OkHttpClient()
         val url = "http://35.245.150.19/register/user/"
         var returnvalue = 0
@@ -179,23 +179,22 @@ class Repository @Inject constructor(val context: Context){
             }
             override fun onResponse(call: Call, response: Response){
 
-                    //val s = response.body?.string()
-                    //val index1 = s?.indexOf("id")
-                    //returnvalue = s.substring(index1+6, index1+7).toInt()
+                    val s = response.body?.string()
 
-                    //Log.e("JSON", "DID NOT FAIL")
-                    Log.e("JSON", "response" + (response.body?.string() ?: "null") )
-                    //response.body?.let { Log.e("JSON", "Post person response after" + it.string()) }
-                    returnvalue = 0
+                    val index1 = s?.indexOf("id")?.plus(5)
+                    val index2 = s?.indexOf("session_token")?.minus(3)
+                    if (index1!=null && index2!=null){
+                        returnvalue = s?.substring(index1, index2)?.toInt() ?: -1
+                        Log.e("JSON", returnvalue.toString())
+                        updatePerson(jsonbody2, returnvalue)
+                    }
 
             }
 
         })
-
-        return returnvalue
     }
 
-    fun updatePerson(jsonbody: JSONObject, id: Int): String?{
+    fun updatePerson(jsonbody: JSONObject, id: Int){
         val client = OkHttpClient()
         val url = "http://35.245.150.19/api/users/${id}/"
         var str: String? = ""
@@ -216,12 +215,12 @@ class Repository @Inject constructor(val context: Context){
             override fun onResponse(call: Call, response: Response) {
 
 
-                    Log.e("JSON", "" + response)
-                    response.body?.let { Log.e("JSON", "Update person response after" + it.string()) }
+                    Log.e("JSON", "" + response.body?.string())
 
             }
+
+
         })
-        return str
     }
 
     fun postRequest(body: JSONObject){

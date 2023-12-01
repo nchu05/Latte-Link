@@ -196,18 +196,17 @@ class CreateProfileActivity : AppCompatActivity() {
 
                 var instance = Repository(this)
 
-                var index = instance.postPerson(body)
-
                 val body1: JSONObject = JSONObject()
                 body1.put("year", year.text)
                 body1.put("major", major.text)
-                body1.put("pfp", null)
+                body1.put("pfp", profileImageView.drawable)
                 body1.put("bio", year.text)
                 body1.put("email", email1.text)
-                body1.put("banner", null)
+                body1.put("banner", backgroundImageView.drawable)
                 body1.put("instagram", instagram.text)
                 body1.put("linkedin", linkedIn.text)
-                //val str = instance.updatePerson(body1, index)
+
+                instance.postPerson(body, body1)
             }
             val intent = Intent(this, MainActivity::class.java)
 
