@@ -11,12 +11,14 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Browse.OrgRecyclerAdapter
 import com.example.androidfa23.Data.IndPersonClass
 import com.example.androidfa23.Data.OrganizationClass
 import com.example.androidfa23.Data.Repository
 import com.example.androidfa23.Onboarding.CreateProfileActivity
+import com.example.androidfa23.ProfileTimesAdapter
 import com.example.androidfa23.R
 import com.google.android.material.internal.ContextUtils
 import com.squareup.moshi.JsonAdapter
@@ -116,23 +118,59 @@ class ProfileFragment : Fragment() {
             startActivity(intent1)
         }
 
-        val data = arrayListOf(
-            OrganizationClass(
-                id = 1,
-                name = "Org 1",
-                org_pfp=""
-            ),
-            OrganizationClass(
-                id = 2,
-                name = "Org 2",
-                org_pfp=""
-            ),
-        )
-        repeat(2){
-            data.addAll(data)
-        }
-        val adapter = OrgRecyclerAdapter(data)
-        recycler.adapter = adapter
+        val monData : List<String> = listOf("10-10:30 AM", "10:30-11 AM")
+        val monRecycler : RecyclerView = view.findViewById(R.id.recyclerMon)
+        monRecycler.adapter = ProfileTimesAdapter(monData, childFragmentManager)
+        monRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
+
+        val tuesData : List<String> = listOf("11-11:30 AM")
+        val tuesRecycler : RecyclerView = view.findViewById(R.id.recyclerTues)
+        tuesRecycler.adapter = ProfileTimesAdapter(tuesData, childFragmentManager)
+        tuesRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
+
+        val wedData : List<String> = listOf()
+        val wedRecycler : RecyclerView = view.findViewById(R.id.recyclerWed)
+        wedRecycler.adapter = ProfileTimesAdapter(wedData, childFragmentManager)
+        wedRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
+
+        val thurData : List<String> = listOf("1-1:30 PM")
+        val thurRecycler : RecyclerView = view.findViewById(R.id.recyclerThu)
+        thurRecycler.adapter = ProfileTimesAdapter(thurData, childFragmentManager)
+        thurRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
+
+        val friData : List<String> = listOf()
+        val friRecycler : RecyclerView = view.findViewById(R.id.recyclerFri)
+        friRecycler.adapter = ProfileTimesAdapter(friData, childFragmentManager)
+        friRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
+
+        val satData : List<String> = listOf("10-10:30 AM", "10:30-11 AM", "11-11:30 AM", "11:30-12 PM")
+        val satRecycler : RecyclerView = view.findViewById(R.id.recyclerSat)
+        satRecycler.adapter = ProfileTimesAdapter(satData, childFragmentManager)
+        satRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
+
+        val sunData : List<String> = listOf()
+        val sunRecycler : RecyclerView = view.findViewById(R.id.recyclerSun)
+        sunRecycler.adapter = ProfileTimesAdapter(sunData, childFragmentManager)
+        sunRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
+
+
+//        val data = arrayListOf(
+//            OrganizationClass(
+//                id = 1,
+//                name = "Org 1",
+//                org_pfp=""
+//            ),
+//            OrganizationClass(
+//                id = 2,
+//                name = "Org 2",
+//                org_pfp=""
+//            ),
+//        )
+//        repeat(2){
+//            data.addAll(data)
+//        }
+//        val adapter = OrgRecyclerAdapter(data)
+//        recycler.adapter = adapter
         recycler.layoutManager = GridLayoutManager(context, 2)
 
         return view

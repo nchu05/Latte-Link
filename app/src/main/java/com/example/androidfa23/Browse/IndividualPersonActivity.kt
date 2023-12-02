@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Data.IndOrgClass
 import com.example.androidfa23.Data.IndPersonClass
 import com.example.androidfa23.Data.OrganizationClass
-import com.example.androidfa23.Data.Repository
 import com.example.androidfa23.MainActivity
 import com.example.androidfa23.Onboarding.CreateProfileActivity
 import com.example.androidfa23.R
@@ -50,7 +49,6 @@ class IndividualPersonActivity : AppCompatActivity() {
         val instagram: TextView = findViewById(R.id.instagramText)
         val facebook: TextView = findViewById(R.id.facebookText)
 
-
         val url = "http://35.245.150.19/api/users/${id}"
         val client = OkHttpClient()
         val request = Request.Builder().url(url).get().build()
@@ -64,18 +62,18 @@ class IndividualPersonActivity : AppCompatActivity() {
                 Log.d(ContentValues.TAG, "Success!")
                 val res = response.body?.string()
                 Log.e("JSON", "res"+ res)
-                var user = parsePerson(res)
-                if (user!=null){
+                var org = parseOrg(res)
+                if (org!=null){
                     ContextUtils.getActivity(this@IndividualPersonActivity)?.runOnUiThread{
-                        name.text = user.name
-                        bio.text = user.bio
-                        year.text = user.year.toString()
-                        major.text = user.major
-                        email.text = "Email: " + user.public_email
-                        linkedin.text = "LinkedIn: " + user.linkedin
-                        instagram.text = "Instagram: " + user.instagram
+                        name.text = org.name
+                        bio.text = org.bio
+                        year.text = org.year.toString()
+                        major.text = org.major
+                        email.text = "Email: " + org.public_email
+                        linkedin.text = "LinkedIn: " + org.linkedin
+                        instagram.text = "Instagram: " + org.instagram
                         val recycler : RecyclerView = findViewById(R.id.recyclerView)
-                        val adapter = OrgRecyclerAdapter(user.organizations)
+                        val adapter = OrgRecyclerAdapter(org.organizations)
                         recycler.adapter = adapter
                         recycler.layoutManager = GridLayoutManager(this@IndividualPersonActivity, 2)
                     }
@@ -85,7 +83,7 @@ class IndividualPersonActivity : AppCompatActivity() {
         })
     }
 
-    private fun parsePerson(res : String?): IndPersonClass? {
+    private fun parseOrg(res : String?): IndPersonClass? {
         try{
             val moshi = Moshi.Builder().addLast(com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory()).build()
             val jsonAdapter: JsonAdapter<IndPersonClass> = moshi.adapter(IndPersonClass::class.java)
