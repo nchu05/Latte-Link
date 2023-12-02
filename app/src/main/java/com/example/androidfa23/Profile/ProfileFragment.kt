@@ -118,12 +118,12 @@ class ProfileFragment : Fragment() {
             startActivity(intent1)
         }
 
-        val monData : List<String> = listOf("10-10:30 AM", "10:30-11 AM")
+        val monData : List<String> = listOf("10-10:30 AM", "10:30-11 AM", "11:30-12 PM")
         val monRecycler : RecyclerView = view.findViewById(R.id.recyclerMon)
         monRecycler.adapter = ProfileTimesAdapter(monData, childFragmentManager)
         monRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
 
-        val tuesData : List<String> = listOf("11-11:30 AM")
+        val tuesData : List<String> = listOf()
         val tuesRecycler : RecyclerView = view.findViewById(R.id.recyclerTues)
         tuesRecycler.adapter = ProfileTimesAdapter(tuesData, childFragmentManager)
         tuesRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
@@ -133,7 +133,7 @@ class ProfileFragment : Fragment() {
         wedRecycler.adapter = ProfileTimesAdapter(wedData, childFragmentManager)
         wedRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
 
-        val thurData : List<String> = listOf("1-1:30 PM")
+        val thurData : List<String> = listOf()
         val thurRecycler : RecyclerView = view.findViewById(R.id.recyclerThu)
         thurRecycler.adapter = ProfileTimesAdapter(thurData, childFragmentManager)
         thurRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
@@ -143,7 +143,7 @@ class ProfileFragment : Fragment() {
         friRecycler.adapter = ProfileTimesAdapter(friData, childFragmentManager)
         friRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
 
-        val satData : List<String> = listOf("10-10:30 AM", "10:30-11 AM", "11-11:30 AM", "11:30-12 PM")
+        val satData : List<String> = listOf()
         val satRecycler : RecyclerView = view.findViewById(R.id.recyclerSat)
         satRecycler.adapter = ProfileTimesAdapter(satData, childFragmentManager)
         satRecycler.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
