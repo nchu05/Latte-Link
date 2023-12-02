@@ -4,6 +4,7 @@ A scheduling app that allows you to connect with coffee chatters and arrange cof
 Backend repo: https://github.com/kych23/hack-challenge
 
 # Important Features
+- Ability to browse and explore organizations
 <img width="219" alt="image" src="https://github.com/nchu05/android-fall23/assets/122313343/fb6c3a48-4289-44d7-a372-8f4a2f5ce971">
 
 <img width="219" alt="image" src="https://github.com/nchu05/android-fall23/assets/122313343/6d079d4c-cbff-49b8-b906-48563c325a84">
