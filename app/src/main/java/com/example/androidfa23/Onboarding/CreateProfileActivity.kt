@@ -133,6 +133,7 @@ class CreateProfileActivity : AppCompatActivity() {
         fridayButton.setOnClickListener{onClickHandler("Friday")}
         saturdayButton.setOnClickListener{onClickHandler("Saturday")}
         sundayButton.setOnClickListener{onClickHandler("Sunday")}
+        var profileImage = false
 
         val requestPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { results ->
             if (
@@ -144,24 +145,34 @@ class CreateProfileActivity : AppCompatActivity() {
             ) {
                 val intent = Intent(MediaStore.ACTION_PICK_IMAGES)
                 // starting activity on below line.
-                startActivityForResult(intent, 1)
+                if (profileImage) {
+                    startActivityForResult(intent, 1)
+                }
+                startActivityForResult(intent, 2)
             } else if (
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
                 ContextCompat.checkSelfPermission(this, READ_MEDIA_VISUAL_USER_SELECTED) == PERMISSION_GRANTED
             ) {
                 val intent = Intent(MediaStore.ACTION_PICK_IMAGES)
                 // starting activity on below line.
-                startActivityForResult(intent, 1)
+                if (profileImage) {
+                    startActivityForResult(intent, 1)
+                }
+                startActivityForResult(intent, 2)
             }  else if (ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) == PERMISSION_GRANTED) {
                 val intent = Intent(MediaStore.ACTION_PICK_IMAGES)
                 // starting activity on below line.
-                startActivityForResult(intent, 1)
+                if (profileImage) {
+                    startActivityForResult(intent, 1)
+                }
+                startActivityForResult(intent, 2)
             } else {
                 Toast.makeText(this, "Permission required to upload images.", Toast.LENGTH_SHORT).show()
             }
         }
         val profile : CardView = findViewById(R.id.cardView2)
         profile.setOnClickListener {
+            profileImage = true
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
                 requestPermissions.launch(arrayOf(READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_VISUAL_USER_SELECTED))
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -173,6 +184,7 @@ class CreateProfileActivity : AppCompatActivity() {
         }
         val background : CardView = findViewById(R.id.cardView3)
         background.setOnClickListener {
+            profileImage = false
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
                 requestPermissions.launch(arrayOf(READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_VISUAL_USER_SELECTED))
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -235,6 +247,13 @@ class CreateProfileActivity : AppCompatActivity() {
                 if (null != selectedImageUri) {
                     // update the image view in the layout
                     profileImageView.setImageURI(selectedImageUri)
+                }
+            }
+            else {
+                val selectedImageUri: Uri = data?.data!!
+                if (null != selectedImageUri) {
+                    // update the image view in the layout
+                    backgroundImageView.setImageURI(selectedImageUri)
                 }
             }
         }
