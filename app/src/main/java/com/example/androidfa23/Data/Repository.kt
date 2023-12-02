@@ -5,12 +5,15 @@ import android.content.ContentUris
 import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import com.google.android.material.internal.ContextUtils.getActivity
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.Call
@@ -24,8 +27,53 @@ import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
+
+private const val CURRENT_USER = "CURRENT_USER"
+
 @Singleton
 class Repository @Inject constructor(val context: Context){
+
+
+    val sharedPreference: SharedPreferences = context.getSharedPreferences(CURRENT_USER, Context.MODE_PRIVATE)
+
+
+    fun getId(): Int{
+        return sharedPreference.getString("id", "0")?.toInt() ?: 0
+    }
+
+    fun getToken(): String{
+        return sharedPreference.getString("session_token", "0")?:"null"
+    }
+
+    fun loginUser(jsonbody: JSONObject){
+        val client = OkHttpClient()
+        val url = "http://35.245.150.19/login/users/"
+        var str: String? = ""
+        val request = Request.Builder()
+            .url(url)
+            .post(jsonbody.toString().toRequestBody(MEDIA_TYPE_JSON))
+            .build()
+
+        Log.e("JSON", jsonbody.toString())
+        val response = client.newCall(request).enqueue(object : okhttp3.Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e("JSON", "FAILED?")
+
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                val res = response.body?.string()
+                Log.e("JSON", "" + res )
+                val session = parseSession(res)
+                val editor = sharedPreference.edit()
+                editor.putString("id", session?.user_id.toString())
+                editor.putString("session_token", session?.session_token)
+                editor.apply()
+
+            }
+        })
+    }
+
 
     fun fetchAllOrgs(): String?{
         val url = "http://35.245.150.19/api/orgs/"
@@ -125,6 +173,11 @@ class Repository @Inject constructor(val context: Context){
 
                 val s = response.body?.string()
                 Log.e("JSON", s?:"null")
+                val session = parseSession(s)
+                val editor = sharedPreference.edit()
+                editor.putString("id", session?.user_id.toString())
+                editor.putString("session_token", session?.session_token)
+                editor.apply()
 
                 val index1 = s?.indexOf("id")?.plus(5)
                 val index2 = s?.indexOf("session_token")?.minus(3)
@@ -248,6 +301,21 @@ class Repository @Inject constructor(val context: Context){
             }
 
         })
+    }
+
+
+    private fun parseSession(res : String?): SessionClass? {
+        try{
+            val moshi = Moshi.Builder().addLast(com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory()).build()
+            val jsonAdapter: JsonAdapter<SessionClass> = moshi.adapter(SessionClass::class.java)
+            val parsedOrg =  jsonAdapter.fromJson(res)
+            Log.e("JSON", "success")
+            Log.e("JSON", parsedOrg.toString())
+            return parsedOrg
+        }catch (x:Exception){
+            Log.e("error", x.toString())
+            return null
+        }
     }
 
     companion object {

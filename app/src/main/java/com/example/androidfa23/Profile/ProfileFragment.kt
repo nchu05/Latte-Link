@@ -1,20 +1,34 @@
 package com.example.androidfa23.Profile
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfa23.Browse.OrgRecyclerAdapter
+import com.example.androidfa23.Data.IndPersonClass
 import com.example.androidfa23.Data.OrganizationClass
+import com.example.androidfa23.Data.Repository
 import com.example.androidfa23.Onboarding.CreateProfileActivity
 import com.example.androidfa23.ProfileTimesAdapter
 import com.example.androidfa23.R
+import com.google.android.material.internal.ContextUtils
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import okhttp3.Call
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import org.w3c.dom.Text
+import java.io.IOException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,6 +62,56 @@ class ProfileFragment : Fragment() {
 
         val recycler : RecyclerView = view.findViewById(R.id.recyclerView)
         val editButton: Button = view.findViewById(R.id.editButton)
+
+
+        val name: TextView = view.findViewById(R.id.nameText)
+        val year: TextView = view.findViewById(R.id.classText)
+        val major: TextView = view.findViewById(R.id.majorText)
+        val bio: TextView = view.findViewById(R.id.bioText)
+        val locations: TextView = view.findViewById(R.id.locationText)
+        val email: TextView = view.findViewById(R.id.emailText)
+        val linkedin: TextView = view.findViewById(R.id.linkedinText)
+        val instagram: TextView = view.findViewById(R.id.instagramText)
+        val facebook: TextView = view.findViewById(R.id.facebookText)
+
+        var instance = context?.let { Repository(it) }
+
+        Log.e("JSON USER", instance?.getId().toString())
+        val url = "http://35.245.150.19/api/users/${instance?.getId()}"
+        val client = OkHttpClient()
+        val request = Request.Builder().url(url).get().build()
+
+        val response = client.newCall(request).enqueue(object :okhttp3.Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e(ContentValues.TAG, "onFailure: Failed")
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                Log.d(ContentValues.TAG, "Success!")
+                val res = response.body?.string()
+                Log.e("JSON", "res"+ res)
+                var user = parsePerson(res)
+                if (user!=null){
+                    ContextUtils.getActivity(context)?.runOnUiThread{
+                        name.text = user.name
+                        bio.text = user.bio
+                        year.text = user.year.toString()
+                        major.text = user.major
+                        email.text = "Email: " + user.public_email
+                        linkedin.text = "LinkedIn: " + user.linkedin
+                        instagram.text = "Instagram: " + user.instagram
+                        val adapter = OrgRecyclerAdapter(user.organizations)
+                        recycler.adapter = adapter
+                        recycler.layoutManager = GridLayoutManager(context, 2)
+                    }
+                }
+                Log.e("JSON", "res"+ res)
+            }
+        })
+
+
+
+
 
         editButton.setOnClickListener(){
             val intent1 = Intent(context, CreateProfileActivity::class.java)
@@ -110,6 +174,21 @@ class ProfileFragment : Fragment() {
         recycler.layoutManager = GridLayoutManager(context, 2)
 
         return view
+    }
+
+
+    private fun parsePerson(res : String?): IndPersonClass? {
+        try{
+            val moshi = Moshi.Builder().addLast(com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory()).build()
+            val jsonAdapter: JsonAdapter<IndPersonClass> = moshi.adapter(IndPersonClass::class.java)
+            val parsedOrgs =  jsonAdapter.fromJson(res)
+            Log.e("JSON", "success")
+            Log.e("JSON", parsedOrgs.toString())
+            return parsedOrgs
+        }catch (x:Exception){
+            Log.e("error", x.toString())
+            return null
+        }
     }
 
     companion object {
