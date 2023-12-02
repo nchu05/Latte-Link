@@ -4,21 +4,21 @@ A scheduling app that allows you to connect with coffee chatters and arrange cof
 Backend repo: https://github.com/kych23/hack-challenge
 
 # Important Features
-![image](https://github.com/nchu05/android-fall23/assets/122313343/f95120b5-6367-4cda-8b9b-92c9a7c9a006)
+<img width="222" alt="image" src="https://github.com/nchu05/android-fall23/assets/122313343/bb2d4960-ae3b-42dc-abf0-f8218cfe0cdb">
 
-![image](https://github.com/nchu05/android-fall23/assets/122313343/560e2d2e-9b9c-4a64-aab2-c6cb743ae026)
+<img width="222" alt="image" src="https://github.com/nchu05/android-fall23/assets/122313343/41fe2f6b-04d0-4ff9-9c3f-4d8340fc80ae">
 
-![image](https://github.com/nchu05/android-fall23/assets/122313343/b5873eeb-eb8c-4b9b-bfb6-8d741522d7fc)
+<img width="222" alt="image" src="https://github.com/nchu05/android-fall23/assets/122313343/03e2be85-c1f6-4a48-bc7a-e4841f0a05b2">
 
-![image](https://github.com/nchu05/android-fall23/assets/122313343/aabe2366-1481-421b-9dee-19dc88cf3ab9)
+<img width="222" alt="image" src="https://github.com/nchu05/android-fall23/assets/122313343/22cd384e-5657-48e4-a5f6-2317e1b7d003">
 
-![image](https://github.com/nchu05/android-fall23/assets/122313343/af20753b-d2d1-48f0-ac42-02199d14c72a)
+<img width="222" alt="image" src="https://github.com/nchu05/android-fall23/assets/122313343/4911afa6-617b-4966-94b2-2874ac64965a">
 
-![image](https://github.com/nchu05/android-fall23/assets/122313343/0c75a999-ecf6-44d8-a05f-e69b993de3e1)
+<img width="222" alt="image" src="https://github.com/nchu05/android-fall23/assets/122313343/4ba02552-b9ac-4ae3-b8a2-8219fd56175b">
 
-![image](https://github.com/nchu05/android-fall23/assets/122313343/27b4ce0f-17c7-419b-87c9-a9d44f7bdb52)
+<img width="222" alt="image" src="https://github.com/nchu05/android-fall23/assets/122313343/ae178f5e-043d-423c-a187-35976fe346ba">
 
-![image](https://github.com/nchu05/android-fall23/assets/122313343/9fde0617-2ca7-4088-be2c-381a80a079a1)
+<img width="222" alt="image" src="https://github.com/nchu05/android-fall23/assets/122313343/b18a8683-d4b9-4fad-b7e1-b2d55e9fd506">
 
 
 # Description
