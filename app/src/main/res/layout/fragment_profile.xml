@@ -22,49 +22,30 @@
             android:adjustViewBounds="true"
             android:elevation="0dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/background_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="Banner"/>
 
-        <androidx.cardview.widget.CardView
+        <ImageView
             android:id="@+id/card"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:elevation="12dp"
-            android:innerRadius="0dp"
-            android:shape="ring"
-            android:thicknessRatio="1.9"
-            app:cardCornerRadius="40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="170dp"
+            android:layout_height="155dp"
+            android:contentDescription="Profile Picture"
+            android:elevation="1dp"
+            android:layout_marginTop="90dp"
+            android:src="@drawable/alex_chance_pfp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.055">
-
-
-            <ImageView
-                android:id="@+id/avatar"
-                android:layout_width="158dp"
-                android:layout_height="155dp"
-                android:contentDescription="Profile Picture"
-                android:elevation="1dp"
-                android:src="@drawable/img"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.509"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.cardview.widget.CardView>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/nameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Person Name"
+            android:text="Alex Chance"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/card"
             app:layout_constraintBottom_toTopOf="@id/classText"
@@ -78,7 +59,7 @@
             android:id="@+id/classText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Class of XXXX"
+            android:text="Class of 2026"
             android:textColor="#828282"
             app:layout_constraintTop_toBottomOf="@id/nameText"
             app:layout_constraintBottom_toTopOf="@id/majorText"
@@ -90,7 +71,7 @@
             android:id="@+id/majorText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Studying Major(s), Minor(s)"
+            android:text="Studying Information Science"
             android:textColor="#828282"
             app:layout_constraintTop_toBottomOf="@id/classText"
             app:layout_constraintBottom_toTopOf="@id/editButton"
@@ -138,7 +119,7 @@
             android:textColor="@color/brown"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit. "
+            android:text="Hi! My name is Alex Chance, and I'm studying Information Science in the College of Engineering."
             app:layout_constraintBottom_toTopOf="@+id/availabilitiesTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -166,10 +147,10 @@
             android:id="@+id/weekText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Week of XX/XX - XXXX"
+            android:text="Week of 12/11 - 12/17"
             android:layout_marginStart="32dp"
 
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:textColor="#828282"
             android:textSize="13sp"
@@ -186,7 +167,7 @@
             android:text="Mon: "
             android:layout_marginStart="50dp"
             android:textColor="@color/brown"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintEnd_toEndOf="parent"
@@ -203,7 +184,7 @@
             android:layout_marginStart="50dp"
 
             android:textColor="@color/brown"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintBottom_toTopOf="@id/wednesday"
@@ -217,7 +198,7 @@
             android:layout_height="wrap_content"
             android:text="Wed: "
             android:textColor="@color/brown"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             android:layout_marginStart="50dp"
             app:layout_constraintHorizontal_bias="0.0"
@@ -233,7 +214,7 @@
             android:text="Thu: "
 
             android:textColor="@color/brown"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             android:layout_marginStart="50dp"
             app:layout_constraintHorizontal_bias="0.0"
@@ -250,7 +231,7 @@
             android:layout_marginStart="50dp"
 
             android:textColor="@color/brown"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintBottom_toTopOf="@id/saturday"
@@ -266,7 +247,7 @@
             android:layout_marginStart="50dp"
 
             android:textColor="@color/brown"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintBottom_toTopOf="@id/sunday"
@@ -274,30 +255,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/friday" />
 
+
         <TextView
             android:id="@+id/sunday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sun: "
             android:layout_marginStart="50dp"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="Sun: "
 
             android:textColor="@color/brown"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@id/locationTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/saturday"
-            app:layout_constraintBottom_toTopOf="@id/locationTitle"/>
-
+            app:layout_constraintTop_toBottomOf="@id/saturday" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerMon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="18dp"
             app:layout_constraintBottom_toBottomOf="@+id/monday"
-            app:layout_constraintLeft_toRightOf="@id/monday"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/monday"
             app:layout_constraintTop_toTopOf="@id/monday"/>
@@ -307,7 +287,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/tuesday"
-            app:layout_constraintLeft_toRightOf="@id/tuesday"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tuesday"
             app:layout_constraintTop_toTopOf="@id/tuesday" />
@@ -317,7 +296,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/wednesday"
-            app:layout_constraintLeft_toRightOf="@id/wednesday"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/wednesday"
             app:layout_constraintTop_toTopOf="@id/wednesday" />
@@ -327,7 +305,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/thursday"
-            app:layout_constraintLeft_toRightOf="@id/thursday"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/thursday"
             app:layout_constraintTop_toTopOf="@+id/thursday" />
@@ -337,7 +314,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/friday"
-            app:layout_constraintLeft_toRightOf="@id/friday"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/friday"
             app:layout_constraintTop_toTopOf="@+id/friday" />
@@ -347,7 +323,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/saturday"
-            app:layout_constraintLeft_toRightOf="@id/saturday"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/saturday"
             app:layout_constraintTop_toTopOf="@+id/saturday" />
@@ -358,7 +333,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/sunday"
-            app:layout_constraintLeft_toRightOf="@id/sunday"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/sunday"
             app:layout_constraintTop_toTopOf="@+id/sunday" />
@@ -475,6 +449,20 @@
             app:layout_constraintBottom_toTopOf="@id/linkedinText"/>
 
         <TextView
+            android:id="@+id/emailAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="abc123@cornell.edu"
+            android:layout_marginStart="50dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/brown"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintStart_toStartOf="@id/emailText"
+            app:layout_constraintTop_toBottomOf="@id/emailText"
+            app:layout_constraintBottom_toTopOf="@id/emailText"/>
+        <TextView
             android:id="@+id/linkedinText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -490,6 +478,21 @@
             app:layout_constraintBottom_toTopOf="@id/instagramText"/>
 
         <TextView
+            android:id="@+id/linkedinResponse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="linkedin.com/in/alexc"
+            android:layout_marginStart="70dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/brown"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintStart_toStartOf="@id/linkedinText"
+            app:layout_constraintTop_toBottomOf="@id/linkedinText"
+            app:layout_constraintBottom_toTopOf="@id/linkedinText"/>
+
+        <TextView
             android:id="@+id/instagramText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -503,13 +506,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linkedinText"
             app:layout_constraintBottom_toTopOf="@id/facebookText"/>
-
+        <TextView
+            android:id="@+id/instagramResponse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\@alex.chance_"
+            android:layout_marginStart="80dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/brown"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintStart_toStartOf="@id/instagramText"
+            app:layout_constraintTop_toBottomOf="@id/instagramText"
+            app:layout_constraintBottom_toTopOf="@id/instagramText"/>
 
         <TextView
             android:id="@+id/facebookText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email: "
+            android:text="Facebook: "
             android:layout_marginStart="50dp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintEnd_toEndOf="parent"
@@ -520,7 +536,20 @@
             app:layout_constraintTop_toBottomOf="@id/instagramText"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-
+        <TextView
+            android:id="@+id/facebookResponse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\@alexchance1"
+            android:layout_marginStart="80dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/brown"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintStart_toStartOf="@id/facebookText"
+            app:layout_constraintTop_toBottomOf="@id/instagramText"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

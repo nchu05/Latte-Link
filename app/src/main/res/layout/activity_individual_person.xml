@@ -58,11 +58,11 @@
 
             <ImageView
                 android:id="@+id/avatar"
-                android:layout_width="158dp"
-                android:layout_height="155dp"
+                android:layout_width="148dp"
+                android:layout_height="142dp"
                 android:contentDescription="Profile Picture"
                 android:elevation="1dp"
-                android:src="@drawable/img"
+                android:src="@drawable/profile_placeholder"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
