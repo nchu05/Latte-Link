@@ -57,8 +57,7 @@ class CreateProfileActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
-//        val monData : List<String> = listOf("10-10:30 AM", "10:30-11 AM", "11:30-12 PM")
-        val monData : List<String> = listOf()
+        val monData : List<String> = listOf("10-10:30 AM", "10:30-11 AM", "11:30-12 PM")
         val monRecycler : RecyclerView = findViewById(R.id.recyclerMon)
         monRecycler.adapter = WeeklyAvailabilitiesAdapter(monData)
         monRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
