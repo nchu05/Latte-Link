@@ -54,39 +54,6 @@ class BrowsePeopleFragment : Fragment() {
         val client = OkHttpClient()
         val request = Request.Builder().url(url).get().build()
 
-
-        val data = listOf(
-            PersonClass(
-                id = 1,
-                name = "Aarushi Singh",
-                pfp = R.drawable.ab_aarushi_singh
-            ),
-            PersonClass(
-                id = 1,
-                name = "Archit Mehta",
-                pfp = R.drawable.ab_archit_mehta
-            ),
-            PersonClass(
-                id = 1,
-                name = "Emily Hu",
-                pfp = R.drawable.ab_emily_hu
-            ),
-            PersonClass(
-                id = 1,
-                name = "Noah Solomon",
-                pfp = R.drawable.ab_noah_solomon
-            ),
-            PersonClass(
-                id = 1,
-                name = "Zach Seidner",
-                pfp = R.drawable.ab_zach_seidner
-            ),
-        )
-
-        val adapter = PeopleRecyclerAdapter(data)
-        recycler.adapter = adapter
-        recycler.layoutManager = GridLayoutManager(context, 2)
-
         val response = client.newCall(request).enqueue(object :okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
                 Log.e(ContentValues.TAG, "onFailure: Failed")

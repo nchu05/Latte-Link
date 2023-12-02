@@ -35,7 +35,6 @@ class OrgRecyclerAdapter(private var dataset: List<OrganizationClass>): Recycler
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val org = dataset[position]
         holder.orgName.text = org.name
-        holder.image.setImageResource(org.org_pfp)
         holder.card.setOnClickListener{
             val intent = Intent(holder.itemView.context, IndividualOrganizationActivity::class.java)
             intent.putExtra("id", org.id.toString())

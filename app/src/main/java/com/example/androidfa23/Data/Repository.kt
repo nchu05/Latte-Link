@@ -238,6 +238,7 @@ class Repository @Inject constructor(val context: Context){
             override fun onResponse(call: Call, response: Response){
 
                     val s = response.body?.string()
+                    Log.e("JSON", s?:"Null")
 
                     val index1 = s?.indexOf("id")?.plus(5)
                     val index2 = s?.indexOf("session_token")?.minus(3)

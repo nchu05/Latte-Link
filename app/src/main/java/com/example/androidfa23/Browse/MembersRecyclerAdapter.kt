@@ -38,7 +38,6 @@ class MembersRecyclerAdapter (private var dataset: List<PersonClass>): RecyclerV
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val person = dataset[position]
         holder.personName.text = person.name
-        holder.image.setImageResource(person.pfp)
         holder.cardView.setOnClickListener{
             val intent = Intent(holder.itemView.context, IndividualPersonActivity::class.java)
             intent.putExtra("id", person.id.toString())
