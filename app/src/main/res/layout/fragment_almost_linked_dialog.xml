@@ -71,7 +71,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/timeProposedET"
-                android:layout_width="230dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
                 android:layout_marginStart="36dp"
                 android:hint="Mon. 12/11, 10-10:30PM"
@@ -79,10 +79,9 @@
                 app:hintTextColor="@color/darkGreen"
                 app:layout_constraintBottom_toBottomOf="@+id/timeProposedTV"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/timeProposedTV"
                 app:layout_constraintTop_toTopOf="@+id/timeProposedTV"
-                app:layout_constraintVertical_bias="0.378">
+                app:layout_constraintVertical_bias="0.405">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/searchPositionET"
@@ -97,7 +96,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/proposedLocationET"
-                android:layout_width="230dp"
+                android:layout_width="180dp"
                 android:layout_height="56dp"
                 android:layout_marginStart="12dp"
                 android:hint="Mac's Cafe"
@@ -131,7 +130,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/messageET"
-                android:layout_width="360dp"
+                android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:layout_marginTop="16dp"
                 android:hint="Write a personalized message!"

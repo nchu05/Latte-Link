@@ -94,6 +94,8 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/login_edit_text_border"
             android:hint="@string/organization_name"
+
+            android:paddingLeft="5dp"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -122,12 +124,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameText" />
 
-        <EditText
+        <TextView
             android:id="@+id/bioText2"
             android:layout_width="336dp"
             android:layout_height="99dp"
             android:layout_marginTop="12dp"
-            android:background="@drawable/login_edit_text_border"
             android:hint="@string/hint1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -136,6 +137,8 @@
         <EditText
             android:id="@+id/bioText"
             android:layout_width="337dp"
+
+            android:paddingLeft="5dp"
             android:layout_height="101dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/login_edit_text_border"
