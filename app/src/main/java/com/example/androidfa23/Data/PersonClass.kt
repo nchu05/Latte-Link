@@ -5,6 +5,6 @@ import com.squareup.moshi.Json
 data class PersonClass(
     var id: Int,
     var name: String,
-    var pfp: String,
+    var pfp: Int,
 
 )

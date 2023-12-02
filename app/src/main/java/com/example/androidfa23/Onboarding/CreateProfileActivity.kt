@@ -40,6 +40,12 @@ class CreateProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_profile)
 
+
+
+
+
+
+
         val data : List<OrganizationClass> = arrayListOf()
         profileImageView = findViewById(R.id.profileImageView)
         backgroundImageView = findViewById(R.id.backgroundImageView)

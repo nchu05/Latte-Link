@@ -6,7 +6,7 @@ data class OrganizationClass(
     var id: Int,
     var name: String,
     @Json(name = "org pfp")
-    var org_pfp: String,
+    var org_pfp: Int,
     //var login_email: String?,
     //var login_password: String?,
     //var pfp: String?,

@@ -60,6 +60,46 @@ class BrowseOrganizationFragment : Fragment() {
         val client = OkHttpClient()
         val request = Request.Builder().url(url).get().build()
 
+        val data = listOf(
+            OrganizationClass(
+                id = 1,
+                name = "Capture at Cornell",
+                org_pfp = R.drawable.aa_capture_at_cornell
+            ),
+            OrganizationClass(
+                id = 1,
+                name = "180 degrees consulting",
+                org_pfp = R.drawable.aa_180_degrees_consulting
+            ),
+            OrganizationClass(
+                id = 1,
+                name = "Alana",
+                org_pfp = R.drawable.aa_alana
+            ),
+            OrganizationClass(
+                id = 1,
+                name = "CUXD",
+                org_pfp = R.drawable.aa_cuxd
+            ),
+            OrganizationClass(
+                id = 1,
+                name = "EARS",
+                org_pfp = R.drawable.aa_ears
+            ),
+            OrganizationClass(
+                id = 1,
+                name = "Appdev",
+                org_pfp = R.drawable.app_dev_photo
+            ),
+        )
+
+        val adapter = OrgRecyclerAdapter(data)
+        recycler.adapter = adapter
+        recycler.layoutManager = GridLayoutManager(context, 2)
+
+
+
+
         val response = client.newCall(request).enqueue(object :okhttp3.Callback{
             override fun onFailure(call: Call, e: IOException) {
                 Log.e(TAG, "onFailure: Failed")
@@ -71,8 +111,9 @@ class BrowseOrganizationFragment : Fragment() {
                 Log.e("JSON", "res"+ res)
                 var orgsList = parseOrgs(res)
                 if (orgsList!=null){
-                    val adapter = OrgRecyclerAdapter(orgsList)
+
                     getActivity()?.runOnUiThread{
+                        val adapter = OrgRecyclerAdapter(orgsList)
                         recycler.adapter = adapter
                         recycler.layoutManager = GridLayoutManager(context, 2)
                     }

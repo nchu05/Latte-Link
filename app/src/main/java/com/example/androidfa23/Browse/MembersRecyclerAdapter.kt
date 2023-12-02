@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -16,10 +17,14 @@ class MembersRecyclerAdapter (private var dataset: List<PersonClass>): RecyclerV
         val personName: TextView
         val personPosition : TextView
         val cardView : CardView
+
+        val image: ImageView
         init{
             personName = view.findViewById(R.id.personName)
             personPosition = view.findViewById(R.id.personPosition)
             cardView = view.findViewById(R.id.card)
+
+            image = view.findViewById(R.id.profilePic)
         }
     }
 
@@ -33,6 +38,7 @@ class MembersRecyclerAdapter (private var dataset: List<PersonClass>): RecyclerV
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val person = dataset[position]
         holder.personName.text = person.name
+        holder.image.setImageResource(person.pfp)
         holder.cardView.setOnClickListener{
             val intent = Intent(holder.itemView.context, IndividualPersonActivity::class.java)
             intent.putExtra("id", person.id.toString())

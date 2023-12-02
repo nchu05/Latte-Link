@@ -76,8 +76,8 @@ class ProfileFragment : Fragment() {
 
         var instance = context?.let { Repository(it) }
 
-        Log.e("JSON USER", instance?.getId().toString())
-        val url = "http://35.245.150.19/api/users/${instance?.getId()}"
+        //Log.e("JSON USER", instance?.getId().toString())
+        val url = "http://35.245.150.19/api/users/${instance?.getId().toString()}"
         val client = OkHttpClient()
         val request = Request.Builder().url(url).get().build()
 

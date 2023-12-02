@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -15,9 +16,11 @@ class OrgRecyclerAdapter(private var dataset: List<OrganizationClass>): Recycler
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val orgName: TextView
         val card: CardView
+        val image: ImageView
         init{
             orgName = view.findViewById(R.id.orgName)
             card = view.findViewById(R.id.card)
+            image = view.findViewById(R.id.profilePic)
         }
     }
 
@@ -32,6 +35,7 @@ class OrgRecyclerAdapter(private var dataset: List<OrganizationClass>): Recycler
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val org = dataset[position]
         holder.orgName.text = org.name
+        holder.image.setImageResource(org.org_pfp)
         holder.card.setOnClickListener{
             val intent = Intent(holder.itemView.context, IndividualOrganizationActivity::class.java)
             intent.putExtra("id", org.id.toString())
