@@ -101,6 +101,7 @@
 
         <EditText
             android:id="@+id/nameText"
+            android:paddingLeft="5dp"
             android:layout_width="236dp"
             android:layout_height="36dp"
             android:layout_marginTop="20dp"
@@ -241,6 +242,8 @@
             android:id="@+id/majorText"
             android:layout_width="233dp"
             android:layout_height="37dp"
+
+            android:paddingLeft="5dp"
             android:layout_marginStart="140dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/login_edit_text_border"
@@ -251,6 +254,7 @@
 
         <TextView
             android:id="@+id/bioTitle"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -283,6 +287,8 @@
             android:layout_width="337dp"
             android:layout_height="101dp"
             android:layout_marginTop="10dp"
+
+            android:paddingLeft="5dp"
             android:background="@drawable/login_edit_text_border"
             android:hint="@string/hint3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -295,6 +301,8 @@
             android:layout_height="36dp"
             android:layout_marginStart="140dp"
             android:layout_marginTop="20dp"
+
+            android:paddingLeft="5dp"
             android:background="@drawable/login_edit_text_border"
             android:hint="@string/class_of_xxxx"
             android:textColor="@color/black"
@@ -582,6 +590,8 @@
             android:id="@+id/locationPreferencesText"
             android:layout_width="337dp"
             android:layout_height="101dp"
+
+            android:paddingLeft="5dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/login_edit_text_border"
             android:hint="@string/hint4"
