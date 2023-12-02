@@ -90,7 +90,7 @@
             android:layout_height="39dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Tag 2"
+            android:text="Design"
             android:textColor="@color/brown"
             app:layout_constraintStart_toEndOf="@+id/tag1"
             app:layout_constraintTop_toBottomOf="@+id/organizationName" />
@@ -102,7 +102,7 @@
             android:layout_height="39dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Tag 3"
+            android:text="Dev"
             android:textColor="@color/brown"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -116,7 +116,7 @@
             android:layout_height="39dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="8dp"
-            android:text="Tag 1"
+            android:text="CS"
             android:textColor="@color/brown"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/organizationName" />

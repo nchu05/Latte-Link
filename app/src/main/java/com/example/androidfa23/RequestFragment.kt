@@ -44,7 +44,7 @@ class RequestFragment : Fragment() {
         val data = arrayListOf(
             RequestClass(
                 id = 1,
-                sender = PersonClass(id = 2, name = "Person 1",
+                sender = PersonClass(id = 2, name = "Christopher Garcia",
                     pfp=""),
                 receiver = PersonClass(id = 2, name = "Person 2",
                     pfp=""),
@@ -55,7 +55,7 @@ class RequestFragment : Fragment() {
             ),
             RequestClass(
                 id = 1,
-                sender = PersonClass(id = 2, name = "Person 1",
+                sender = PersonClass(id = 2, name = "Niamh Barlowe",
                     pfp=""),
                 receiver = PersonClass(id = 2, name = "Person 2",
                     pfp=""),
@@ -66,9 +66,9 @@ class RequestFragment : Fragment() {
             ),
             RequestClass(
                 id = 1,
-                sender = PersonClass(id = 2, name = "Person 1",
+                sender = PersonClass(id = 2, name = "Damien Pieter",
                     pfp=""),
-                receiver = PersonClass(id = 2, name = "Person 2",
+                receiver = PersonClass(id = 2, name = "Alex",
                     pfp=""),
                 dateTime = "Monday, Oct 27th",
                 location = "Duffield Hall",
@@ -77,7 +77,7 @@ class RequestFragment : Fragment() {
             ),
             RequestClass(
                 id = 1,
-                sender = PersonClass(id = 2, name = "Person 1",
+                sender = PersonClass(id = 2, name = "Anabell Lee",
                     pfp=""),
                 receiver = PersonClass(id = 2, name = "Person 2",
                     pfp=""),
@@ -88,9 +88,6 @@ class RequestFragment : Fragment() {
             ),
 
             )
-        repeat(4){
-            data.addAll(data)
-        }
 
 
 
