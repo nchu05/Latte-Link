@@ -204,7 +204,7 @@ class CreateProfileActivity : AppCompatActivity() {
                 body1.put("major", major.text)
                 body1.put("pfp", profileImageView.drawable)
                 body1.put("bio", year.text)
-                body1.put("email", email1.text)
+                body1.put("public email", email1.text)
                 body1.put("banner", backgroundImageView.drawable)
                 body1.put("status", status)
                 body1.put("instagram", instagram.text)
