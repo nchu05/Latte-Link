@@ -1,5 +1,5 @@
 # Latte Link
-A scheduling app that allows you to connect with coffee chatters and arrange coffee chats from a range of Cornell organizations.
+A scheduling app that allows Cornell students to connect with coffee chatters and arrange coffee chats from a range of campus organizations.
 
 Backend repo: https://github.com/kych23/hack-challenge
 
@@ -24,7 +24,7 @@ Backend repo: https://github.com/kych23/hack-challenge
 # Description
 We noticed that when people are trying to coffee chat with others, in particular for club recruitment, they can face difficulties because the system for scheduling chats varies between organizations and coordinating schedules is tedious. With this people problem in mind, we decided to create “Latte Link,” a coffee chat scheduling app where people can see information about current members in an organization as well as the person’s availability. 
 
-# Requirements
+# Features
 - Several RecyclerViews with custom adapters for organizations, people, availabilities, affiliations, and more
 - Integration of backend through utilization of OkHTTP and Moshi 3rd party libraries
-- Dozens of fully-functional fragments for account creation, browsing, profile, messaging, and more.
+- Dozens of fully-functional fragments and activities, including dialog fragments, for account creation, browsing, profile, messaging, and more.
